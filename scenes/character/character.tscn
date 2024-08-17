@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7orvpb14unq5" path="res://scenes/components/HealthComponent.tscn" id="2_2wxrl"]
 [ext_resource type="Script" path="res://scenes/character/Interact.gd" id="2_psckv"]
 [ext_resource type="AudioStream" uid="uid://dnjga03stbgtk" path="res://assets/sounds/zapsplat_foley_footsteps_on_wooden_floor_barefoor_16329.mp3" id="6_jjv4l"]
-[ext_resource type="AudioStream" uid="uid://djng7flr2cva0" path="res://assets/sounds/jumping-on-wooden-floor-41234.mp3" id="8_68mf3"]
+[ext_resource type="AudioStream" uid="uid://djng7flr2cva0" path="res://assets/sounds/wood landing.wav" id="7_y6003"]
 [ext_resource type="PackedScene" uid="uid://dilj54b7qj63h" path="res://scenes/character/character_animation.tscn" id="8_n7h8n"]
 [ext_resource type="PackedScene" uid="uid://xo3w3js6jcj5" path="res://scenes/components/HurtBoxComponent.tscn" id="11_hti3i"]
 
@@ -120,4 +120,4 @@ bus = &"SFX"
 bus = &"SFX"
 
 [node name="FallAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_68mf3")
+stream = ExtResource("7_y6003")
