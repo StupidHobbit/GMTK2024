@@ -1,21 +1,14 @@
 [gd_resource type="ORMMaterial3D" load_steps=5 format=3 uid="uid://q3gqdmet2m52"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kbcor"]
-load_path = "res://.godot/imported/GMTK24_mesh_bookshelf_middle_GMTK24_Texture_Atlas-v2_BaseColor.png-201b9a21e6c96aff77d30260eaeaecb2.s3tc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h5roo"]
-load_path = "res://.godot/imported/GMTK24_mesh_bookshelf_middle_GMTK24_Texture_Atlas-v2-1024_Emissive.png-73094ee93e31dd3c0fb3fc551eb89aa0.s3tc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ckuxw"]
-load_path = "res://.godot/imported/GMTK24_mesh_bookshelf_middle_GMTK24_Texture_Atlas-v2_NormalForBlender.jpg-220a4c0ccb31dd7c5b0103a404af36ae.s3tc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j88ks"]
-load_path = "res://.godot/imported/GMTK24_mesh_bookshelf_middle_GMTK24_Texture_Atlas-v2-2048_OcclusionRoughnessMetallic.png-7618f708f4daced84f75d0b95ac9dbef.s3tc.ctex"
+[ext_resource type="Texture2D" uid="uid://bh5h7c7jk6g4j" path="res://assets/textures/atlas_color.png" id="1_n6fr5"]
+[ext_resource type="Texture2D" uid="uid://ch61u8ekfb2v4" path="res://assets/textures/atlas_emission.png" id="2_a70j5"]
+[ext_resource type="Texture2D" uid="uid://d3kbjbhrdf4ds" path="res://assets/textures/atlas_normal.png" id="3_50kky"]
+[ext_resource type="Texture2D" uid="uid://cfe31mybgvxeh" path="res://assets/textures/atlas_orm.png" id="4_buwxh"]
 
 [resource]
-albedo_texture = SubResource("CompressedTexture2D_kbcor")
-orm_texture = SubResource("CompressedTexture2D_j88ks")
+albedo_texture = ExtResource("1_n6fr5")
+orm_texture = ExtResource("4_buwxh")
 emission_enabled = true
-emission_texture = SubResource("CompressedTexture2D_h5roo")
+emission_texture = ExtResource("2_a70j5")
 normal_enabled = true
-normal_texture = SubResource("CompressedTexture2D_ckuxw")
+normal_texture = ExtResource("3_50kky")
