@@ -23,7 +23,7 @@ class_name Character
 var time_from_last_jump_press: float = 100 
 var time_from_last_on_floor: float = 0 
 var time_from_last_crouching_boost: float = 0 
-var climbing_time: float = 0.5
+var climbing_time: float = 1
 var turn = Vector2(0, 0)
 var viewport_size: Vector2
 var movement_disabled: bool = false
@@ -32,6 +32,11 @@ var has_dash_boost: bool = false
 var handle_input: bool = true
 var is_falling: bool = false
 var examinated_item: Examinable
+
+var climbing: bool = false
+var climbing_dest: Vector3
+var climbing_start: Vector3
+var climb_step: float = 0
 
 @onready var camera = $Camera3D
 @onready var holder = $Camera3D/Holder
@@ -66,6 +71,10 @@ func examine(item: Examinable, collision_rid: RID):
 
 func _physics_process(delta: float):
 	update_examination()
+	if climbing:
+		climb(delta)
+		apply_rotation()
+		return
 	if movement_disabled:
 		return
 	apply_vertical_movement(delta)
@@ -74,6 +83,19 @@ func _physics_process(delta: float):
 	apply_horizontal_movement(delta)
 	apply_dash(delta)
 	move_and_slide()
+
+func climb(delta: float):
+	var dir = climbing_dest - climbing_start
+	var rel_dist = (position - climbing_start).length() / (climbing_dest - climbing_start).length()
+	var rel_delta = delta / climbing_time
+	
+	if rel_dist + rel_delta > 1:
+		# end of ledge climbing
+		position = climbing_dest
+		climbing = false
+		return
+	
+	position += dir * rel_delta
 
 func apply_vertical_movement(delta: float):
 	var jump_just_pressed = Input.is_action_just_pressed("jump")
@@ -88,14 +110,14 @@ func apply_vertical_movement(delta: float):
 			fall_audio_player.play()
 		is_falling = false
 		time_from_last_on_floor = 0
-		climbing_time = 0
+		#climbing_time = 0
 	time_from_last_on_floor += delta
 	
 	if not is_on_floor:
 		is_falling = true
-		if is_climbing(jump_pressed):
-			velocity.y = climbing_speed
-			climbing_time += delta
+		#if is_climbing(jump_pressed):
+			#velocity.y = climbing_speed
+			#climbing_time += delta
 		
 		var gravity = jumping_gravity if velocity.y > 0 and jump_pressed else falling_gravity
 		velocity.y -= gravity * delta

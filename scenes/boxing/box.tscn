@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://641j4wcuglse"]
+[gd_scene load_steps=5 format=3 uid="uid://641j4wcuglse"]
+
+[ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/LedgeComponent.tscn" id="1_2rn6v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fuh8u"]
 
@@ -15,3 +17,17 @@ shape = SubResource("BoxShape3D_fuh8u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_phayw")
+
+[node name="Edges" type="Node3D" parent="."]
+
+[node name="LedgeComponent" parent="Edges" instance=ExtResource("1_2rn6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
+
+[node name="LedgeComponent2" parent="Edges" instance=ExtResource("1_2rn6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)
+
+[node name="LedgeComponent3" parent="Edges" instance=ExtResource("1_2rn6v")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0.5, 0)
+
+[node name="LedgeComponent4" parent="Edges" instance=ExtResource("1_2rn6v")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.5, 0.5, 0)

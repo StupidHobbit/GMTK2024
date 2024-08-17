@@ -61,7 +61,7 @@ mesh = SubResource("PlaneMesh_mjsou")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.02412, 1.83555, 0.43886)
 
 [node name="Box" parent="Boxes" instance=ExtResource("2_vtfeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.24749, 1.60691, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.247, 0.5, 0)
 
 [node name="Box3" parent="Boxes" instance=ExtResource("2_vtfeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07652, 1.81041, 1.4848)

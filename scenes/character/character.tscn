@@ -63,6 +63,7 @@ current = true
 [node name="Interact2" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0335393, -2.38419e-07, 0.0183225)
 collision_mask = 8
+collide_with_areas = true
 script = ExtResource("2_psckv")
 max_interaction_distance = 3.0
 

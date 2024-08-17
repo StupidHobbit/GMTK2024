@@ -12,19 +12,17 @@ func _ready():
 	character = get_parent().get_parent()
 
 func get_interactable() -> Interactable:
-	var collider = get_collider()
+	var collider: Node = get_collider()
 	if collider == null:
 		return null
 	if global_position.distance_to(get_collision_point()) > max_interaction_distance:
 		return null
-	if collider.has_method("get_label"):
-		return collider
-	collider = collider.get_parent()
-	if not collider.has_method("get_label"):
+	
+	for i in range(3):
+		if collider.has_method("get_label"):
+			return collider
 		collider = collider.get_parent()
-		if not collider.has_method("get_label"):
-			return null
-	return collider
+	return null
 	
 func _process(delta):
 	if not character.handle_input:
