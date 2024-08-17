@@ -65,7 +65,6 @@ collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("2_psckv")
-max_interaction_distance = 3.0
 
 [node name="Control" type="Control" parent="Camera3D/Interact2"]
 layout_mode = 3

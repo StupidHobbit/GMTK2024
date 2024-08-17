@@ -15,7 +15,7 @@ class_name Character
 @export var falling_gravity: float = 30
 @export var jump_buffer: float = 0.1
 @export var coyote_time: float = 0.1
-@export var climbing_time_limit: float = 0.5
+@export var climbing_time_limit: float = 0.1
 @export var climbing_speed: float = 4
 @export var slowdown_time: float = 0.1
 @export var crouching_animation_time: float = 0.2
@@ -36,6 +36,7 @@ var handle_input: bool = true
 var is_falling: bool = false
 var examinated_item: Examinable
 var original_camera_near: float
+var original_interact_length: float
 
 # variables for ledge climbing
 
@@ -50,6 +51,7 @@ var lc_anim_time: float = 1
 @onready var walk_audio_stream_player = $WalkAudioStreamPlayer
 @onready var jump_audio_player = $JumpAudioPlayer
 @onready var fall_audio_player = $FallAudioPlayer
+@onready var interact: RayCast3D = $Camera3D/Interact2
 
 var current_scale: float:
 	get:
@@ -57,10 +59,12 @@ var current_scale: float:
 	set(value):
 		scale = Vector3(value, value, value)
 		camera.near = original_camera_near * value
+		interact.target_position.y = original_interact_length * value
 
 func _ready():
 	viewport_size = get_viewport().size / 2
 	original_camera_near = camera.near
+	original_interact_length = interact.target_position.y
 
 	start_handle_input()
 	
