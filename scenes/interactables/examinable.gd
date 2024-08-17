@@ -1,6 +1,4 @@
 extends Interactable
-
-
 class_name Examinable
 
 @export var scale_while_examinated: float = 1.0
@@ -38,7 +36,7 @@ func on_interact(character: Character):
 	character.examine(self, get_rid())
 	scale = scale * scale_while_examinated
 	
-func get_rid() -> RID:
-	if body == null:
-		return RID()
-	return body.get_rid()
+#func get_rid() -> RID:
+	#if body == null:
+		#return RID()
+	#return body.get_rid()

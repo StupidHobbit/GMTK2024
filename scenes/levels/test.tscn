@@ -74,9 +74,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0266078, 0.951194, 0.001100
 [node name="Box2" parent="Boxes/Big" instance=ExtResource("2_vtfeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.02412, 1.83555, 0.43886)
 
-[node name="Box" parent="Boxes/Big" instance=ExtResource("2_vtfeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.24749, 1.60691, 0)
-
 [node name="Box3" parent="Boxes/Big" instance=ExtResource("2_vtfeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07652, 1.81041, 1.4848)
 
@@ -97,6 +94,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94922, 3.41732, 5.24586)
 
 [node name="Box9" parent="Boxes/Big" instance=ExtResource("2_vtfeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.76334, 2.75752, 2.87722)
+
+[node name="Box" parent="Boxes" instance=ExtResource("2_vtfeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.247, 0.5, 0)
 
 [node name="Box10" parent="Boxes" instance=ExtResource("2_vtfeq")]
 transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, 0.0631308, 1.54253, 3.23579)

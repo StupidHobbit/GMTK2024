@@ -1,7 +1,5 @@
 extends RayCast3D
 
-@export var max_interaction_distance: float = 1
-
 var input_cleanup_regex = RegEx.new()
 var character: Character
 
@@ -12,18 +10,15 @@ func _ready():
 	character = get_parent().get_parent()
 
 func get_interactable() -> Interactable:
-	var collider = get_collider()
+	var collider: Interactable = get_collider()
 	if collider == null:
 		return null
-	if global_position.distance_to(get_collision_point()) > max_interaction_distance:
-		return null
-	if collider.has_method("get_label"):
-		return collider
-	collider = collider.get_parent()
-	if not collider.has_method("get_label"):
-		collider = collider.get_parent()
-		if not collider.has_method("get_label"):
+	
+	if collider.has_method("can_interact"):
+		if not collider.can_interact(character):
+			# so that some objects can have conditions
 			return null
+	
 	return collider
 	
 func _process(delta):
@@ -38,6 +33,8 @@ func _process(delta):
 	if label == "":
 		$Control/Label.hide()
 		return
+	
+	interactable.on_hover()
 	
 	$Control/Label.show()
 	$Control/Label.text = "{0}: {1}".format([get_interact_input_as_text(), label])
