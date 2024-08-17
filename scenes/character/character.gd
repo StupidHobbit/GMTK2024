@@ -55,6 +55,7 @@ var current_scale: float:
 	get:
 		return scale[0]
 	set(value):
+		Globals.scale = value
 		scale = Vector3(value, value, value)
 		camera.near = original_camera_near * value
 

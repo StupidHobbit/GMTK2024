@@ -15,6 +15,8 @@ func _ready() -> void:
 	shape.height = length
 	mesh.height = length
 	$MeshInstance3D.visible = false
+	
+	Globals.add_scale_watcher(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -26,6 +28,10 @@ func _process(_delta: float) -> void:
 	else:
 		if Time.get_ticks_msec() - last_hover > SHOW_DELAY:
 			$MeshInstance3D.visible = false
+
+func on_scale_update():
+	shape.radius = 0.2 * Globals.scale
+	mesh.radius = 0.02 * Globals.scale
 
 func get_label() -> String:
 	return "Climb"
