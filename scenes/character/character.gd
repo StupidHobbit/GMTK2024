@@ -20,6 +20,9 @@ class_name Character
 @export var slowdown_time: float = 0.1
 @export var crouching_animation_time: float = 0.2
 
+@export var scales: Array[float] = [1, 0.5, 0.1]
+var scale_index: int = 0
+
 var time_from_last_jump_press: float = 100 
 var time_from_last_on_floor: float = 0 
 var time_from_last_crouching_boost: float = 0 
@@ -40,6 +43,11 @@ var examinated_item: Examinable
 @onready var jump_audio_player = $JumpAudioPlayer
 @onready var fall_audio_player = $FallAudioPlayer
 
+var current_scale: float:
+	get:
+		return scale[0]
+	set(value):
+		scale = Vector3(value, value, value)
 
 func _ready():
 	viewport_size = get_viewport().size / 2
@@ -66,6 +74,7 @@ func examine(item: Examinable, collision_rid: RID):
 
 func _physics_process(delta: float):
 	update_examination()
+	update_scale()
 	if movement_disabled:
 		return
 	apply_vertical_movement(delta)
@@ -94,14 +103,14 @@ func apply_vertical_movement(delta: float):
 	if not is_on_floor:
 		is_falling = true
 		if is_climbing(jump_pressed):
-			velocity.y = climbing_speed
+			velocity.y = climbing_speed * current_scale
 			climbing_time += delta
 		
 		var gravity = jumping_gravity if velocity.y > 0 and jump_pressed else falling_gravity
-		velocity.y -= gravity * delta
+		velocity.y -= gravity * delta * current_scale
 
 	if time_from_last_jump_press < jump_buffer and time_from_last_on_floor < coyote_time:
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY * current_scale
 		jump_audio_player.play()
 
 func apply_rotation():
@@ -161,6 +170,16 @@ func update_examination():
 	examinated_item = null
 	enable_movement()
 	holder.clear_excluded_objects()
+	
+func update_scale():
+	if Input.is_action_just_pressed("scale_down"):
+		scale_index += 1
+	elif Input.is_action_just_pressed("scale_up"):
+		scale_index -= 1
+	else:
+		return
+	scale_index = clampi(scale_index, 0, len(scales) - 1)
+	current_scale = scales[scale_index]
 
 func is_crouching()  -> bool:
 	return Input.is_action_pressed("crouch")
@@ -181,6 +200,9 @@ func dash():
 	has_dash_boost = true
 
 func get_current_speed() -> float:
+	return _get_current_speed_without_scale() * current_scale
+	
+func _get_current_speed_without_scale() -> float:
 	if has_crouching_boost and is_on_floor():
 		has_crouching_boost = false
 		time_from_last_crouching_boost = CROUCHING_BOOST_COOLDOWN
