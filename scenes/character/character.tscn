@@ -45,6 +45,7 @@ _data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14577e-05, 0.72062, -0.00247538)
 collision_layer = 2
 script = ExtResource("1_611ae")
+climbing_time_limit = 0.5
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_2wxrl")]
 max_hp = 10

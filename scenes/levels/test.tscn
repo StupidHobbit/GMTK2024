@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqsr5n0yj1vwh"]
+[gd_scene load_steps=12 format=3 uid="uid://cqsr5n0yj1vwh"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_s4lan"]
-[ext_resource type="PackedScene" uid="uid://bvfmpv3pechk8" path="res://assets/3DModel/GMTK24_mesh_drawer_imgnone.glb" id="1_u11k0"]
 [ext_resource type="PackedScene" uid="uid://641j4wcuglse" path="res://scenes/boxing/box.tscn" id="2_vtfeq"]
 [ext_resource type="PackedScene" uid="uid://bygxa3eo5e8m1" path="res://scenes/gmtk24_mesh_blockingLevel_GodotScene.tscn" id="3_aapk5"]
 
@@ -57,9 +56,6 @@ mesh = SubResource("PlaneMesh_mjsou")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_mjsou")
-
-[node name="GMTK24_mesh_drawer_imgnone" parent="StaticBody3D" instance=ExtResource("1_u11k0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9143, 0, -24.8517)
 
 [node name="Character" parent="." instance=ExtResource("1_s4lan")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 4.72062, 0.997525)
