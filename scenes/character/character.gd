@@ -35,6 +35,7 @@ var has_dash_boost: bool = false
 var handle_input: bool = true
 var is_falling: bool = false
 var examinated_item: Examinable
+var original_camera_near: float
 
 @onready var camera = $Camera3D
 @onready var holder = $Camera3D/Holder
@@ -48,9 +49,11 @@ var current_scale: float:
 		return scale[0]
 	set(value):
 		scale = Vector3(value, value, value)
+		camera.near = original_camera_near * value
 
 func _ready():
 	viewport_size = get_viewport().size / 2
+	original_camera_near = camera.near
 
 	start_handle_input()
 	
