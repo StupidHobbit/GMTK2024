@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bel477ybs0em6"
+path.s3tc="res://.godot/imported/GMTK24_mesh_chair_GMTK24_Texture_Atlas-v2-2048_OcclusionRoughnessMetallic.png-0edd96354cd0b743c71d4e7f36c1e34c.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "f63597aa2a29b0f45d64bae5332a48cf"
+}
+
+[deps]
+
+source_file="res://assets/3DModel/GMTK24_mesh_chair_GMTK24_Texture_Atlas-v2-2048_OcclusionRoughnessMetallic.png"
+dest_files=["res://.godot/imported/GMTK24_mesh_chair_GMTK24_Texture_Atlas-v2-2048_OcclusionRoughnessMetallic.png-0edd96354cd0b743c71d4e7f36c1e34c.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

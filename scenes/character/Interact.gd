@@ -1,7 +1,5 @@
 extends RayCast3D
 
-@export var max_interaction_distance: float = 1
-
 var input_cleanup_regex = RegEx.new()
 var character: Character
 
@@ -20,12 +18,6 @@ func get_interactable() -> Interactable:
 		if not collider.can_interact(character):
 			# so that some objects can have conditions
 			return null
-	
-	#for i in range(3):
-		#if collider.has_method("get_label"):
-			#return collider
-		#collider = collider.get_parent()
-	#return null
 	
 	return collider
 	
