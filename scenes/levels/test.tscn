@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqsr5n0yj1vwh"]
+[gd_scene load_steps=12 format=3 uid="uid://cqsr5n0yj1vwh"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_s4lan"]
 [ext_resource type="PackedScene" uid="uid://641j4wcuglse" path="res://scenes/boxing/box.tscn" id="2_vtfeq"]
+[ext_resource type="PackedScene" uid="uid://bygxa3eo5e8m1" path="res://scenes/gmtk24_mesh_blockingLevel_GodotScene.tscn" id="3_aapk5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,7 +37,7 @@ albedo_texture = SubResource("NoiseTexture2D_pg2hx")
 material = SubResource("StandardMaterial3D_t6hod")
 size = Vector2(100, 100)
 
-[node name="Test" type="Node3D"]
+[node name="Test2" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -57,6 +58,7 @@ mesh = SubResource("PlaneMesh_mjsou")
 mesh = SubResource("PlaneMesh_mjsou")
 
 [node name="Character" parent="." instance=ExtResource("1_s4lan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 4.72062, 0.997525)
 
 [node name="Boxes" type="Node3D" parent="."]
 
@@ -212,3 +214,6 @@ transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, 0.0631308, 1.6
 
 [node name="Box11" parent="Boxes" instance=ExtResource("2_vtfeq")]
 transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, 0.124814, 1.54253, 3.23579)
+
+[node name="GMTK24_Mesh_BlockingLevel" parent="." instance=ExtResource("3_aapk5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -2)
