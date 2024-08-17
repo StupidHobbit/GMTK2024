@@ -12,17 +12,22 @@ func _ready():
 	character = get_parent().get_parent()
 
 func get_interactable() -> Interactable:
-	var collider: Node = get_collider()
+	var collider: Interactable = get_collider()
 	if collider == null:
 		return null
-	if global_position.distance_to(get_collision_point()) > max_interaction_distance:
-		return null
 	
-	for i in range(3):
-		if collider.has_method("get_label"):
-			return collider
-		collider = collider.get_parent()
-	return null
+	if collider.has_method("can_interact"):
+		if not collider.can_interact(character):
+			# so that some objects can have conditions
+			return null
+	
+	#for i in range(3):
+		#if collider.has_method("get_label"):
+			#return collider
+		#collider = collider.get_parent()
+	#return null
+	
+	return collider
 	
 func _process(delta):
 	if not character.handle_input:
@@ -36,6 +41,8 @@ func _process(delta):
 	if label == "":
 		$Control/Label.hide()
 		return
+	
+	interactable.on_hover()
 	
 	$Control/Label.show()
 	$Control/Label.text = "{0}: {1}".format([get_interact_input_as_text(), label])

@@ -33,10 +33,12 @@ var handle_input: bool = true
 var is_falling: bool = false
 var examinated_item: Examinable
 
-var climbing: bool = false
-var climbing_dest: Vector3
-var climbing_start: Vector3
-var climb_step: float = 0
+# variables for ledge climbing
+
+var ledge_climbing: bool = false
+var lc_dest: Vector3
+var lc_start: Vector3
+var lc_anim_time: float = 1
 
 @onready var camera = $Camera3D
 @onready var holder = $Camera3D/Holder
@@ -71,7 +73,7 @@ func examine(item: Examinable, collision_rid: RID):
 
 func _physics_process(delta: float):
 	update_examination()
-	if climbing:
+	if ledge_climbing:
 		climb(delta)
 		apply_rotation()
 		return
@@ -85,14 +87,14 @@ func _physics_process(delta: float):
 	move_and_slide()
 
 func climb(delta: float):
-	var dir = climbing_dest - climbing_start
-	var rel_dist = (position - climbing_start).length() / (climbing_dest - climbing_start).length()
-	var rel_delta = delta / climbing_time
+	var dir = lc_dest - lc_start
+	var rel_dist = (position - lc_start).length() / dir.length()
+	var rel_delta = delta / lc_anim_time
 	
 	if rel_dist + rel_delta > 1:
 		# end of ledge climbing
-		position = climbing_dest
-		climbing = false
+		position = lc_dest
+		ledge_climbing = false
 		return
 	
 	position += dir * rel_delta
@@ -110,14 +112,14 @@ func apply_vertical_movement(delta: float):
 			fall_audio_player.play()
 		is_falling = false
 		time_from_last_on_floor = 0
-		#climbing_time = 0
+		climbing_time = 0
 	time_from_last_on_floor += delta
 	
 	if not is_on_floor:
 		is_falling = true
-		#if is_climbing(jump_pressed):
-			#velocity.y = climbing_speed
-			#climbing_time += delta
+		if is_climbing(jump_pressed):
+			velocity.y = climbing_speed
+			climbing_time += delta
 		
 		var gravity = jumping_gravity if velocity.y > 0 and jump_pressed else falling_gravity
 		velocity.y -= gravity * delta
