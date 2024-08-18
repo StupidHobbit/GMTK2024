@@ -1,10 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://b7icd84kad0at"]
+[gd_scene load_steps=26 format=3 uid="uid://bt0qh4fkhygic"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_8m1dt"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/Ledge.tscn" id="2_1d4u6"]
+[ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/Ledge.tscn" id="2_1d4u6"]
 [ext_resource type="PackedScene" uid="uid://bygxa3eo5e8m1" path="res://scenes/gmtk24_mesh_blockingLevel_GodotScene1.tscn" id="3_8ifyh"]
 [ext_resource type="PackedScene" uid="uid://djs73tajvjljq" path="res://assets/3DModel/gmtk2024_blocking-accurateGodot.glb" id="4_bvgk2"]
 [ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="5_ey6va"]
+[ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="6_rvc0t"]
+[ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="7_uah8p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -86,6 +88,9 @@ material = SubResource("StandardMaterial3D_535x5")
 radius = 0.02
 height = 0.675935
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_blmu7"]
+size = Vector3(100, 1, 100)
+
 [node name="Test2" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -106,13 +111,14 @@ mesh = SubResource("PlaneMesh_mjsou")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_mjsou")
 
-[node name="Character" parent="." instance=ExtResource("1_8m1dt")]
+[node name="Character" parent="." node_paths=PackedStringArray("current_checkpoint") instance=ExtResource("1_8m1dt")]
 transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, -15.6087, 4.72062, 7.75498)
 wall_min_slide_angle = 0.523599
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 0.523599
 climbing_time_limit = 0.2
+current_checkpoint = NodePath("../CheckPoint")
 scales = Array[float]([2.75, 0.5, 0.1])
 
 [node name="Ledges" type="Node3D" parent="."]
@@ -229,6 +235,15 @@ visible = false
 position = Vector2(367, 231)
 scale = Vector2(5, 4.785)
 texture = ExtResource("5_ey6va")
+
+[node name="CheckPoint" parent="." instance=ExtResource("6_rvc0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.641, 4.50621, 4.7986)
+
+[node name="HurtArea" parent="." instance=ExtResource("7_uah8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1159, 0.116209, 1.45452)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
+shape = SubResource("BoxShape3D_blmu7")
 
 [editable path="Ledges/LedgeComponent"]
 [editable path="Ledges/LedgeComponent3"]
