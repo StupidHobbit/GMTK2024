@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://641j4wcuglse"]
 
-[ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/LedgeComponent.tscn" id="1_2rn6v"]
+[ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/Ledge.tscn" id="1_2rn6v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fuh8u"]
 

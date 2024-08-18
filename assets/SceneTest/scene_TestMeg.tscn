@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmx5bljcnidg4"]
+
+[ext_resource type="PackedScene" uid="uid://cew3kay248tvh" path="res://assets/3DModel/GMTK24_Mesh_Bed-v1.glb" id="1_xt7og"]
+
+[node name="SceneTestMeg" type="Node3D"]
+
+[node name="GMTK24_Mesh_Bed-v1" parent="." instance=ExtResource("1_xt7og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118588, 0, 0.0410524)

@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 class_name Character
 
+# Constants
+
 @export var SPEED = 4.0
 @export var RUNNING_SPEED = 10.0
 @export var SPEED_DAMPING = 4.0
@@ -45,6 +47,8 @@ var lc_dest: Vector3
 var lc_start: Vector3
 var lc_anim_time: float = 1
 
+# children shortcuts
+
 @onready var camera = $Camera3D
 @onready var holder = $Camera3D/Holder
 @onready var anim_component = $character_animation
@@ -58,16 +62,19 @@ var current_scale: float:
 		return scale[0]
 	set(value):
 		scale = Vector3(value, value, value)
-		camera.near = original_camera_near * value
-		interact.target_position.y = original_interact_length * value
+
+func on_scale_update():
+	current_scale = Globals.scale
+	camera.near = original_camera_near * Globals.scale
+	interact.target_position.z = original_interact_length * Globals.scale
 
 func _ready():
+	Globals.add_scale_watcher(on_scale_update)
 	viewport_size = get_viewport().size / 2
 	original_camera_near = camera.near
-	original_interact_length = interact.target_position.y
-
-	start_handle_input()
+	original_interact_length = interact.target_position.z
 	
+	start_handle_input()
 
 func start_handle_input():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -122,8 +129,8 @@ func apply_vertical_movement(delta: float):
 	time_from_last_jump_press += delta
 	
 	var jump_pressed = Input.is_action_pressed("jump")
-	var is_on_floor = is_on_floor()
-	if is_on_floor:
+	var on_floor = is_on_floor()
+	if on_floor:
 		if is_falling:
 			fall_audio_player.play()
 		is_falling = false
@@ -131,7 +138,7 @@ func apply_vertical_movement(delta: float):
 		climbing_time = 0
 	time_from_last_on_floor += delta
 	
-	if not is_on_floor:
+	if not on_floor:
 		is_falling = true
 		if is_climbing(jump_pressed):
 			velocity.y = climbing_speed * current_scale
@@ -142,12 +149,13 @@ func apply_vertical_movement(delta: float):
 
 	if time_from_last_jump_press < jump_buffer and time_from_last_on_floor < coyote_time:
 		velocity.y = JUMP_VELOCITY * current_scale
-		jump_audio_player.play()
+		if not jump_audio_player.playing:
+			jump_audio_player.play()
 
 func apply_rotation():
-	var rotation = turn * PI / viewport_size
-	global_rotation = Vector3(global_rotation.x, -rotation.x, 0)
-	camera.rotation = Vector3(-rotation.y, 0, 0)
+	var rot = turn * PI / viewport_size
+	global_rotation = Vector3(global_rotation.x, -rot.x, 0)
+	camera.rotation = Vector3(-rot.y, 0, 0)
 
 func apply_crouching(delta: float):
 	time_from_last_crouching_boost -= delta
@@ -210,7 +218,7 @@ func update_scale():
 	else:
 		return
 	scale_index = clampi(scale_index, 0, len(scales) - 1)
-	current_scale = scales[scale_index]
+	Globals.scale = scales[scale_index]
 
 func is_crouching()  -> bool:
 	return Input.is_action_pressed("crouch")

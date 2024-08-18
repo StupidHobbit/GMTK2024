@@ -61,6 +61,7 @@ mesh = SubResource("PlaneMesh_mjsou")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 4.72062, 0.997525)
 
 [node name="Boxes" type="Node3D" parent="."]
+visible = false
 
 [node name="Big" type="Node3D" parent="Boxes"]
 
