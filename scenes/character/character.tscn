@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/character/character.gd" id="1_611ae"]
 [ext_resource type="PackedScene" uid="uid://c7orvpb14unq5" path="res://scenes/components/HealthComponent.tscn" id="2_2wxrl"]
 [ext_resource type="Script" path="res://scenes/character/Interact.gd" id="2_psckv"]
-[ext_resource type="Shape3D" uid="uid://jxry41lp5nir" path="res://scenes/character/player_collision.tres" id="3_2d50f"]
+[ext_resource type="Shape3D" path="res://scenes/character/player_collision.tres" id="3_2d50f"]
 [ext_resource type="AudioStream" uid="uid://dnjga03stbgtk" path="res://assets/sounds/zapsplat_foley_footsteps_on_wooden_floor_barefoor_16329.mp3" id="6_jjv4l"]
 [ext_resource type="AudioStream" uid="uid://djng7flr2cva0" path="res://assets/sounds/wood landing.wav" id="7_y6003"]
 [ext_resource type="PackedScene" uid="uid://dilj54b7qj63h" path="res://scenes/character/character_animation.tscn" id="8_n7h8n"]

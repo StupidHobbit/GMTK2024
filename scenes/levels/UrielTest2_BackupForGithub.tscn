@@ -56,35 +56,35 @@ height = 4.48223
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q55lt"]
 resource_local_to_scene = true
 radius = 0.194513
-height = 0.48489
+height = 0.484887
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2af7w"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_535x5")
 radius = 0.02
-height = 0.48489
+height = 0.484887
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k3v2e"]
 resource_local_to_scene = true
 radius = 0.2
-height = 0.691667
+height = 0.691676
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hsudc"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_535x5")
 radius = 0.02
-height = 0.691667
+height = 0.691676
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8u5xy"]
 resource_local_to_scene = true
 radius = 0.2
-height = 0.675921
+height = 0.675935
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_f0cuf"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_535x5")
 radius = 0.02
-height = 0.675921
+height = 0.675935
 
 [node name="Test2" type="Node3D"]
 
@@ -119,7 +119,7 @@ scales = Array[float]([2.75, 0.5, 0.1])
 transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
 
 [node name="LedgeComponent" parent="Ledges" instance=ExtResource("2_1d4u6")]
-transform = Transform3D(1, 7.27596e-12, -1.88593e-08, -7.27596e-12, 1, 1.67688e-12, 1.88593e-08, -1.67688e-12, 1, 0, 0, 0)
+transform = Transform3D(1, 1.01067e-06, -2.33995e-07, -1.01067e-06, 1, 2.1098e-11, 2.33995e-07, -2.08615e-11, 1, 5.24521e-06, 0, -4.76837e-06)
 length = 4.48223
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent" index="0"]
@@ -135,8 +135,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.77365, 2.12608, 3.45567)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.75888, 2.12568, 7.93788)
 
 [node name="LedgeComponent3" parent="Ledges" instance=ExtResource("2_1d4u6")]
-transform = Transform3D(0.999787, 0.0103606, -0.0178403, -0.0103623, 0.999946, 1.61036e-06, 0.0178393, 0.000183256, 0.999841, -1.56791, 0.0219307, 1.32138)
-length = 0.48489
+transform = Transform3D(0.999787, 0.0103592, -0.0178355, -0.0103609, 0.999946, 1.60996e-06, 0.0178345, 0.000183181, 0.999841, -1.56791, 0.0219316, 1.32138)
+length = 0.484887
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent3" index="0"]
 shape = SubResource("CapsuleShape3D_q55lt")
@@ -151,8 +151,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.43619, 2.14518, 7.01792)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44324, 2.15016, 7.50273)
 
 [node name="LedgeComponent6" parent="Ledges" instance=ExtResource("2_1d4u6")]
-transform = Transform3D(0.999787, 0.0103606, -0.0178403, -0.0103623, 0.999946, 1.61036e-06, 0.0178393, 0.000183256, 0.999841, -1.56791, 0.0219307, 1.32138)
-length = 0.48489
+transform = Transform3D(0.999787, 0.0103592, -0.0178355, -0.0103609, 0.999946, 1.60996e-06, 0.0178345, 0.000183181, 0.999841, -1.56791, 0.0219316, 1.32138)
+length = 0.484887
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent6" index="0"]
 shape = SubResource("CapsuleShape3D_q55lt")
@@ -167,8 +167,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.43619, 2.14518, 7.01792)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44324, 2.15016, 7.50273)
 
 [node name="LedgeComponent4" parent="Ledges" instance=ExtResource("2_1d4u6")]
-transform = Transform3D(-0.0148749, 1.02536e-05, -0.999889, -0.00537772, 0.999985, 9.02567e-05, 0.999875, 0.00537847, -0.0148747, -1.32302, 0.0235054, 1.66251)
-length = 0.691667
+transform = Transform3D(-0.0148761, 1.02584e-05, -0.999889, -0.00537696, 0.999985, 9.02566e-05, 0.999875, 0.00537771, -0.0148759, -1.32301, 0.0235095, 1.66251)
+length = 0.691676
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent4" index="0"]
 shape = SubResource("CapsuleShape3D_k3v2e")
@@ -183,8 +183,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75359, 2.14741, 7.01831)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44521, 2.15113, 7.0103)
 
 [node name="LedgeComponent5" parent="Ledges" instance=ExtResource("2_1d4u6")]
-transform = Transform3D(-0.0148749, 1.02536e-05, -0.999889, -0.00537772, 0.999985, 9.02567e-05, 0.999875, 0.00537847, -0.0148747, -1.32302, 0.0235054, 1.66251)
-length = 0.691667
+transform = Transform3D(-0.0148761, 1.02584e-05, -0.999889, -0.00537696, 0.999985, 9.02566e-05, 0.999875, 0.00537771, -0.0148759, -1.32301, 0.0235095, 1.66251)
+length = 0.691676
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent5" index="0"]
 shape = SubResource("CapsuleShape3D_k3v2e")
@@ -199,8 +199,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75359, 2.14741, 7.01831)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44521, 2.15113, 7.0103)
 
 [node name="LedgeComponent2" parent="Ledges" instance=ExtResource("2_1d4u6")]
-transform = Transform3D(0.895487, 0.00286738, 0.445079, -0.00318205, 0.999995, -4.01758e-05, -0.445077, -0.00138029, 0.895491, 21.2306, 1.97587, -0.884345)
-length = 0.675921
+transform = Transform3D(0.895492, 0.00287239, 0.445069, -0.00318763, 0.999995, -4.01749e-05, -0.445067, -0.00138274, 0.895496, 21.2306, 1.97587, -0.884353)
+length = 0.675935
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent2" index="0"]
 shape = SubResource("CapsuleShape3D_8u5xy")

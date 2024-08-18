@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_ij6ps"]
 [ext_resource type="PackedScene" uid="uid://641j4wcuglse" path="res://scenes/boxing/box.tscn" id="3_3wqja"]
-[ext_resource type="PackedScene" uid="uid://bygxa3eo5e8m1" path="res://scenes/gmtk24_mesh_blockingLevel_GodotScene.tscn" id="3_qgs5m"]
-[ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="4_di7lq"]
+[ext_resource type="PackedScene" uid="uid://bygxa3eo5e8m1" path="res://scenes/gmtk24_mesh_blockingLevel_GodotScene1.tscn" id="3_qgs5m"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/LaunchPad.tscn" id="4_di7lq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
