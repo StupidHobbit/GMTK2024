@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxumegyl7mon0"]
+[gd_scene load_steps=13 format=3 uid="uid://dxumegyl7mon0"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_ij6ps"]
 [ext_resource type="PackedScene" uid="uid://641j4wcuglse" path="res://scenes/boxing/box.tscn" id="3_3wqja"]
-[ext_resource type="PackedScene" uid="uid://bygxa3eo5e8m1" path="res://scenes/gmtk24_mesh_blockingLevel_GodotScene1.tscn" id="3_qgs5m"]
+[ext_resource type="PackedScene" uid="uid://bygxa3eo5e8m1" path="res://scenes/gmtk24_mesh_blockingLevel_GodotScene.tscn" id="3_qgs5m"]
+[ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="4_di7lq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -60,7 +61,6 @@ mesh = SubResource("PlaneMesh_mjsou")
 [node name="Character" parent="." instance=ExtResource("1_ij6ps")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -17, 4.72062, 0.997525)
 wall_min_slide_angle = 1.5708
-scales = Array[float]([3.0, 0.5, 0.1])
 
 [node name="Boxes" type="Node3D" parent="."]
 
@@ -219,3 +219,14 @@ transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, 0.124814, 1.54
 
 [node name="GMTK24_Mesh_BlockingLevel" parent="." instance=ExtResource("3_qgs5m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -2)
+
+[node name="LaunchPad" parent="." instance=ExtResource("4_di7lq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5261, 2.13782, -1.34903)
+radius = 1.0
+height = 0.1
+
+[node name="LaunchPad2" parent="." instance=ExtResource("4_di7lq")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -21.1244, 3.13782, -1.40364)
+radius = 1.0
+height = 0.1
+dir = Vector3(1, 0, 0)

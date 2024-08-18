@@ -13,8 +13,10 @@ class_name Character
 @export var CROUCHING_BOOST_COOLDOWN = 5.0
 @export var JUMP_VELOCITY = 6
 @export var DASH_VELOCITY = 20
+@export var LAUNCHPAD_TIME = 1
 @export var jumping_gravity: float = 15
 @export var falling_gravity: float = 30
+@export var pad_gravity: float = 30
 @export var jump_buffer: float = 0.1
 @export var coyote_time: float = 0.1
 @export var climbing_time_limit: float = 0.1
@@ -22,7 +24,7 @@ class_name Character
 @export var slowdown_time: float = 0.1
 @export var crouching_animation_time: float = 0.2
 
-@export var scales: Array[float] = [1, 0.5, 0.1]
+@export var scales: Array[float] = [1, 0.5, 0.25, 0.1]
 var scale_index: int = 0
 
 var time_from_last_jump_press: float = 100 
@@ -46,6 +48,11 @@ var ledge_climbing: bool = false
 var lc_dest: Vector3
 var lc_start: Vector3
 var lc_anim_time: float = 1
+
+# variables for launchpads
+
+var launchpads: Array[LaunchPad] = []
+var launchpad_timer: float = 0
 
 # children shortcuts
 
@@ -108,6 +115,7 @@ func _physics_process(delta: float):
 	apply_horizontal_movement(delta)
 	apply_dash(delta)
 	move_and_slide()
+	launchpad_timer = max(0, launchpad_timer - delta)
 
 func climb(delta: float):
 	var dir = lc_dest - lc_start
@@ -124,11 +132,9 @@ func climb(delta: float):
 
 func apply_vertical_movement(delta: float):
 	var jump_just_pressed = Input.is_action_just_pressed("jump")
-	if jump_just_pressed:
-		time_from_last_jump_press = 0
-	time_from_last_jump_press += delta
 	
 	var jump_pressed = Input.is_action_pressed("jump")
+	
 	var on_floor = is_on_floor()
 	if on_floor:
 		if is_falling:
@@ -144,13 +150,27 @@ func apply_vertical_movement(delta: float):
 			velocity.y = climbing_speed * current_scale
 			climbing_time += delta
 		
-		var gravity = jumping_gravity if velocity.y > 0 and jump_pressed else falling_gravity
+		var gravity
+		if launchpad_timer > 0:
+			gravity = pad_gravity
+		elif velocity.y > 0 and jump_pressed:
+			gravity = jumping_gravity
+		else:
+			gravity = falling_gravity
+		
 		velocity.y -= gravity * delta * current_scale
 
-	if time_from_last_jump_press < jump_buffer and time_from_last_on_floor < coyote_time:
-		velocity.y = JUMP_VELOCITY * current_scale
+	if jump_just_pressed and time_from_last_jump_press > jump_buffer and time_from_last_on_floor < coyote_time:
+		if launchpad_timer <= 0:
+			apply_launchpads()
+		velocity.y = max(velocity.y, JUMP_VELOCITY * current_scale)
+		
 		if not jump_audio_player.playing:
 			jump_audio_player.play()
+	
+	if jump_just_pressed:
+		time_from_last_jump_press = 0
+	time_from_last_jump_press += delta
 
 func apply_rotation():
 	var rot = turn * PI / viewport_size
@@ -181,17 +201,25 @@ func apply_horizontal_movement(delta: float):
 		walk_audio_stream_player.stop()
 	
 	if direction:
-		var actual_horizontal_speed = _get_actual_horizontal_speed()
-		if actual_horizontal_speed > speed:
-			speed = move_toward(actual_horizontal_speed, speed, SPEED_DAMPING * delta)
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
-		if is_on_floor():
-			anim_component.move()
+		var damping
+		
+		anim_component.move()
+		var dir: Vector3 = Vector3(velocity.x, 0, velocity.z)
+		var cur_speed: float = dir.length()
+		dir = dir.normalized()
+		if cur_speed > speed:
+			if is_on_floor():
+				cur_speed = move_toward(cur_speed, speed, SPEED_DAMPING * delta)
+				velocity.x = dir.x * cur_speed
+				velocity.z = dir.z * cur_speed
+		else:
+			velocity.x = direction.x * speed
+			velocity.z = direction.z * speed
 	else:
 		anim_component.be_idle()
-		velocity.x = move_toward(velocity.x, 0, speed * delta / slowdown_time)
-		velocity.z = move_toward(velocity.z, 0, speed * delta / slowdown_time)
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, speed * delta / slowdown_time)
+			velocity.z = move_toward(velocity.z, 0, speed * delta / slowdown_time)
 	
 func apply_dash(delta: float):
 	if not has_dash_boost:
@@ -266,5 +294,26 @@ func _input(event: InputEvent):
 			
 		turn += event.relative
 	turn.y = clampf(turn.y, -viewport_size.y / 2, viewport_size.y / 2)
+
+func on_pad_entered(area: LaunchPad) -> void:
+	launchpads.append(area)
+
+func on_pad_exited(area: LaunchPad) -> void:
+	launchpads.erase(area)
+
+func apply_launchpads() -> void:
+	if launchpads.size() == 0:
+		return
 	
+	if scale_index < 2:
+		# disabled for big sizes
+		return
 	
+	print("launching!")
+	
+	var dir: Vector3 = Vector3.ZERO
+	for pad: LaunchPad in launchpads:
+		dir += pad.dir
+	
+	velocity = 20 * Globals.scale * dir / launchpads.size()
+	launchpad_timer = LAUNCHPAD_TIME
