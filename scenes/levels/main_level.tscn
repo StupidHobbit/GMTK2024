@@ -1,11 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://bt0qh4fkhygic"]
+[gd_scene load_steps=26 format=3 uid="uid://tle17qkiuhpj"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_oijy8"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/Ledge.tscn" id="2_dmerr"]
-[ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_0pgsn"]
+[ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/Ledge.tscn" id="2_dmerr"]
+[ext_resource type="PackedScene" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_0pgsn"]
 [ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="4_u13cn"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
+[ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
+[ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
+[ext_resource type="PackedScene" uid="uid://die8m3rsgx7qk" path="res://assets/vfx/cloud.tscn" id="7_r0b0d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -90,7 +91,7 @@ height = 0.675935
 [sub_resource type="BoxShape3D" id="BoxShape3D_blmu7"]
 size = Vector3(100, 1, 100)
 
-[node name="Test3" type="Node3D"]
+[node name="Test4" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -124,7 +125,7 @@ scales = Array[float]([2.75, 0.5, 0.1])
 transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
 
 [node name="LedgeComponent" parent="Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(0.999838, 0.0104434, -0.0146855, -0.0104445, 0.999945, 1.3256e-06, 0.0146847, 0.000152057, 0.999892, -0.362342, 0.0197227, 1.01461)
+transform = Transform3D(0.999837, 0.0104434, -0.0146834, -0.0104445, 0.999945, 1.32544e-06, 0.0146827, 0.000152036, 0.999891, -0.362344, 0.0197227, 1.01461)
 length = 3.76465
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent" index="0"]
@@ -140,7 +141,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72903, 2.12608, 4.17368)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7719, 2.16506, 7.93788)
 
 [node name="LedgeComponent3" parent="Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(0.999787, 0.0103592, -0.0178355, -0.0103609, 0.999946, 1.60996e-06, 0.0178345, 0.000183181, 0.999841, -1.56791, 0.0219316, 1.32138)
+transform = Transform3D(0.999786, 0.0103592, -0.0178355, -0.0103609, 0.999945, 1.60996e-06, 0.0178345, 0.000183181, 0.99984, -1.56791, 0.0219316, 1.32138)
 length = 0.484887
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent3" index="0"]
@@ -156,7 +157,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.43619, 2.14518, 7.01792)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44324, 2.15016, 7.50273)
 
 [node name="LedgeComponent6" parent="Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(0.999787, 0.0103592, -0.0178355, -0.0103609, 0.999946, 1.60996e-06, 0.0178345, 0.000183181, 0.999841, -1.56791, 0.0219316, 1.32138)
+transform = Transform3D(0.999786, 0.0103592, -0.0178355, -0.0103609, 0.999945, 1.60996e-06, 0.0178345, 0.000183181, 0.99984, -1.56791, 0.0219316, 1.32138)
 length = 0.484887
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent6" index="0"]
@@ -172,7 +173,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.43619, 2.14518, 7.01792)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44324, 2.15016, 7.50273)
 
 [node name="LedgeComponent4" parent="Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(-0.0148761, 1.02584e-05, -0.999889, -0.00537696, 0.999985, 9.02566e-05, 0.999875, 0.00537771, -0.0148759, -1.32301, 0.0235095, 1.66251)
+transform = Transform3D(-0.0148761, 1.02584e-05, -0.999889, -0.00537696, 0.999984, 9.02566e-05, 0.999875, 0.0053777, -0.0148759, -1.32301, 0.0235095, 1.66251)
 length = 0.691676
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent4" index="0"]
@@ -188,7 +189,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75359, 2.14741, 7.01831)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44521, 2.15113, 7.0103)
 
 [node name="LedgeComponent5" parent="Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(-0.0148761, 1.02584e-05, -0.999889, -0.00537696, 0.999985, 9.02566e-05, 0.999875, 0.00537771, -0.0148759, -1.32301, 0.0235095, 1.66251)
+transform = Transform3D(-0.0148761, 1.02584e-05, -0.999889, -0.00537696, 0.999984, 9.02566e-05, 0.999875, 0.0053777, -0.0148759, -1.32301, 0.0235095, 1.66251)
 length = 0.691676
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent5" index="0"]
@@ -235,12 +236,42 @@ texture = ExtResource("4_u13cn")
 [node name="CheckPoint" parent="." instance=ExtResource("5_wkxdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.641, 4.50621, 4.7986)
 
-[node name="HurtArea" parent="." instance=ExtResource("6_y2sbr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1159, 0.116209, 1.45452)
+[node name="HurtArea" parent="." node_paths=PackedStringArray("vfx") instance=ExtResource("6_y2sbr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1157, 0.116209, 1.45485)
+vfx = NodePath("vfx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38203, 0)
 shape = SubResource("BoxShape3D_blmu7")
+
+[node name="vfx" type="Node3D" parent="HurtArea"]
+
+[node name="Cloud2" parent="HurtArea/vfx" instance=ExtResource("7_r0b0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.711221, 0, -0.571899)
+
+[node name="Cloud" parent="HurtArea/vfx" instance=ExtResource("7_r0b0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6425, 0, 6.16559)
+
+[node name="Cloud3" parent="HurtArea/vfx" instance=ExtResource("7_r0b0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.81084, 0, -0.571899)
+
+[node name="Cloud4" parent="HurtArea/vfx" instance=ExtResource("7_r0b0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30951, 0, -0.571899)
+
+[node name="Cloud5" parent="HurtArea/vfx" instance=ExtResource("7_r0b0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78125, 0, -7.04622)
+
+[node name="Cloud6" parent="HurtArea/vfx" instance=ExtResource("7_r0b0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.26224, 0, -8.15254)
+
+[node name="Cloud7" parent="HurtArea/vfx" instance=ExtResource("7_r0b0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.88988, 0, -14.6705)
+
+[node name="Cloud8" parent="HurtArea/vfx" instance=ExtResource("7_r0b0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.763098, 0, -12.8313)
+
+[node name="Cloud9" parent="HurtArea/vfx" instance=ExtResource("7_r0b0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34408, 0, -18.5783)
 
 [editable path="Ledges/LedgeComponent"]
 [editable path="Ledges/LedgeComponent3"]

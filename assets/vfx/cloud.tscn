@@ -12,9 +12,9 @@ gradient = SubResource("Gradient_81oma")
 emission_shape = 6
 emission_ring_axis = Vector3(0, 1, 0)
 emission_ring_height = 0.0
-emission_ring_radius = 1.6
+emission_ring_radius = 4.0
 emission_ring_inner_radius = 0.0
-gravity = Vector3(0, 1, 0)
+gravity = Vector3(0, 0.1, 0)
 color = Color(1, 1, 1, 0.25098)
 color_ramp = SubResource("GradientTexture1D_bewgf")
 
@@ -36,10 +36,9 @@ rings = 16
 [node name="Cloud" type="Node3D"]
 
 [node name="GPUParticles3DFoam" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="GPUParticles3DFoam"]
-amount = 200
+amount = 400
 fixed_fps = 0
 interpolate = false
 process_material = SubResource("ParticleProcessMaterial_mcbck")
