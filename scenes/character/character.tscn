@@ -9,11 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dilj54b7qj63h" path="res://scenes/character/character_animation.tscn" id="8_n7h8n"]
 [ext_resource type="PackedScene" uid="uid://xo3w3js6jcj5" path="res://scenes/components/HurtBoxComponent.tscn" id="11_hti3i"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1cuxp"]
+height = 1.7
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_abrjf"]
 height = 1.7
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1cuxp"]
-height = 1.7
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mwu8b"]
 
 [sub_resource type="Animation" id="Animation_rsuby"]
 length = 0.001
@@ -39,10 +41,7 @@ _data = {
 "move": SubResource("Animation_1ts8f")
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mwu8b"]
-
 [node name="Character" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14577e-05, 0.72062, -0.00247538)
 collision_layer = 2
 script = ExtResource("1_611ae")
 climbing_time_limit = 0.5
@@ -50,19 +49,29 @@ climbing_time_limit = 0.5
 [node name="HealthComponent" parent="." instance=ExtResource("2_2wxrl")]
 max_hp = 10
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("CapsuleMesh_abrjf")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 shape = SubResource("CapsuleShape3D_1cuxp")
 
+[node name="Mesh" type="MeshInstance3D" parent="CollisionShape3D"]
+layers = 2
+mesh = SubResource("CapsuleMesh_abrjf")
+skeleton = NodePath("../..")
+
+[node name="HurtBoxComponent" parent="CollisionShape3D" node_paths=PackedStringArray("health") instance=ExtResource("11_hti3i")]
+visible = false
+health = NodePath("../../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D/HurtBoxComponent"]
+shape = SubResource("CapsuleShape3D_mwu8b")
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0213728, 0.722478, -0.24369)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 current = true
 
 [node name="Interact2" type="RayCast3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0335393, -2.38419e-07, 0.0183225)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 0, -1)
 collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
@@ -105,13 +114,6 @@ playback_default_blend_time = 0.05
 
 [node name="character_animation" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("8_n7h8n")]
 animation_player = NodePath("../AnimationPlayer")
-
-[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health") instance=ExtResource("11_hti3i")]
-visible = false
-health = NodePath("../HealthComponent")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxComponent"]
-shape = SubResource("CapsuleShape3D_mwu8b")
 
 [node name="WalkAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_jjv4l")

@@ -3,10 +3,15 @@ extends Interactable
 
 const SHOW_DELAY: int = 10
 
-@export var length: float = 1
-
 @onready var shape: CapsuleShape3D = $CollisionShape3D.shape
 @onready var mesh: CapsuleMesh = $MeshInstance3D.mesh
+
+@export var length: float = 1:
+	set(new_value):
+		length = new_value
+		if is_node_ready():
+			shape.height = length
+			mesh.height = length
 
 var last_hover: int = 0
 
@@ -14,18 +19,15 @@ var last_hover: int = 0
 func _ready() -> void:
 	shape.height = length
 	mesh.height = length
-	$MeshInstance3D.visible = false
 	
-	Globals.add_scale_watcher(self)
+	if not Engine.is_editor_hint():
+		$MeshInstance3D.visible = false
+		
+		Globals.add_scale_watcher(on_scale_update)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		# to apply visual changes in editor
-		shape.height = length
-		mesh.height = length
-		
-	else:
+	if not Engine.is_editor_hint():
 		if Time.get_ticks_msec() - last_hover > SHOW_DELAY:
 			$MeshInstance3D.visible = false
 
@@ -52,8 +54,8 @@ func on_interact(player: Character):
 	player.lc_start = player.position
 	
 	var dest: Vector3 = to_local(player.position)
-	dest.y = position.y + 0.2
-	dest.z = -1 * sign(dest.z) * 0.2
+	dest.y = 0
+	dest.z = -1 * sign(dest.z) * 0.3 * Globals.scale
 	dest.x = clamp(dest.x, -length/2, length/2)
 	player.lc_dest = to_global(dest)
 	

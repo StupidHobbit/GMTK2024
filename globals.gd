@@ -8,8 +8,8 @@ var scale: float = 1:
 		scale_update.emit()
 # 1 is base scale
 
-func add_scale_watcher(object: Node):
-	scale_update.connect(object.on_scale_update)
+func add_scale_watcher(callable: Callable):
+	scale_update.connect(callable)
 
 func clean_scale_watchers():
 	for connection: Dictionary in scale_update.get_connections():
