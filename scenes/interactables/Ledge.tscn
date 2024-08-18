@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://us044os2og84"]
 
-[ext_resource type="Script" path="res://scenes/interactables/ledge_component.gd" id="1_3k1c6"]
-[ext_resource type="Script" path="res://scenes/interactables/handle.gd" id="2_eqwal"]
+[ext_resource type="Script" path="res://scenes/interactables/ledge.gd" id="1_ke2r1"]
+[ext_resource type="Script" path="res://scenes/interactables/handle.gd" id="2_cs1k4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q21xt"]
 resource_local_to_scene = true
@@ -20,7 +20,7 @@ height = 1.0
 [node name="LedgeComponent" type="Area3D"]
 collision_layer = 8
 collision_mask = 0
-script = ExtResource("1_3k1c6")
+script = ExtResource("1_ke2r1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -35,12 +35,12 @@ mesh = SubResource("CapsuleMesh_i5p3i")
 [node name="Handle1" type="Marker3D" parent="Handles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 top_level = true
-script = ExtResource("2_eqwal")
+script = ExtResource("2_cs1k4")
 
 [node name="Handle2" type="Marker3D" parent="Handles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 top_level = true
-script = ExtResource("2_eqwal")
+script = ExtResource("2_cs1k4")
 
 [connection signal="moved" from="Handles/Handle1" to="." method="on_marker_move"]
 [connection signal="moved" from="Handles/Handle2" to="." method="on_marker_move"]
