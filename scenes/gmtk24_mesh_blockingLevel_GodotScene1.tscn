@@ -183,7 +183,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_xuf8n")
 surface_material_override/0 = SubResource("StandardMaterial3D_xuf8n")
 
 [node name="platform" parent="." index="74"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.590264, 0)
+transform = Transform3D(1, 0, 0, 0, 0.992045, -0.125887, 0, 0.125887, 0.992045, 0, -0.426049, 0)
 
 [node name="blockArea" parent="." index="75"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0142465, 0)
