@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djng7flr2cva0"
+path="res://.godot/imported/wood landing.wav-498c6a9ab69d8cc9178ad54b62090eec.sample"
+
+[deps]
+
+source_file="res://assets/sounds/wood landing.wav"
+dest_files=["res://.godot/imported/wood landing.wav-498c6a9ab69d8cc9178ad54b62090eec.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
