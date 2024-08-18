@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cm4df2oh68fjy"]
+
+[ext_resource type="Texture2D" uid="uid://chelaueo8ibg" path="res://assets/3DModel/Movies/GMTK24_Texture_MoviesAtlas.png" id="1_ovcad"]
+
+[resource]
+albedo_texture = ExtResource("1_ovcad")

@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmx5bljcnidg4"]
+[gd_scene load_steps=3 format=3 uid="uid://bmx5bljcnidg4"]
 
 [ext_resource type="PackedScene" uid="uid://cew3kay248tvh" path="res://assets/3DModel/bed/GMTK24_Mesh_Bed-withAll.glb" id="1_xt7og"]
+[ext_resource type="PackedScene" uid="uid://c5damh7r03iwt" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieArietty.glb" id="2_8l4w5"]
 
 [node name="SceneTestMeg" type="Node3D"]
 
 [node name="GMTK24_Mesh_Bed-v1" parent="." instance=ExtResource("1_xt7og")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118588, 0, 0.0410524)
+
+[node name="GMTK24_Mesh_MovieArietty" parent="." instance=ExtResource("2_8l4w5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.961534, 0, 0.588237)
