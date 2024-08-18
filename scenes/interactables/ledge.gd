@@ -72,10 +72,15 @@ func on_marker_move() -> void:
 	
 	if pos1 == pos2:
 		print("handles overlap, skipping update")
+		return
 	
 	var center = (pos1 + pos2) / 2
 	var dir = Vector3.UP.cross(pos1 - pos2)
 	var up = -dir.cross(pos1 - pos2)
+	
+	if dir == Vector3.ZERO:
+		print("pos and target overlap, skipping update")
+		return
 	
 	length = (pos1 - pos2).length()
 	self.look_at_from_position(center, center + dir, up)
