@@ -23,6 +23,7 @@ class_name Character
 @export var climbing_speed: float = 4
 @export var slowdown_time: float = 0.1
 @export var crouching_animation_time: float = 0.2
+@export var current_checkpoint: CheckPoint
 
 @export var scales: Array[float] = [1, 0.5, 0.25, 0.1]
 var scale_index: int = 0
@@ -63,6 +64,8 @@ var launchpad_timer: float = 0
 @onready var jump_audio_player = $JumpAudioPlayer
 @onready var fall_audio_player = $FallAudioPlayer
 @onready var interact: RayCast3D = $Camera3D/Interact2
+@onready var health_component: HealthComponent = $HealthComponent
+
 
 var current_scale: float:
 	get:
@@ -80,6 +83,8 @@ func _ready():
 	viewport_size = get_viewport().size / 2
 	original_camera_near = camera.near
 	original_interact_length = interact.target_position.z
+	
+	health_component.health_depleted.connect(on_health_depleted)
 	
 	start_handle_input()
 
@@ -247,6 +252,11 @@ func update_scale():
 		return
 	scale_index = clampi(scale_index, 0, len(scales) - 1)
 	Globals.scale = scales[scale_index]
+
+func on_health_depleted():
+	if current_checkpoint == null:
+		return
+	position = current_checkpoint.position 
 
 func is_crouching()  -> bool:
 	return Input.is_action_pressed("crouch")

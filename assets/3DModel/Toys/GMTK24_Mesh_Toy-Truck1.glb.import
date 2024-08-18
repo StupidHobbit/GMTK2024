@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cew3kay248tvh"
-path="res://.godot/imported/GMTK24_Mesh_Bed-v1.glb-309ebcbe85961a9909f17f8ff4e75b9b.scn"
+uid="uid://dliuyaan77vdw"
+path="res://.godot/imported/GMTK24_Mesh_Toy-Truck1.glb-fb8ac98539ff7330099fa372e9fe14cb.scn"
 
 [deps]
 
-source_file="res://assets/3DModel/GMTK24_Mesh_Bed-v1.glb"
-dest_files=["res://.godot/imported/GMTK24_Mesh_Bed-v1.glb-309ebcbe85961a9909f17f8ff4e75b9b.scn"]
+source_file="res://assets/3DModel/Toys/GMTK24_Mesh_Toy-Truck1.glb"
+dest_files=["res://.godot/imported/GMTK24_Mesh_Toy-Truck1.glb-fb8ac98539ff7330099fa372e9fe14cb.scn"]
 
 [params]
 

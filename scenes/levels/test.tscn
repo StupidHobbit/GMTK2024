@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqsr5n0yj1vwh"]
+[gd_scene load_steps=15 format=3 uid="uid://cqsr5n0yj1vwh"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_s4lan"]
 [ext_resource type="PackedScene" uid="uid://641j4wcuglse" path="res://scenes/boxing/box.tscn" id="2_vtfeq"]
 [ext_resource type="PackedScene" uid="uid://bygxa3eo5e8m1" path="res://scenes/gmtk24_mesh_blockingLevel_GodotScene.tscn" id="3_aapk5"]
+[ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="4_8ftsb"]
+[ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="5_y1lhb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -37,6 +39,9 @@ albedo_texture = SubResource("NoiseTexture2D_pg2hx")
 material = SubResource("StandardMaterial3D_t6hod")
 size = Vector2(100, 100)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_c7r8b"]
+size = Vector3(100, 1, 100)
+
 [node name="Test2" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -57,8 +62,9 @@ mesh = SubResource("PlaneMesh_mjsou")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_mjsou")
 
-[node name="Character" parent="." instance=ExtResource("1_s4lan")]
+[node name="Character" parent="." node_paths=PackedStringArray("current_checkpoint") instance=ExtResource("1_s4lan")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 4.72062, 0.997525)
+current_checkpoint = NodePath("../CheckPoint")
 
 [node name="Boxes" type="Node3D" parent="."]
 visible = false
@@ -218,3 +224,12 @@ transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, 0.124814, 1.54
 
 [node name="GMTK24_Mesh_BlockingLevel" parent="." instance=ExtResource("3_aapk5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -2)
+
+[node name="CheckPoint" parent="." instance=ExtResource("4_8ftsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3185, 3.257, 4.10973)
+
+[node name="HurtArea" parent="." instance=ExtResource("5_y1lhb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4582, 0.116214, -2.00198)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
+shape = SubResource("BoxShape3D_c7r8b")

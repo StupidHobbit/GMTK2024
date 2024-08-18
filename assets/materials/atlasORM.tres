@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cfe31mybgvxeh" path="res://assets/textures/atlas_orm.png" id="4_buwxh"]
 
 [resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
 albedo_texture = ExtResource("1_n6fr5")
 orm_texture = ExtResource("4_buwxh")
 emission_enabled = true
