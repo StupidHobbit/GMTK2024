@@ -6,6 +6,9 @@ const SHOW_DELAY: int = 10
 @onready var shape: CapsuleShape3D = $CollisionShape3D.shape
 @onready var mesh: CapsuleMesh = $MeshInstance3D.mesh
 
+@onready var handle1: Marker3D = $Handles/Handle1
+@onready var handle2: Marker3D = $Handles/Handle2
+
 @export var length: float = 1:
 	set(new_value):
 		length = new_value
@@ -24,6 +27,8 @@ func _ready() -> void:
 		$MeshInstance3D.visible = false
 		
 		Globals.add_scale_watcher(on_scale_update)
+		shape.radius = 0.2 * Globals.scale
+		mesh.radius = 0.02 * Globals.scale
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -60,3 +65,17 @@ func on_interact(player: Character):
 	player.lc_dest = to_global(dest)
 	
 	player.ledge_climbing = true
+
+func on_marker_move() -> void:
+	var pos1 = handle1.position
+	var pos2 = handle2.position
+	
+	if pos1 == pos2:
+		print("handles overlap, skipping update")
+	
+	var center = (pos1 + pos2) / 2
+	var dir = Vector3.UP.cross(pos1 - pos2)
+	var up = -dir.cross(pos1 - pos2)
+	
+	length = (pos1 - pos2).length()
+	self.look_at_from_position(center, center + dir, up)
