@@ -14,7 +14,8 @@ height = 1.7
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_abrjf"]
 height = 1.7
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mwu8b"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qvg1i"]
+height = 0.37
 
 [sub_resource type="Animation" id="Animation_rsuby"]
 length = 0.001
@@ -58,11 +59,11 @@ mesh = SubResource("CapsuleMesh_abrjf")
 skeleton = NodePath("../..")
 
 [node name="HurtBoxComponent" parent="CollisionShape3D" node_paths=PackedStringArray("health") instance=ExtResource("11_hti3i")]
-visible = false
 health = NodePath("../../HealthComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D/HurtBoxComponent"]
-shape = SubResource("CapsuleShape3D_mwu8b")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.322246, 0)
+shape = SubResource("CylinderShape3D_qvg1i")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
