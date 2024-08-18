@@ -26,10 +26,7 @@ class_name LaunchPad
 	set(new_value):
 		dir = new_value
 		if is_node_ready():
-			var target = to_local($RayCast3D.position + dir)
-			$RayCast3D.target_position = target
-	get():
-		return dir
+			$VisualDir.target_position = dir
 
 func _ready() -> void:
 	shape.radius = radius
