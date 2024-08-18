@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dsij41hnpjqsl"
-path="res://.godot/imported/GMTK24_mesh_CDplayer.glb-b28889ca00719f5fd5afac0c3997514c.scn"
+uid="uid://x0bg34tja0mn"
+path="res://.godot/imported/GMTK24_mesh_bookshelf_big.glb-26e6ee93de5ec14bb2d8f38a91bda0be.scn"
 
 [deps]
 
-source_file="res://assets/3DModel/TV/GMTK24_mesh_CDplayer.glb"
-dest_files=["res://.godot/imported/GMTK24_mesh_CDplayer.glb-b28889ca00719f5fd5afac0c3997514c.scn"]
+source_file="res://assets/3DModel/GMTK24_mesh_bookshelf_big.glb"
+dest_files=["res://.godot/imported/GMTK24_mesh_bookshelf_big.glb-26e6ee93de5ec14bb2d8f38a91bda0be.scn"]
 
 [params]
 

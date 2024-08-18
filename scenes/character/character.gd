@@ -55,12 +55,6 @@ var lc_anim_time: float = 1
 var launchpads: Array[LaunchPad] = []
 var launchpad_timer: float = 0
 
-# speed lines
-
-var SPEEDLINE_LIMIT_LOW = 15
-var SPEEDLINE_LIMIT_HIGH = 20
-var SPEEDLINE_MAX_ALPHA = 0.3
-
 # children shortcuts
 
 @onready var camera = $Camera3D
@@ -93,7 +87,6 @@ func _ready():
 	health_component.health_depleted.connect(on_health_depleted)
 	
 	start_handle_input()
-	Globals.scale = current_scale
 
 func start_handle_input():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -128,14 +121,6 @@ func _physics_process(delta: float):
 	apply_dash(delta)
 	move_and_slide()
 	launchpad_timer = max(0, launchpad_timer - delta)
-	
-	var speedline_weight = inverse_lerp(
-		SPEEDLINE_LIMIT_LOW * Globals.scale,
-		SPEEDLINE_LIMIT_HIGH * Globals.scale,
-		velocity.length()
-	)
-	speedline_weight = clamp(speedline_weight, 0, 1)
-	$Speedlines.modulate.a = lerp(0.0, SPEEDLINE_MAX_ALPHA, speedline_weight)
 
 func climb(delta: float):
 	var dir = lc_dest - lc_start

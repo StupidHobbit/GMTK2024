@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://df786hr5jwamj"
-path="res://.godot/imported/GMTK24_mesh_gamepad.glb-5b607cca47b91658452388e50eb4cd60.scn"
+uid="uid://ctnu71iukjh2"
+path="res://.godot/imported/GMTK24_mesh_chair.glb-6e6ee6e25e57a55aa10ff0b1b67a54f7.scn"
 
 [deps]
 
-source_file="res://assets/3DModel/TV/GMTK24_mesh_gamepad.glb"
-dest_files=["res://.godot/imported/GMTK24_mesh_gamepad.glb-5b607cca47b91658452388e50eb4cd60.scn"]
+source_file="res://assets/3DModel/GMTK24_mesh_chair.glb"
+dest_files=["res://.godot/imported/GMTK24_mesh_chair.glb-6e6ee6e25e57a55aa10ff0b1b67a54f7.scn"]
 
 [params]
 

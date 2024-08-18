@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dc5vf3g1bfkit"
-path="res://.godot/imported/GMTK24_mesh_bookshelf_middle.glb-5afa29726e14bb8340d228807382e711.scn"
+uid="uid://c1oyuwfjqr4tl"
+path="res://.godot/imported/GMTK24_mesh_desk.glb-1ca5805d2e51cde9ac515ebaa395fbb5.scn"
 
 [deps]
 
-source_file="res://assets/3DModel/Furniture/GMTK24_mesh_bookshelf_middle.glb"
-dest_files=["res://.godot/imported/GMTK24_mesh_bookshelf_middle.glb-5afa29726e14bb8340d228807382e711.scn"]
+source_file="res://assets/3DModel/GMTK24_mesh_desk.glb"
+dest_files=["res://.godot/imported/GMTK24_mesh_desk.glb-1ca5805d2e51cde9ac515ebaa395fbb5.scn"]
 
 [params]
 
