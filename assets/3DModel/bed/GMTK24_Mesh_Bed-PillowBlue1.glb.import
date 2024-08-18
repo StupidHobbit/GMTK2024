@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cew3kay248tvh"
-path="res://.godot/imported/GMTK24_Mesh_Bed-v1.glb-309ebcbe85961a9909f17f8ff4e75b9b.scn"
+uid="uid://bnxng17mcr10"
+path="res://.godot/imported/GMTK24_Mesh_Bed-PillowBlue1.glb-6ac999ba18a42e386936a8ad7fb35c2e.scn"
 
 [deps]
 
-source_file="res://assets/3DModel/GMTK24_Mesh_Bed-v1.glb"
-dest_files=["res://.godot/imported/GMTK24_Mesh_Bed-v1.glb-309ebcbe85961a9909f17f8ff4e75b9b.scn"]
+source_file="res://assets/3DModel/bed/GMTK24_Mesh_Bed-PillowBlue1.glb"
+dest_files=["res://.godot/imported/GMTK24_Mesh_Bed-PillowBlue1.glb-6ac999ba18a42e386936a8ad7fb35c2e.scn"]
 
 [params]
 
