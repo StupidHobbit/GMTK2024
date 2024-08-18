@@ -1,12 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://bt0qh4fkhygic"]
+[gd_scene load_steps=25 format=3 uid="uid://bt0qh4fkhygic"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_8m1dt"]
-[ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/Ledge.tscn" id="2_1d4u6"]
-[ext_resource type="PackedScene" uid="uid://bygxa3eo5e8m1" path="res://scenes/gmtk24_mesh_blockingLevel_GodotScene1.tscn" id="3_8ifyh"]
-[ext_resource type="PackedScene" uid="uid://djs73tajvjljq" path="res://assets/3DModel/gmtk2024_blocking-accurateGodot.glb" id="4_bvgk2"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/Ledge.tscn" id="2_1d4u6"]
+[ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_ilsow"]
 [ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="5_ey6va"]
-[ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="6_rvc0t"]
-[ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="7_uah8p"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/CheckPoint.tscn" id="6_rvc0t"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/HurtArea.tscn" id="7_uah8p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -44,7 +43,7 @@ size = Vector2(100, 100)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b7hci"]
 resource_local_to_scene = true
 radius = 0.103944
-height = 4.48223
+height = 3.76465
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_535x5"]
 albedo_color = Color(0.13, 1, 0.6085, 1)
@@ -53,7 +52,7 @@ albedo_color = Color(0.13, 1, 0.6085, 1)
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_535x5")
 radius = 0.02
-height = 4.48223
+height = 3.76465
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q55lt"]
 resource_local_to_scene = true
@@ -91,7 +90,7 @@ height = 0.675935
 [sub_resource type="BoxShape3D" id="BoxShape3D_blmu7"]
 size = Vector3(100, 1, 100)
 
-[node name="Test2" type="Node3D"]
+[node name="Test3" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -112,7 +111,7 @@ mesh = SubResource("PlaneMesh_mjsou")
 mesh = SubResource("PlaneMesh_mjsou")
 
 [node name="Character" parent="." node_paths=PackedStringArray("current_checkpoint") instance=ExtResource("1_8m1dt")]
-transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, -15.6087, 4.72062, 7.75498)
+transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, -12.2948, 2.92486, 4.37315)
 wall_min_slide_angle = 0.523599
 floor_stop_on_slope = false
 floor_constant_speed = true
@@ -125,8 +124,8 @@ scales = Array[float]([2.75, 0.5, 0.1])
 transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
 
 [node name="LedgeComponent" parent="Ledges" instance=ExtResource("2_1d4u6")]
-transform = Transform3D(1, 1.01067e-06, -2.33995e-07, -1.01067e-06, 1, 2.1098e-11, 2.33995e-07, -2.08615e-11, 1, 5.24521e-06, 0, -4.76837e-06)
-length = 4.48223
+transform = Transform3D(0.999838, 0.0104434, -0.0146855, -0.0104445, 0.999945, 1.3256e-06, 0.0146847, 0.000152057, 0.999892, -0.362342, 0.0197227, 1.01461)
+length = 3.76465
 
 [node name="CollisionShape3D" parent="Ledges/LedgeComponent" index="0"]
 shape = SubResource("CapsuleShape3D_b7hci")
@@ -135,10 +134,10 @@ shape = SubResource("CapsuleShape3D_b7hci")
 mesh = SubResource("CapsuleMesh_xlsi5")
 
 [node name="Handle1" parent="Ledges/LedgeComponent/Handles" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.77365, 2.12608, 3.45567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72903, 2.12608, 4.17368)
 
 [node name="Handle2" parent="Ledges/LedgeComponent/Handles" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.75888, 2.12568, 7.93788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7719, 2.16506, 7.93788)
 
 [node name="LedgeComponent3" parent="Ledges" instance=ExtResource("2_1d4u6")]
 transform = Transform3D(0.999787, 0.0103592, -0.0178355, -0.0103609, 0.999946, 1.60996e-06, 0.0178345, 0.000183181, 0.999841, -1.56791, 0.0219316, 1.32138)
@@ -220,15 +219,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87199, 4.10262, -15.8328)
 [node name="Handle2" parent="Ledges/LedgeComponent2/Handles" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.56916, 4.10472, -15.2285)
 
-[node name="GMTK24_Mesh_BlockingLevel" parent="." instance=ExtResource("3_8ifyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -17.5845, -2)
-
-[node name="gmtk2024_blocking-accurateGodot" parent="." instance=ExtResource("4_bvgk2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6882, 0, 1.47842)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+
+[node name="gmtk2024_blocking-accurateGodot" parent="CanvasLayer" instance=ExtResource("3_ilsow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4115, 0, 1.48366)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -243,6 +239,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.641, 4.50621, 4.7986)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1159, 0.116209, 1.45452)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38203, 0)
 shape = SubResource("BoxShape3D_blmu7")
 
 [editable path="Ledges/LedgeComponent"]

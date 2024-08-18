@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://fi0b8xr5kgty"]
 
 [ext_resource type="PackedScene" uid="uid://bab2ehk2n1epn" path="res://assets/3DModel/GMTK24_Mesh_BlockingLevel.glb" id="1_n3utv"]
-[ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/Ledge.tscn" id="2_u3bgc"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/Ledge.tscn" id="2_u3bgc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cvpd"]
 albedo_color = Color(0.3512, 0.0795037, 0.0562071, 1)

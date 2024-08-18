@@ -1,0 +1,153 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhb3fdpcoj15d"]
+
+[ext_resource type="PackedScene" uid="uid://djs73tajvjljq" path="res://assets/3DModel/gmtk2024_blocking-accurateGodot.glb" id="1_sfmc8"]
+[ext_resource type="Material" uid="uid://q3gqdmet2m52" path="res://assets/materials/atlasORM.tres" id="2_rduor"]
+[ext_resource type="PackedScene" uid="uid://mcb4vcr3tbbl" path="res://assets/3DModel/Books/GMTK24_Mesh_Book1.glb" id="3_oweg2"]
+[ext_resource type="PackedScene" uid="uid://c5damh7r03iwt" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieArietty.glb" id="4_nayni"]
+[ext_resource type="PackedScene" uid="uid://fodl5tadlg4f" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieAvatar.glb" id="5_geym2"]
+[ext_resource type="PackedScene" uid="uid://dgfspok2h4khv" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieChihiro.glb" id="6_8u4uo"]
+[ext_resource type="PackedScene" uid="uid://cms7gjtf8tx62" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieET.glb" id="7_xaasr"]
+[ext_resource type="PackedScene" uid="uid://ciskn2wqm1qlm" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieIO.glb" id="8_mwcwk"]
+[ext_resource type="PackedScene" uid="uid://b8c1l8kfhkl3b" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieJaws.glb" id="9_4o3s2"]
+[ext_resource type="PackedScene" uid="uid://6b6x8ax2vogk" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieTitanic.glb" id="10_wnn6q"]
+[ext_resource type="PackedScene" uid="uid://b80mufpg6i21v" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieTotoro.glb" id="11_r85cf"]
+[ext_resource type="PackedScene" uid="uid://cixdx50c2ed5y" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieZootopia.glb" id="12_713sy"]
+[ext_resource type="PackedScene" uid="uid://cq6bwx1ujri8y" path="res://assets/3DModel/GMTK24_Mesh_JumpPadAnim.glb" id="13_d8h1r"]
+[ext_resource type="PackedScene" uid="uid://cekd0g05qolce" path="res://assets/3DModel/Books/GMTK24_Mesh_Book2.glb" id="14_g2b0v"]
+
+[node name="gmtk2024_blocking-accurateGodot" instance=ExtResource("1_sfmc8")]
+
+[node name="GMTK24_mesh_drawer" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_desk" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_chair" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_bookshelf_middle" parent="." index="4"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Lit" parent="." index="5"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="pantsOnTheBed" parent="." index="6"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_TVtable" parent="." index="10"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_TV" parent="." index="11"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_Mesh_Book1" parent="GMTK24_Mesh_BlockingLevel" index="115" instance=ExtResource("3_oweg2")]
+transform = Transform3D(0.990459, 0, 0.137808, 0, 1, 0, -0.137808, 0, 0.990459, 3.12972, 4.06246, -11.2056)
+
+[node name="clothesOnBed" parent="." index="48"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="clothesOnBed2" parent="." index="50"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="clothesOnBed3" parent="." index="52"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="clothesOnBed4" parent="." index="54"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin" parent="." index="56"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin_001" parent="." index="57"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin_002" parent="." index="58"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin_003" parent="." index="59"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin_004" parent="." index="60"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin_005" parent="." index="61"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Dragon" parent="." index="68"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Dragon_001" parent="." index="69"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Blahaj" parent="." index="72"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="BlahajEYE" parent="." index="74"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="eye" parent="." index="75"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="yeux" parent="." index="76"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Blahaj_001" parent="." index="77"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_006" parent="." index="78"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="fliyer" parent="." index="79"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="lamp" parent="." index="80"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="mouchoir" parent="." index="82"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="tabledeChevet" parent="." index="85"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_Mesh_MovieArietty" parent="." index="87" instance=ExtResource("4_nayni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1435, 0.193492, 3.68322)
+
+[node name="GMTK24_Mesh_MovieAvatar" parent="." index="88" instance=ExtResource("5_geym2")]
+transform = Transform3D(0.983841, 0, -0.179043, 0, 1, 0, 0.179043, 0, 0.983841, 1.17043, 0.193492, 2.2162)
+
+[node name="GMTK24_Mesh_MovieChihiro" parent="." index="89" instance=ExtResource("6_8u4uo")]
+transform = Transform3D(0.898909, 0, 0.438136, 0, 1, 0, -0.438136, 0, 0.898909, 1.60846, 0.283061, -0.21681)
+
+[node name="GMTK24_Mesh_MovieET" parent="." index="90" instance=ExtResource("7_xaasr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59146, 0.193492, -0.183194)
+
+[node name="GMTK24_Mesh_MovieIO" parent="." index="91" instance=ExtResource("8_mwcwk")]
+transform = Transform3D(0.995924, -0.090198, 0, 0.090198, 0.995924, 0, 0, 0, 1, 0.535551, 0.164172, 3.42817)
+
+[node name="GMTK24_Mesh_MovieJaws" parent="." index="92" instance=ExtResource("9_4o3s2")]
+transform = Transform3D(0.52695, -0.364621, -0.767708, -0.072036, 0.880884, -0.467818, 0.846838, 0.301819, 0.437916, 1.93005, 0.634344, -0.403475)
+
+[node name="GMTK24_Mesh_MovieTitanic" parent="." index="93" instance=ExtResource("10_wnn6q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.951081, 0.193492, 0.478326)
+
+[node name="GMTK24_Mesh_MovieTotoro" parent="." index="94" instance=ExtResource("11_r85cf")]
+transform = Transform3D(0.525264, 0, 0.850939, 0, 1, 0, -0.850939, 0, 0.525264, 2.03924, 0.193492, 4.42981)
+
+[node name="GMTK24_Mesh_MovieZootopia" parent="." index="95" instance=ExtResource("12_713sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66319, 0.193492, 1.00826)
+
+[node name="GMTK24_Mesh_MovieArietty2" parent="." index="96" instance=ExtResource("4_nayni")]
+transform = Transform3D(0.858647, -0.511619, 0.00332758, 0, -0.00829256, -0.78142, 0.512568, 0.857058, -0.00557432, 4.40523, 1.55606, 3.82091)
+
+[node name="GMTK24_Mesh_MovieTitanic2" parent="." index="97" instance=ExtResource("10_wnn6q")]
+transform = Transform3D(0.858647, -0.511619, 0.00332758, 0, -0.00829256, -0.78142, 0.512568, 0.857058, -0.00557432, 4.3273, 1.55508, 3.95146)
+
+[node name="GMTK24_Mesh_MovieTotoro2" parent="." index="98" instance=ExtResource("11_r85cf")]
+transform = Transform3D(0.858647, -0.511619, 0.00332758, 0, -0.00829256, -0.78142, 0.512568, 0.857058, -0.00557432, 4.25432, 1.55415, 4.07372)
+
+[node name="GMTK24_Mesh_JumpPadAnim" parent="." index="99" instance=ExtResource("13_d8h1r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31866, 0.565163, -1.5774)
+
+[node name="GMTK24_Mesh_Book2" parent="." index="100" instance=ExtResource("14_g2b0v")]
+transform = Transform3D(0.996626, 0, -0.0820777, 0, 1, 0, 0.0820777, 0, 0.996626, 3.11397, 1.53749, -11.5698)

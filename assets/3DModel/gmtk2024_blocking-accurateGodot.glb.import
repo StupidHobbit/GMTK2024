@@ -31,6 +31,101 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Baked_002": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Baked_002.tres"
+},
+"GMTK24_Mat_Atlas": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/GMTK24_Mat_Atlas.tres"
+},
+"GMTK24_texture": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/GMTK24_texture.tres"
+},
+"GMTK24_texture.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/GMTK24_texture.001.tres"
+},
+"GMTK24_texture.002": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/GMTK24_texture.002.tres"
+},
+"GMTK24_texture.003": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/GMTK24_texture.003.tres"
+},
+"GMTK24_texture.004": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/GMTK24_texture.004.tres"
+},
+"Mat_002": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Mat_002.tres"
+},
+"Material_004": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_004.tres"
+},
+"Material_0042": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_0042.tres"
+},
+"Material_1": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_1.tres"
+},
+"Material_11": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_11.tres"
+},
+"Material_12": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_12.tres"
+},
+"Material_13": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_13.tres"
+},
+"Material_14": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_14.tres"
+},
+"Material_15": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_15.tres"
+},
+"Material_17": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_17.tres"
+},
+"Material_5": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_5.tres"
+},
+"Material_6": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_6.tres"
+},
+"Material_7": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_7.tres"
+},
+"Material_9": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/Material_9.tres"
+},
+"initialShadingGroup_001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/initialShadingGroup_001.tres"
+},
+"lambert2_003": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/lambert2_003.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

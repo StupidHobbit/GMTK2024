@@ -60,7 +60,7 @@ skeleton = NodePath("../..")
 health = NodePath("../../HealthComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D/HurtBoxComponent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.322246, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.618598, 0)
 shape = SubResource("CylinderShape3D_qvg1i")
 
 [node name="PadDetector" type="Area3D" parent="CollisionShape3D"]

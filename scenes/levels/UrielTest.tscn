@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_ij6ps"]
 [ext_resource type="PackedScene" uid="uid://641j4wcuglse" path="res://scenes/boxing/box.tscn" id="3_3wqja"]
 [ext_resource type="PackedScene" uid="uid://bygxa3eo5e8m1" path="res://scenes/gmtk24_mesh_blockingLevel_GodotScene1.tscn" id="3_qgs5m"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/LaunchPad.tscn" id="4_di7lq"]
+[ext_resource type="PackedScene" uid="uid://bm6267qak31jk" path="res://scenes/interactables/LaunchPad.tscn" id="4_di7lq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -38,7 +38,7 @@ albedo_texture = SubResource("NoiseTexture2D_pg2hx")
 material = SubResource("StandardMaterial3D_t6hod")
 size = Vector2(100, 100)
 
-[node name="Test2" type="Node3D"]
+[node name="Test3" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)

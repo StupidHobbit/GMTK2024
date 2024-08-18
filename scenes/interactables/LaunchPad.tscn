@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://5qjf2oyi5lcu"]
+[gd_scene load_steps=5 format=3 uid="uid://bm6267qak31jk"]
 
 [ext_resource type="Script" path="res://scenes/interactables/launch_pad.gd" id="1_h87am"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_shubk"]
 resource_local_to_scene = true
-height = 0.1
-radius = 1.0
+height = 0.01
+radius = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spnjt"]
 albedo_color = Color(1, 0.41, 0.882, 1)
@@ -13,9 +13,9 @@ albedo_color = Color(1, 0.41, 0.882, 1)
 [sub_resource type="CylinderMesh" id="CylinderMesh_ta55d"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_spnjt")
-top_radius = 1.0
-bottom_radius = 1.0
-height = 0.1
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.01
 cap_bottom = false
 
 [node name="LaunchPad" type="Area3D"]
