@@ -87,6 +87,7 @@ func _ready():
 	health_component.health_depleted.connect(on_health_depleted)
 	
 	start_handle_input()
+	Globals.scale = current_scale
 
 func start_handle_input():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
