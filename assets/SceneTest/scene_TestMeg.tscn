@@ -13,4 +13,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118588, 0, 0.0410524)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.961534, 0, 0.588237)
 
 [node name="GMTK24_Mesh_NightTable" parent="." instance=ExtResource("3_qop22")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57815, 0, -3.23623)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.431992, 0, -2.44253)
