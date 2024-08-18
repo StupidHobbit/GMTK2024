@@ -1,11 +1,11 @@
 [gd_scene load_steps=25 format=3 uid="uid://bt0qh4fkhygic"]
 
-[ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_8m1dt"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/Ledge.tscn" id="2_1d4u6"]
-[ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_ilsow"]
-[ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="5_ey6va"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/CheckPoint.tscn" id="6_rvc0t"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/HurtArea.tscn" id="7_uah8p"]
+[ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_oijy8"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/Ledge.tscn" id="2_dmerr"]
+[ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_0pgsn"]
+[ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="4_u13cn"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -110,7 +110,7 @@ mesh = SubResource("PlaneMesh_mjsou")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_mjsou")
 
-[node name="Character" parent="." node_paths=PackedStringArray("current_checkpoint") instance=ExtResource("1_8m1dt")]
+[node name="Character" parent="." node_paths=PackedStringArray("current_checkpoint") instance=ExtResource("1_oijy8")]
 transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, -12.2948, 2.92486, 4.37315)
 wall_min_slide_angle = 0.523599
 floor_stop_on_slope = false
@@ -123,7 +123,7 @@ scales = Array[float]([2.75, 0.5, 0.1])
 [node name="Ledges" type="Node3D" parent="."]
 transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
 
-[node name="LedgeComponent" parent="Ledges" instance=ExtResource("2_1d4u6")]
+[node name="LedgeComponent" parent="Ledges" instance=ExtResource("2_dmerr")]
 transform = Transform3D(0.999838, 0.0104434, -0.0146855, -0.0104445, 0.999945, 1.3256e-06, 0.0146847, 0.000152057, 0.999892, -0.362342, 0.0197227, 1.01461)
 length = 3.76465
 
@@ -139,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72903, 2.12608, 4.17368)
 [node name="Handle2" parent="Ledges/LedgeComponent/Handles" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7719, 2.16506, 7.93788)
 
-[node name="LedgeComponent3" parent="Ledges" instance=ExtResource("2_1d4u6")]
+[node name="LedgeComponent3" parent="Ledges" instance=ExtResource("2_dmerr")]
 transform = Transform3D(0.999787, 0.0103592, -0.0178355, -0.0103609, 0.999946, 1.60996e-06, 0.0178345, 0.000183181, 0.999841, -1.56791, 0.0219316, 1.32138)
 length = 0.484887
 
@@ -155,7 +155,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.43619, 2.14518, 7.01792)
 [node name="Handle2" parent="Ledges/LedgeComponent3/Handles" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44324, 2.15016, 7.50273)
 
-[node name="LedgeComponent6" parent="Ledges" instance=ExtResource("2_1d4u6")]
+[node name="LedgeComponent6" parent="Ledges" instance=ExtResource("2_dmerr")]
 transform = Transform3D(0.999787, 0.0103592, -0.0178355, -0.0103609, 0.999946, 1.60996e-06, 0.0178345, 0.000183181, 0.999841, -1.56791, 0.0219316, 1.32138)
 length = 0.484887
 
@@ -171,7 +171,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.43619, 2.14518, 7.01792)
 [node name="Handle2" parent="Ledges/LedgeComponent6/Handles" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44324, 2.15016, 7.50273)
 
-[node name="LedgeComponent4" parent="Ledges" instance=ExtResource("2_1d4u6")]
+[node name="LedgeComponent4" parent="Ledges" instance=ExtResource("2_dmerr")]
 transform = Transform3D(-0.0148761, 1.02584e-05, -0.999889, -0.00537696, 0.999985, 9.02566e-05, 0.999875, 0.00537771, -0.0148759, -1.32301, 0.0235095, 1.66251)
 length = 0.691676
 
@@ -187,7 +187,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75359, 2.14741, 7.01831)
 [node name="Handle2" parent="Ledges/LedgeComponent4/Handles" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44521, 2.15113, 7.0103)
 
-[node name="LedgeComponent5" parent="Ledges" instance=ExtResource("2_1d4u6")]
+[node name="LedgeComponent5" parent="Ledges" instance=ExtResource("2_dmerr")]
 transform = Transform3D(-0.0148761, 1.02584e-05, -0.999889, -0.00537696, 0.999985, 9.02566e-05, 0.999875, 0.00537771, -0.0148759, -1.32301, 0.0235095, 1.66251)
 length = 0.691676
 
@@ -203,7 +203,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75359, 2.14741, 7.01831)
 [node name="Handle2" parent="Ledges/LedgeComponent5/Handles" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44521, 2.15113, 7.0103)
 
-[node name="LedgeComponent2" parent="Ledges" instance=ExtResource("2_1d4u6")]
+[node name="LedgeComponent2" parent="Ledges" instance=ExtResource("2_dmerr")]
 transform = Transform3D(0.895492, 0.00287239, 0.445069, -0.00318763, 0.999995, -4.01749e-05, -0.445067, -0.00138274, 0.895496, 21.2306, 1.97587, -0.884353)
 length = 0.675935
 
@@ -223,19 +223,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.56916, 4.10472, -15.2285)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
 
-[node name="gmtk2024_blocking-accurateGodot" parent="CanvasLayer" instance=ExtResource("3_ilsow")]
+[node name="gmtk2024_blocking-accurateGodot" parent="CanvasLayer" instance=ExtResource("3_0pgsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4115, 0, 1.48366)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(367, 231)
 scale = Vector2(5, 4.785)
-texture = ExtResource("5_ey6va")
+texture = ExtResource("4_u13cn")
 
-[node name="CheckPoint" parent="." instance=ExtResource("6_rvc0t")]
+[node name="CheckPoint" parent="." instance=ExtResource("5_wkxdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.641, 4.50621, 4.7986)
 
-[node name="HurtArea" parent="." instance=ExtResource("7_uah8p")]
+[node name="HurtArea" parent="." instance=ExtResource("6_y2sbr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1159, 0.116209, 1.45452)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
