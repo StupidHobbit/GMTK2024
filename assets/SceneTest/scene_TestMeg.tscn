@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmx5bljcnidg4"]
+[gd_scene load_steps=7 format=3 uid="uid://bmx5bljcnidg4"]
 
 [ext_resource type="PackedScene" uid="uid://cew3kay248tvh" path="res://assets/3DModel/bed/GMTK24_Mesh_Bed-withAll.glb" id="1_xt7og"]
 [ext_resource type="PackedScene" uid="uid://c5damh7r03iwt" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieArietty.glb" id="2_8l4w5"]
 [ext_resource type="PackedScene" uid="uid://e3hnk4wwike7" path="res://assets/3DModel/GMTK24_Mesh_NightTable.glb" id="3_qop22"]
 [ext_resource type="PackedScene" uid="uid://cq6bwx1ujri8y" path="res://assets/3DModel/GMTK24_Mesh_JumpPadAnim.glb" id="4_b34i8"]
+[ext_resource type="PackedScene" uid="uid://brdg1es3guwby" path="res://assets/3DModel/Toys/GMTK24_Mesh_Toy-Croco.glb" id="5_mkh17"]
+[ext_resource type="PackedScene" uid="uid://cbfsayekcjvjs" path="res://assets/3DModel/Toys/GMTK24_Mesh_Plush-Chicken.glb" id="6_ersui"]
 
 [node name="SceneTestMeg" type="Node3D"]
 
@@ -18,3 +20,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.431992, 0, -2.44253)
 
 [node name="GMTK24_Mesh_JumpPadAnim" parent="." instance=ExtResource("4_b34i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17873, 0, 0.325893)
+
+[node name="GMTK24_Mesh_Toy-Croco" parent="." instance=ExtResource("5_mkh17")]
+transform = Transform3D(-0.920879, 0, 0.389847, 0, 1, 0, -0.389847, 0, -0.920879, -2.18867, 0.699904, 0.222326)
+
+[node name="GMTK24_Mesh_Plush-Chicken" parent="." instance=ExtResource("6_ersui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.711686, -2.38419e-07, 1.83838)
