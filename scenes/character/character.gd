@@ -135,7 +135,7 @@ func _physics_process(delta: float):
 		velocity.length()
 	)
 	speedline_weight = clamp(speedline_weight, 0, 1)
-	$Speedlines.modulate.a = lerp(0.0, SPEEDLINE_MAX_ALPHA, speedline_weight)
+	$Camera3D/Interact2/Control/TextureRect.modulate.a = lerp(0.0, SPEEDLINE_MAX_ALPHA, speedline_weight)
 
 func climb(delta: float):
 	var dir = lc_dest - lc_start
@@ -306,7 +306,7 @@ func _get_current_speed_without_scale() -> float:
 	return SPEED
 
 func _process(delta: float):
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event: InputEvent):
 	if not handle_input:

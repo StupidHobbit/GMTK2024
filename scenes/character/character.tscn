@@ -18,6 +18,13 @@ height = 1.7
 height = 1.2
 radius = 0.55
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_lv8mh"]
+frames = 2
+speed_scale = 3.0
+frame_0/texture = ExtResource("9_8cxce")
+frame_1/texture = ExtResource("10_jh640")
+frame_1/duration = 1.0
+
 [sub_resource type="Animation" id="Animation_rsuby"]
 length = 0.001
 
@@ -41,20 +48,6 @@ _data = {
 "light": SubResource("Animation_vrowg"),
 "move": SubResource("Animation_1ts8f")
 }
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_yvw2k"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_8cxce")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_jh640")
-}],
-"loop": true,
-"name": &"speed_lines",
-"speed": 5.0
-}]
 
 [node name="Character" type="CharacterBody3D"]
 collision_layer = 2
@@ -100,15 +93,9 @@ script = ExtResource("2_psckv")
 
 [node name="Control" type="Control" parent="Camera3D/Interact2"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -116,11 +103,28 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="Camera3D/Interact2/Control"]
 custom_minimum_size = Vector2(0, -10)
-layout_mode = 0
-offset_top = 20.0
-offset_right = 40.0
-offset_bottom = 43.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -14.0
+offset_right = 36.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Interact"
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D/Interact2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_lv8mh")
 
 [node name="Holder" type="SpringArm3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -0.998754, -0.0499131, 0, 0.0499131, -0.998754, -0.0213728, -0.00767004, -0.0725299)
@@ -146,14 +150,6 @@ bus = &"SFX"
 
 [node name="FallAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_y6003")
-
-[node name="Speedlines" type="AnimatedSprite2D" parent="."]
-top_level = true
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_yvw2k")
-animation = &"speed_lines"
-autoplay = "speed_lines"
-centered = false
 
 [connection signal="area_entered" from="CollisionShape3D/PadDetector" to="." method="on_pad_entered"]
 [connection signal="area_exited" from="CollisionShape3D/PadDetector" to="." method="on_pad_exited"]
