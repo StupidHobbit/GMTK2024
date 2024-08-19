@@ -52,7 +52,7 @@ func can_interact(player: Character) -> bool:
 		# player needs to be under ledge
 		return false
 	
-	var cur_scale: int = pow(2, player.scale_index)
+	var cur_scale: int = roundi(pow(2, player.scale_index))
 	if (allowed_scales & cur_scale) == 0:
 		return false
 	
