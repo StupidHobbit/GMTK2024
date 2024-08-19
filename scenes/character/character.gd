@@ -8,6 +8,7 @@ class_name Character
 @export var RUNNING_SPEED = 10.0
 @export var SPEED_DAMPING = 4.0
 @export var CROUCHING_SPEED = 4.0
+@export var ZIPLINE_SPEED = 15.0
 @export var CROUCHING_DELTA = 0.5
 @export var CROUCHING_BOOST_SPEED = 13.0
 @export var CROUCHING_BOOST_COOLDOWN = 5.0
@@ -43,6 +44,9 @@ var examinated_item: Examinable
 var original_camera_near: float
 var original_interact_length: float
 
+# variables for zipline
+var current_zipline: Zipline
+
 # variables for ledge climbing
 
 var ledge_climbing: bool = false
@@ -63,7 +67,7 @@ var SPEEDLINE_MAX_ALPHA = 1.0
 
 # children shortcuts
 
-@onready var camera = $Camera3D
+@onready var camera: Camera3D = $Camera3D
 @onready var holder = $Camera3D/Holder
 @onready var anim_component = $character_animation
 @onready var walk_audio_stream_player = $WalkAudioStreamPlayer
@@ -116,18 +120,21 @@ func examine(item: Examinable, collision_rid: RID):
 
 func _physics_process(delta: float):
 	update_examination()
-	if ledge_climbing:
-		climb(delta)
-		apply_rotation()
-		return
 	update_scale()
 	if movement_disabled:
 		return
-	apply_vertical_movement(delta)
 	apply_rotation()
-	#apply_crouching(delta)
-	apply_horizontal_movement(delta)
-	apply_dash(delta)
+	
+	if Input.is_action_just_pressed("jump"):
+		stop_zipline()
+	
+	if ledge_climbing:
+		apply_ledge_climbing(delta)
+	elif current_zipline != null:
+		apply_zipline_move(delta)
+	else:
+		apply_vertical_movement(delta)
+		apply_horizontal_movement(delta)
 	move_and_slide()
 	launchpad_timer = max(0, launchpad_timer - delta)
 	
@@ -139,7 +146,7 @@ func _physics_process(delta: float):
 	speedline_weight = clamp(speedline_weight, 0, 1)
 	speedlines.modulate.a = lerp(0.0, SPEEDLINE_MAX_ALPHA, speedline_weight)
 
-func climb(delta: float):
+func apply_ledge_climbing(delta: float):
 	var dir = lc_dest - lc_start
 	var rel_dist = (position - lc_start).length() / dir.length()
 	var rel_delta = delta / lc_anim_time
@@ -152,8 +159,37 @@ func climb(delta: float):
 	
 	position += dir * rel_delta
 
+func apply_zipline_move(delta: float):
+	var camera_direction = -camera.global_transform.basis.z
+	var zipline_start_position = current_zipline.start_point.global_position
+	var zipline_end_position = current_zipline.end_point.global_position
+	var zipline_start_direction = zipline_start_position  - global_position
+	var zipline_end_direction = zipline_end_position - global_position
+	var target_position = zipline_start_position
+	if camera_direction.angle_to(zipline_start_direction) > camera_direction.angle_to(zipline_end_direction):
+		target_position = zipline_end_position
+	
+	var target_vector = target_position - global_position
+	if target_vector.length() < 0.1:
+		stop_zipline()
+		velocity = Vector3.ZERO
+		return
+		
+	velocity = target_vector.normalized() * ZIPLINE_SPEED
+	
+func stop_zipline():
+	if current_zipline == null:
+		return
+	time_from_last_on_floor = 0
+	current_zipline.stop_player_travel()
+	current_zipline = null
+
 func apply_vertical_movement(delta: float):
 	var jump_just_pressed = Input.is_action_just_pressed("jump")
+	
+	if jump_just_pressed:
+		time_from_last_jump_press = 0
+	time_from_last_jump_press += delta
 	
 	var jump_pressed = Input.is_action_pressed("jump")
 	
@@ -182,7 +218,7 @@ func apply_vertical_movement(delta: float):
 		
 		velocity.y -= gravity * delta * current_scale
 	
-	if jump_just_pressed and time_from_last_jump_press > jump_buffer:
+	if jump_pressed and time_from_last_jump_press < jump_buffer:
 		var jumped: bool = false
 		
 		if launchpad_timer <= 0:
@@ -195,10 +231,6 @@ func apply_vertical_movement(delta: float):
 		
 		if jumped and not jump_audio_player.playing:
 			jump_audio_player.play()
-	
-	if jump_just_pressed:
-		time_from_last_jump_press = 0
-	time_from_last_jump_press += delta
 
 func apply_rotation():
 	var rot = turn * PI / viewport_size
@@ -277,6 +309,8 @@ func update_scale():
 func on_health_depleted():
 	if current_checkpoint == null:
 		return
+		
+	health_component.reset()
 	position = current_checkpoint.position 
 
 func is_crouching()  -> bool:

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://boo7xq0mt4g6y"]
+
+[ext_resource type="Script" path="res://scenes/interactables/zipline/zipline.gd" id="1_d7fta"]
+
+[node name="Zipline" type="Node3D"]
+script = ExtResource("1_d7fta")

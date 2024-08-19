@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://deanbiw2gkqrq"]
+
+[ext_resource type="Script" path="res://scenes/interactables/zipline/zipline_part.gd" id="1_dfkdr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htbbi"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ovyhi"]
+material = SubResource("StandardMaterial3D_htbbi")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6j83a"]
+size = Vector3(0.2, 0.2, 0.5)
+
+[node name="ZiplinePart" type="Area3D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_dfkdr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.25)
+mesh = SubResource("CylinderMesh_ovyhi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+shape = SubResource("BoxShape3D_6j83a")
