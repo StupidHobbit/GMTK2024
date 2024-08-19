@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func start_player_travel(player: Character):
 	current_player = player
-	current_player.current_zipline = self
+	current_player.start_zipline(self)
 
 func stop_player_travel():
 	current_player = null

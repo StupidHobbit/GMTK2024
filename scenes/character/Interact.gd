@@ -1,5 +1,10 @@
 extends RayCast3D
 
+@export var interaction_buffer_time = 0.2
+var buffered_interactable: Interactable
+var time_from_last_interact_press: float
+var time_from_last_interactable: float
+
 var input_cleanup_regex = RegEx.new()
 var character: Character
 
@@ -24,11 +29,20 @@ func get_interactable() -> Interactable:
 func _process(delta):
 	if not character.handle_input:
 		return
+		
+	time_from_last_interact_press += delta
+	time_from_last_interactable += delta
+		
 	var interactable = get_interactable()
+	if interactable != null:
+		time_from_last_interactable = 0
+	if interactable == null and time_from_last_interactable < interaction_buffer_time:
+		interactable = buffered_interactable
 	
 	if interactable == null or not interactable.enabled:
 		hide_message()
 		return
+	buffered_interactable = interactable
 	var label = interactable.get_label()
 	if label == "":
 		hide_message()
@@ -38,7 +52,11 @@ func _process(delta):
 	show_message(label)
 	
 	if Input.is_action_just_pressed("interact"):
+		time_from_last_interact_press = 0
+	
+	if time_from_last_interact_press < interaction_buffer_time:
 		interactable.on_interact(character)
+	
 
 func show_message(msg: String, key: String = ""):
 	if key == "":
