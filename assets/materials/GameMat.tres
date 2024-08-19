@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cfb2ssx13206x"]
+
+[ext_resource type="Texture2D" uid="uid://dukndn6r6hydf" path="res://assets/3DModel/Movies/GameAtlas.png" id="1_hq0bp"]
+
+[resource]
+albedo_texture = ExtResource("1_hq0bp")
+roughness = 0.75
