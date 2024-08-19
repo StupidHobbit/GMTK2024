@@ -11,7 +11,7 @@ class_name LaunchPad
 @export var dir: Vector3 = Vector3.UP:
 	set(new_value):
 		dir = new_value
-		var matrix = global_transform.inverse()
+		var matrix = transform.inverse()
 		var target = matrix * dir - matrix * Vector3.ZERO
 		if is_node_ready():
 			$VisualDir.target_position = target

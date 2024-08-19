@@ -229,8 +229,6 @@ func apply_horizontal_movement(delta: float):
 		walk_audio_stream_player.stop()
 	
 	if direction:
-		var damping
-		
 		anim_component.move()
 		var dir: Vector3 = Vector3(velocity.x, 0, velocity.z)
 		var cur_speed: float = dir.length()
@@ -314,6 +312,7 @@ func _get_current_speed_without_scale() -> float:
 	return SPEED
 
 func _process(delta: float):
+	# for web build to properly capture the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event: InputEvent):
