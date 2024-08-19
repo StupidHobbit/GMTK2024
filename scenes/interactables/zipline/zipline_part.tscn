@@ -12,7 +12,7 @@ bottom_radius = 0.01
 height = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6j83a"]
-size = Vector3(0.2, 0.2, 0.5)
+size = Vector3(0.3, 0.3, 0.5)
 
 [node name="ZiplinePart" type="Area3D"]
 collision_layer = 8

@@ -29,6 +29,8 @@ class_name Character
 @export var scales: Array[float] = [1, 0.5, 0.25, 0.1]
 var scale_index: int = 0
 
+var change_direction_dot_limit = 0.9
+
 var time_from_last_jump_press: float = 100 
 var time_from_last_on_floor: float = 0 
 var time_from_last_crouching_boost: float = 0 
@@ -267,17 +269,25 @@ func apply_horizontal_movement(delta: float):
 	
 	if direction:
 		anim_component.move()
-		var dir: Vector3 = Vector3(velocity.x, 0, velocity.z)
-		var cur_speed: float = dir.length()
-		dir = dir.normalized()
-		if cur_speed > speed:
-			if is_on_floor():
+		var current_velocity: Vector3 = Vector3(velocity.x, 0, velocity.z)
+		var current_direction: Vector3 = current_velocity.normalized()
+		var cur_speed: float = max(current_velocity.length(), speed)
+		var dot = direction.dot(current_direction)
+		var new_horizontal_velocity: Vector3
+		if is_on_floor():
+			if cur_speed > speed:
 				cur_speed = move_toward(cur_speed, speed, SPEED_DAMPING * delta)
-				velocity.x = dir.x * cur_speed
-				velocity.z = dir.z * cur_speed
+			if dot < change_direction_dot_limit:
+				new_horizontal_velocity = direction * speed
+			else:
+				new_horizontal_velocity = direction * cur_speed
 		else:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
+			if current_velocity and dot < change_direction_dot_limit:
+				new_horizontal_velocity = current_velocity
+			else:
+				new_horizontal_velocity = direction * cur_speed
+		velocity.x = new_horizontal_velocity.x
+		velocity.z = new_horizontal_velocity.z
 	else:
 		anim_component.be_idle()
 		if is_on_floor():

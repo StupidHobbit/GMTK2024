@@ -12,15 +12,15 @@ const part_scene: PackedScene = preload("res://scenes/interactables/zipline/zipl
 var current_player: Character
 
 func _ready() -> void:
-	var current_pos = start_point.position
-	var end_pos = end_point.position
-	var zipline_length = (end_point.position - start_point.position).length()
+	var current_pos = start_point.global_position
+	var end_pos = end_point.global_position
+	var zipline_length = (end_pos - current_pos).length()
 	var direction = (end_pos - current_pos).normalized()
 	for i in range(zipline_length / part_length + 1):
 		var part: ZiplinePart = part_scene.instantiate()
 		add_child(part)
 		part.zipline = self
-		part.position = current_pos
+		part.global_position = current_pos
 		part.look_at(end_pos)
 		
 		current_pos += direction * part_length
