@@ -159,6 +159,11 @@ func apply_ledge_climbing(delta: float):
 	
 	position += dir * rel_delta
 
+func start_zipline(zipline: Zipline):
+	stop_zipline()
+	current_zipline = zipline
+	walk_audio_stream_player.stop()
+
 func apply_zipline_move(delta: float):
 	var camera_direction = -camera.global_transform.basis.z
 	var zipline_start_position = current_zipline.start_point.global_position
@@ -170,7 +175,7 @@ func apply_zipline_move(delta: float):
 		target_position = zipline_end_position
 	
 	var target_vector = target_position - global_position
-	if target_vector.length() < 0.1:
+	if target_vector.length() < current_scale * 0.3:
 		stop_zipline()
 		velocity = Vector3.ZERO
 		return
