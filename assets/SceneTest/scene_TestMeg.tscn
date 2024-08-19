@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cq6bwx1ujri8y" path="res://assets/3DModel/GMTK24_Mesh_JumpPadAnim.glb" id="4_b34i8"]
 [ext_resource type="PackedScene" uid="uid://brdg1es3guwby" path="res://assets/3DModel/Toys/GMTK24_Mesh_Toy-Croco.glb" id="5_mkh17"]
 [ext_resource type="PackedScene" uid="uid://cbfsayekcjvjs" path="res://assets/3DModel/Toys/GMTK24_Mesh_Plush-Chicken.glb" id="6_ersui"]
-[ext_resource type="PackedScene" uid="uid://dlq2f1qqtv8r" path="res://assets/3DModel/Toys/GMTK24_Mesh_Computer.glb" id="7_0wy10"]
-[ext_resource type="PackedScene" uid="uid://c7lmjsojmsvm3" path="res://assets/3DModel/Toys/GMTK24_Mesh_Window.glb" id="8_toiqi"]
+[ext_resource type="PackedScene" uid="uid://dlq2f1qqtv8r" path="res://assets/3DModel/furnitures/GMTK24_Mesh_Computer.glb" id="7_0wy10"]
+[ext_resource type="PackedScene" uid="uid://c7lmjsojmsvm3" path="res://assets/3DModel/GMTK24_Mesh_Window.glb" id="8_toiqi"]
 
 [node name="SceneTestMeg" type="Node3D"]
 

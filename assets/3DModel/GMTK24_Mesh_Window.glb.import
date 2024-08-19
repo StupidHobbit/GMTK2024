@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dlq2f1qqtv8r"
-path="res://.godot/imported/GMTK24_Mesh_Computer.glb-352d9ee3fd78725d06151535b998f8ec.scn"
+uid="uid://c7lmjsojmsvm3"
+path="res://.godot/imported/GMTK24_Mesh_Window.glb-2a245d346e166721945a049df7bea2dc.scn"
 
 [deps]
 
-source_file="res://assets/3DModel/Toys/GMTK24_Mesh_Computer.glb"
-dest_files=["res://.godot/imported/GMTK24_Mesh_Computer.glb-352d9ee3fd78725d06151535b998f8ec.scn"]
+source_file="res://assets/3DModel/GMTK24_Mesh_Window.glb"
+dest_files=["res://.godot/imported/GMTK24_Mesh_Window.glb-2a245d346e166721945a049df7bea2dc.scn"]
 
 [params]
 
