@@ -59,7 +59,7 @@ var launchpad_timer: float = 0
 
 var SPEEDLINE_LIMIT_LOW = 15
 var SPEEDLINE_LIMIT_HIGH = 20
-var SPEEDLINE_MAX_ALPHA = 0.3
+var SPEEDLINE_MAX_ALPHA = 1.0
 
 # children shortcuts
 
@@ -72,6 +72,7 @@ var SPEEDLINE_MAX_ALPHA = 0.3
 @onready var interact: RayCast3D = $Camera3D/Interact2
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var lp_image = $Camera3D/Interact2/Control/LaunchPadIndicator
+@onready var speedlines = $Camera3D/Interact2/Control/SpeedLines
 
 var current_scale: float:
 	get:
@@ -136,7 +137,7 @@ func _physics_process(delta: float):
 		velocity.length()
 	)
 	speedline_weight = clamp(speedline_weight, 0, 1)
-	$Camera3D/Interact2/Control/SpeedLines.modulate.a = lerp(0.0, SPEEDLINE_MAX_ALPHA, speedline_weight)
+	speedlines.modulate.a = lerp(0.0, SPEEDLINE_MAX_ALPHA, speedline_weight)
 
 func climb(delta: float):
 	var dir = lc_dest - lc_start

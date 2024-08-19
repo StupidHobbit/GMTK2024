@@ -34,7 +34,6 @@ rings = 16
 
 [node name="SmokeClouds" type="GPUParticles3D"]
 amount = 1600
-lifetime = 1.5
 fixed_fps = 0
 interpolate = false
 visibility_aabb = AABB(-8.6, 0, -15.3, 17.2, 0.2, 30.6)

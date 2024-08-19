@@ -126,6 +126,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AnimatedTexture_lv8mh")
+expand_mode = 1
 
 [node name="LaunchPadIndicator" type="TextureRect" parent="Camera3D/Interact2/Control"]
 visible = false

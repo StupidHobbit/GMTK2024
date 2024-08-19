@@ -1,24 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://tle17qkiuhpj"]
+[gd_scene load_steps=18 format=3 uid="uid://bt0qh4fkhygic"]
 
+[ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="1_jdqhb"]
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_oijy8"]
 [ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/Ledge.tscn" id="2_dmerr"]
 [ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_0pgsn"]
-[ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="3_i20k6"]
+[ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="4_u13cn"]
 [ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
 [ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="6_ef1m2"]
 [ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_5t1ig"]
-sky_material = SubResource("ProceduralSkyMaterial_qg2we")
-
-[sub_resource type="Environment" id="Environment_jnky0"]
-background_mode = 2
-sky = SubResource("Sky_5t1ig")
-tonemap_mode = 2
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_670vm"]
 
@@ -41,10 +30,42 @@ albedo_texture = SubResource("NoiseTexture2D_pg2hx")
 material = SubResource("StandardMaterial3D_t6hod")
 size = Vector2(100, 100)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_5t1ig"]
+sky_material = SubResource("ProceduralSkyMaterial_qg2we")
+
+[sub_resource type="Environment" id="Environment_jnky0"]
+background_mode = 2
+sky = SubResource("Sky_5t1ig")
+tonemap_mode = 2
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_blmu7"]
 size = Vector3(17.2, 0.4, 30.6)
 
 [node name="Test4" type="Node3D"]
+
+[node name="to_remove?" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="to_remove?"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="to_remove?/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_670vm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="to_remove?/StaticBody3D"]
+mesh = SubResource("PlaneMesh_mjsou")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="to_remove?/StaticBody3D"]
+mesh = SubResource("PlaneMesh_mjsou")
+
+[node name="Sprite2D" type="Sprite2D" parent="to_remove?"]
+visible = false
+position = Vector2(367, 231)
+scale = Vector2(5, 4.785)
+texture = ExtResource("4_u13cn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -53,20 +74,102 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jnky0")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-visible = false
+[node name="gmtk2024_blocking-accurateGodot" parent="." instance=ExtResource("3_0pgsn")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_670vm")
+[node name="HurtArea" parent="gmtk2024_blocking-accurateGodot" node_paths=PackedStringArray("vfx") instance=ExtResource("6_y2sbr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74972, 0, -4.75839)
+vfx = NodePath("SmokeClouds")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("PlaneMesh_mjsou")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gmtk2024_blocking-accurateGodot/HurtArea"]
+shape = SubResource("BoxShape3D_blmu7")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("PlaneMesh_mjsou")
+[node name="SmokeClouds" parent="gmtk2024_blocking-accurateGodot/HurtArea" instance=ExtResource("6_ef1m2")]
 
-[node name="Character" parent="." node_paths=PackedStringArray("current_checkpoint") instance=ExtResource("1_oijy8")]
-transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, -1.53045, 0.116211, 2.8304)
+[node name="Ledges" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
+
+[node name="LedgeComponent" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
+transform = Transform3D(-0.999982, 9.02667e-05, 0.00591623, 9.02651e-05, 1, -5.34033e-07, -0.00591623, 5.79803e-12, -0.999981, 1.14596, 0.0225546, 11.4689)
+length = 3.88694
+allowed_scales = 30
+
+[node name="To_move1" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
+transform = Transform3D(0.999786, 0.0103592, -0.0178355, -0.0103609, 0.999945, 1.60996e-06, 0.0178345, 0.000183181, 0.99984, -0.135758, 0.18036, 11.9234)
+length = 0.484887
+enabled = false
+
+[node name="To_move2" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
+transform = Transform3D(-0.0148761, 1.02585e-05, -0.999889, -0.00537696, 0.999984, 9.02567e-05, 0.999875, 0.0053777, -0.0148759, 0.057694, 0.224509, 12.2442)
+length = 0.691676
+enabled = false
+
+[node name="LedgeComponent2" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
+transform = Transform3D(0.895492, 0.00287239, 0.445069, -0.00318763, 0.999995, -4.01749e-05, -0.445067, -0.00138274, 0.895496, 22.6839, 1.97416, 9.52747)
+length = 0.675935
+allowed_scales = 28
+
+[node name="LaunchPads" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+
+[node name="LaunchPad2" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("1_jdqhb")]
+transform = Transform3D(1, 0, 0, 0, 0.848279, -0.529549, 0, 0.529549, 0.848279, -8.16466, 3.33787, -15.9408)
+dir = Vector3(0, 5.725, 1)
+
+[node name="LaunchPad" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("1_jdqhb")]
+transform = Transform3D(1, 0, 0, 0, 0.999974, 0.00720817, 0, -0.00720817, 0.999974, -1.16493, 0.179529, 0.0244919)
+dir = Vector3(0, 2.39, 0)
+
+[node name="LaunchPad3" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("1_jdqhb")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0.999976, -4.37103e-08, 0.00698126, -0.00698126, 3.05161e-10, 0.999976, 4.82615, 3.91808, 0.0258284)
+dir = Vector3(1.545, 3.38, -0.655)
+
+[node name="LaunchPad4" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("1_jdqhb")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 3.49892, 2.14873, 4.57207)
+scale_ = 0.2
+
+[node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("1_jdqhb")]
+transform = Transform3D(-8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0, 0.2, 4.33753, 2.96196, 4.57207)
+scale_ = 0.2
+dir = Vector3(-1, 0, 0)
+
+[node name="CheckPoint" parent="gmtk2024_blocking-accurateGodot" instance=ExtResource("5_wkxdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30818, 3.40255, 5.97033)
+
+[node name="ParticleBlockers" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+
+[node name="Carpet" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89407, 0, -18.63)
+size = Vector3(3.54724, 2, 3.70709)
+
+[node name="Desk" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07833, 0, 4.11387)
+size = Vector3(2.3208, 2, 4.58102)
+
+[node name="Drawer1" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58903, 0, 2.7856)
+size = Vector3(1.76147, 2, 1.64865)
+
+[node name="Drawer2" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83949, 0, 5.67353)
+size = Vector3(1.93689, 2, 1.64865)
+
+[node name="Books1" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(0.793396, 0, -0.608706, 0, 1, 0, 0.608706, 0, 0.793396, 1.47413, 0, 4.04864)
+size = Vector3(3.47412, 2, 1.26318)
+
+[node name="Books2" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56312, 0, 1.66053)
+size = Vector3(2.272, 2, 5.64172)
+
+[node name="Shelf1" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(0.987231, 0, -0.159295, 0, 1, 0, 0.159295, 0, 0.987231, 3.87347, 0, -11.0156)
+size = Vector3(2.88428, 2, 6.35889)
+
+[node name="Shelf2" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(0.861337, 0, 0.508035, 0, 1, 0, -0.508035, 0, 0.861337, 2.24416, 0, -17.1219)
+size = Vector3(2.29919, 2, 6.64603)
+
+[node name="Character" parent="gmtk2024_blocking-accurateGodot" node_paths=PackedStringArray("current_checkpoint") instance=ExtResource("1_oijy8")]
+transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, -0.779006, 0, 4.17682)
 wall_min_slide_angle = 0.523599
 floor_stop_on_slope = false
 floor_constant_speed = true
@@ -75,89 +178,6 @@ climbing_time_limit = 0.2
 current_checkpoint = NodePath("../CheckPoint")
 scales = Array[float]([2.75, 0.5, 0.1])
 
-[node name="Ledges" type="Node3D" parent="."]
-transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
-
-[node name="LedgeComponent" parent="Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(-0.999982, 9.02667e-05, 0.00591623, 9.02651e-05, 1, -5.34033e-07, -0.00591623, 5.79803e-12, -0.999981, 1.14596, 0.0225546, 11.4689)
-length = 3.88694
-allowed_scales = 30
-
-[node name="To_move1" parent="Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(0.999786, 0.0103592, -0.0178355, -0.0103609, 0.999945, 1.60996e-06, 0.0178345, 0.000183181, 0.99984, -0.135758, 0.18036, 11.9234)
-length = 0.484887
-enabled = false
-
-[node name="To_move2" parent="Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(-0.0148761, 1.02585e-05, -0.999889, -0.00537696, 0.999984, 9.02567e-05, 0.999875, 0.0053777, -0.0148759, 0.057694, 0.224509, 12.2442)
-length = 0.691676
-enabled = false
-
-[node name="LedgeComponent2" parent="Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(0.895492, 0.00287239, 0.445069, -0.00318763, 0.999995, -4.01749e-05, -0.445067, -0.00138274, 0.895496, 22.6839, 1.97416, 9.52747)
-length = 0.675935
-allowed_scales = 28
-
-[node name="LaunchPads" type="Node3D" parent="."]
-
-[node name="LaunchPad2" parent="LaunchPads" instance=ExtResource("3_i20k6")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 3.77828, 2.14903, 4.32416)
-scale_ = 0.2
-
-[node name="LaunchPad3" parent="LaunchPads" instance=ExtResource("3_i20k6")]
-transform = Transform3D(-8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0, 0.2, 4.34874, 3.09322, 4.32416)
-scale_ = 0.2
-dir = Vector3(-1, 0, 0)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
-
-[node name="gmtk2024_blocking-accurateGodot" parent="CanvasLayer" instance=ExtResource("3_0pgsn")]
-
-[node name="CheckPoint" parent="." instance=ExtResource("5_wkxdj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09436, 3.51682, 5.5866)
-
-[node name="HurtArea" parent="." node_paths=PackedStringArray("vfx") instance=ExtResource("6_y2sbr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 0, -5.6)
-vfx = NodePath("SmokeClouds")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
-shape = SubResource("BoxShape3D_blmu7")
-
-[node name="SmokeClouds" parent="HurtArea" instance=ExtResource("6_ef1m2")]
-lifetime = 1.0
-
-[node name="ParticleBlockers" type="Node3D" parent="."]
-
-[node name="Carpet" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89407, 0, -18.63)
-size = Vector3(3.54724, 2, 3.70709)
-
-[node name="Desk" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07833, 0, 4.11387)
-size = Vector3(2.3208, 2, 4.58102)
-
-[node name="Drawer1" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58903, 0, 2.7856)
-size = Vector3(1.76147, 2, 1.64865)
-
-[node name="Drawer2" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83949, 0, 5.67353)
-size = Vector3(1.93689, 2, 1.64865)
-
-[node name="Books1" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
-transform = Transform3D(0.793396, 0, -0.608706, 0, 1, 0, 0.608706, 0, 0.793396, 1.47413, 0, 4.04864)
-size = Vector3(3.47412, 2, 1.26318)
-
-[node name="Books2" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56312, 0, 1.66053)
-size = Vector3(2.272, 2, 5.64172)
-
-[node name="Shelf1" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
-transform = Transform3D(0.987231, 0, -0.159295, 0, 1, 0, 0.159295, 0, 0.987231, 3.87347, 0, -11.0156)
-size = Vector3(2.88428, 2, 6.35889)
-
-[node name="Shelf2" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
-transform = Transform3D(0.861337, 0, 0.508035, 0, 1, 0, -0.508035, 0, 0.861337, 2.24416, 0, -17.1219)
-size = Vector3(2.29919, 2, 6.64603)
