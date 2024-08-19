@@ -108,9 +108,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.37849, 4.50621, 4.7986)
 
 [node name="HurtArea" parent="." node_paths=PackedStringArray("vfx") instance=ExtResource("6_y2sbr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 0, -5.6)
-vfx = NodePath("")
+vfx = NodePath("CloudAreas")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
 shape = SubResource("BoxShape3D_blmu7")
 
-[node name="SmokeClouds" parent="HurtArea" instance=ExtResource("6_ef1m2")]
+[node name="CloudAreas" type="Node3D" parent="HurtArea"]
+
+[node name="SmokeClouds" parent="HurtArea/CloudAreas" instance=ExtResource("6_ef1m2")]
+lifetime = 1.0
+
+[node name="ParticleBlockers" type="Node3D" parent="."]
+
+[node name="Carpet" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89407, 0, -18.63)
+size = Vector3(3.54724, 2, 3.70709)
+
+[node name="Desk" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07833, 0, 4.11387)
+size = Vector3(2.3208, 2, 4.58102)
+
+[node name="Drawer1" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58903, 0, 2.7856)
+size = Vector3(1.76147, 2, 1.64865)
+
+[node name="Drawer2" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83949, 0, 5.67353)
+size = Vector3(1.93689, 2, 1.64865)
+
+[node name="Books1" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
+transform = Transform3D(0.793396, 0, -0.608706, 0, 1, 0, 0.608706, 0, 0.793396, 1.47413, 0, 4.04864)
+size = Vector3(3.47412, 2, 1.26318)
+
+[node name="Books2" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56312, 0, 1.66053)
+size = Vector3(2.272, 2, 5.64172)
+
+[node name="Shelf1" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
+transform = Transform3D(0.987231, 0, -0.159295, 0, 1, 0, 0.159295, 0, 0.987231, 3.87347, 0, -11.0156)
+size = Vector3(2.88428, 2, 6.35889)
+
+[node name="Shelf2" type="GPUParticlesCollisionBox3D" parent="ParticleBlockers"]
+transform = Transform3D(0.861337, 0, 0.508035, 0, 1, 0, -0.508035, 0, 0.861337, 2.24416, 0, -17.1219)
+size = Vector3(2.29919, 2, 6.64603)
