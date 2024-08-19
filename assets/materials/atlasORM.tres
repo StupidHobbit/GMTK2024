@@ -15,4 +15,5 @@ orm_texture = ExtResource("4_buwxh")
 emission_enabled = true
 emission_texture = ExtResource("2_a70j5")
 normal_enabled = true
+normal_scale = -16.0
 normal_texture = ExtResource("3_50kky")

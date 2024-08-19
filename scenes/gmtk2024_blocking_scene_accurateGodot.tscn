@@ -33,76 +33,13 @@ surface_material_override/0 = ExtResource("2_rduor")
 [node name="pantsOnTheBed" parent="." index="6"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_TVtable" parent="." index="10"]
+[node name="GMTK24_mesh_TV" parent="." index="8"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_TV" parent="." index="11"]
+[node name="GMTK24_mesh_TVtable" parent="." index="18"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_CDplayer" parent="." index="13"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="clothesOnBed" parent="." index="48"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="clothesOnBed2" parent="." index="50"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="clothesOnBed3" parent="." index="52"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="clothesOnBed4" parent="." index="54"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="litCoussin" parent="." index="56"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="litCoussin_001" parent="." index="57"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="litCoussin_002" parent="." index="58"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="litCoussin_003" parent="." index="59"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="litCoussin_004" parent="." index="60"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="litCoussin_005" parent="." index="61"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="Dragon" parent="." index="68"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="Dragon_001" parent="." index="69"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="Blahaj" parent="." index="72"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="BlahajEYE" parent="." index="74"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="eye" parent="." index="75"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="yeux" parent="." index="76"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="Cube_006" parent="." index="78"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="fliyer" parent="." index="79"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="lamp" parent="." index="80"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="mouchoir" parent="." index="82"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="tabledeChevet" parent="." index="85"]
+[node name="GMTK24_mesh_CDplayer" parent="." index="29"]
 surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="GMTK24_Mesh_MovieArietty" parent="." index="87" instance=ExtResource("4_nayni")]
@@ -143,3 +80,66 @@ transform = Transform3D(0.858647, -0.511619, 0.00332758, 0, -0.00829256, -0.7814
 
 [node name="GMTK24_Mesh_JumpPadAnim" parent="." index="99" instance=ExtResource("13_d8h1r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31866, 0.565163, -1.5774)
+
+[node name="clothesOnBed" parent="." index="148"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="clothesOnBed2" parent="." index="149"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="clothesOnBed3" parent="." index="150"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="clothesOnBed4" parent="." index="151"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin" parent="." index="152"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin_001" parent="." index="153"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin_002" parent="." index="154"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin_003" parent="." index="155"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin_004" parent="." index="156"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="litCoussin_005" parent="." index="157"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Dragon" parent="." index="158"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Dragon_001" parent="." index="159"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Blahaj" parent="." index="160"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="BlahajEYE" parent="." index="161"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="eye" parent="." index="162"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="yeux" parent="." index="163"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_006" parent="." index="167"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="fliyer" parent="." index="168"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="lamp" parent="." index="169"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="mouchoir" parent="." index="171"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="tabledeChevet" parent="." index="174"]
+surface_material_override/0 = ExtResource("2_rduor")
