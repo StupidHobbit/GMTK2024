@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d5360lvtbvie"]
+[gd_scene load_steps=20 format=3 uid="uid://d5360lvtbvie"]
 
 [ext_resource type="Script" path="res://scenes/character/character.gd" id="1_611ae"]
 [ext_resource type="PackedScene" uid="uid://c7orvpb14unq5" path="res://scenes/components/HealthComponent.tscn" id="2_2wxrl"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dnjga03stbgtk" path="res://assets/sounds/zapsplat_foley_footsteps_on_wooden_floor_barefoor_16329.mp3" id="6_jjv4l"]
 [ext_resource type="AudioStream" uid="uid://djng7flr2cva0" path="res://assets/sounds/wood landing.wav" id="7_y6003"]
 [ext_resource type="PackedScene" uid="uid://dilj54b7qj63h" path="res://scenes/character/character_animation.tscn" id="8_n7h8n"]
+[ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="8_rmmf5"]
 [ext_resource type="Texture2D" uid="uid://ctq1fg7lsnagw" path="res://assets/sprites/gmtk2024_texture_speedLine1.png" id="9_8cxce"]
 [ext_resource type="Texture2D" uid="uid://cr2qlkipcv7n7" path="res://assets/sprites/gmtk2024_texture_speedLine2.png" id="10_jh640"]
 [ext_resource type="PackedScene" uid="uid://xo3w3js6jcj5" path="res://scenes/components/HurtBoxComponent.tscn" id="11_hti3i"]
@@ -117,7 +118,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Interact"
 
-[node name="TextureRect" type="TextureRect" parent="Camera3D/Interact2/Control"]
+[node name="SpeedLines" type="TextureRect" parent="Camera3D/Interact2/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -125,6 +126,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AnimatedTexture_lv8mh")
+
+[node name="LaunchPadIndicator" type="TextureRect" parent="Camera3D/Interact2/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_rmmf5")
 
 [node name="Holder" type="SpringArm3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -0.998754, -0.0499131, 0, 0.0499131, -0.998754, -0.0213728, -0.00767004, -0.0725299)

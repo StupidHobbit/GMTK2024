@@ -6,10 +6,10 @@ extends Area3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	update_vfx_sisibility()
-	Globals.add_scale_watcher(update_vfx_sisibility)
+	update_vfx_visibility()
+	Globals.add_scale_watcher(update_vfx_visibility)
 
-func update_vfx_sisibility():
+func update_vfx_visibility():
 	if vfx == null:
 		return
 	vfx.visible = Globals.scale < vfx_scale_limit

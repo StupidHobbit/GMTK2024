@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://tle17qkiuhpj"]
+[gd_scene load_steps=17 format=3 uid="uid://tle17qkiuhpj"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_oijy8"]
 [ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/Ledge.tscn" id="2_dmerr"]
 [ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_0pgsn"]
+[ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="3_i20k6"]
 [ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
 [ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="6_ef1m2"]
 [ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
@@ -97,6 +98,17 @@ transform = Transform3D(0.895492, 0.00287239, 0.445069, -0.00318763, 0.999995, -
 length = 0.675935
 allowed_scales = 28
 
+[node name="LaunchPads" type="Node3D" parent="."]
+
+[node name="LaunchPad2" parent="LaunchPads" instance=ExtResource("3_i20k6")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 3.77828, 2.14903, 4.32416)
+scale_ = 0.2
+
+[node name="LaunchPad3" parent="LaunchPads" instance=ExtResource("3_i20k6")]
+transform = Transform3D(-8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0, 0.2, 4.34874, 3.09322, 4.32416)
+scale_ = 0.2
+dir = Vector3(-1, 0, 0)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
@@ -104,18 +116,16 @@ allowed_scales = 28
 [node name="gmtk2024_blocking-accurateGodot" parent="CanvasLayer" instance=ExtResource("3_0pgsn")]
 
 [node name="CheckPoint" parent="." instance=ExtResource("5_wkxdj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.37849, 4.50621, 4.7986)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09436, 3.51682, 5.5866)
 
 [node name="HurtArea" parent="." node_paths=PackedStringArray("vfx") instance=ExtResource("6_y2sbr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 0, -5.6)
-vfx = NodePath("CloudAreas")
+vfx = NodePath("SmokeClouds")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
 shape = SubResource("BoxShape3D_blmu7")
 
-[node name="CloudAreas" type="Node3D" parent="HurtArea"]
-
-[node name="SmokeClouds" parent="HurtArea/CloudAreas" instance=ExtResource("6_ef1m2")]
+[node name="SmokeClouds" parent="HurtArea" instance=ExtResource("6_ef1m2")]
 lifetime = 1.0
 
 [node name="ParticleBlockers" type="Node3D" parent="."]

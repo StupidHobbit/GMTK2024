@@ -2,37 +2,35 @@
 extends Area3D
 class_name LaunchPad
 
-@onready var shape: CylinderShape3D = $CollisionShape3D.shape
-@onready var mesh: CylinderMesh = $MeshInstance3D.mesh
-
-@export var radius: float = 0.2:
+@export var scale_: float = 1:
 	set(new_value):
-		radius = new_value
-		if is_node_ready():
-			shape.radius = radius
-			mesh.bottom_radius = radius
-			mesh.top_radius = radius
-
-@export var height: float = 0.01:
-	set(new_value):
-		height = new_value
-		if is_node_ready():
-			shape.height = height
-			mesh.height = height
-			$CollisionShape3D.position.y = height/2
-			$MeshInstance3D.position.y = height/2
+		scale = Vector3(new_value, new_value, new_value)
+	get():
+		return scale.x
 
 @export var dir: Vector3 = Vector3.UP:
 	set(new_value):
 		dir = new_value
+		var matrix = global_transform.inverse()
+		var target = matrix * dir - matrix * Vector3.ZERO
 		if is_node_ready():
-			$VisualDir.target_position = dir
+			$VisualDir.target_position = target
 
-func _ready() -> void:
-	shape.radius = radius
-	mesh.bottom_radius = radius
-	mesh.top_radius = radius
-	shape.height = height
-	mesh.height = height
-	$CollisionShape3D.position.y = height/2
-	$MeshInstance3D.position.y = height/2
+@export_flags("Big:1", "Medium:2", "Small:4", "Smaller:8") var allowed_scales: int = 12
+
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		var matrix = global_transform.inverse()
+		var target = matrix * dir - matrix * Vector3.ZERO
+		if is_node_ready():
+			$VisualDir.target_position = target
+
+func can_launch(player: Character):
+	var cur_scale: int = pow(2, player.scale_index)
+	if (allowed_scales & cur_scale) == 0:
+		return false
+	
+	return true
+
+func play_anim() -> void:
+	$GMTK24_Mesh_JumpPadAnim/AnimationPlayer.play("ArmatureAction")

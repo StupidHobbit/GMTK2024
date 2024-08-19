@@ -27,20 +27,28 @@ func _process(delta):
 	var interactable = get_interactable()
 	
 	if interactable == null or not interactable.enabled:
-		$Control/Label.hide()
+		hide_message()
 		return
 	var label = interactable.get_label()
 	if label == "":
-		$Control/Label.hide()
+		hide_message()
 		return
 	
 	interactable.on_hover()
-	
-	$Control/Label.show()
-	$Control/Label.text = "{0}: {1}".format([get_interact_input_as_text(), label])
+	show_message(label)
 	
 	if Input.is_action_just_pressed("interact"):
 		interactable.on_interact(character)
+
+func show_message(msg: String, key: String = ""):
+	if key == "":
+		key = get_interact_input_as_text()
+	
+	$Control/Label.show()
+	$Control/Label.text = "{0}: {1}".format([key, msg])
+
+func hide_message():
+	$Control/Label.hide()
 
 func get_interact_input_as_text() -> String:
 	var raw = InputMap.action_get_events("interact")[0].as_text()

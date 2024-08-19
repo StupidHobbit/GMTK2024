@@ -71,7 +71,7 @@ var SPEEDLINE_MAX_ALPHA = 0.3
 @onready var fall_audio_player = $FallAudioPlayer
 @onready var interact: RayCast3D = $Camera3D/Interact2
 @onready var health_component: HealthComponent = $HealthComponent
-
+@onready var lp_image = $Camera3D/Interact2/Control/LaunchPadIndicator
 
 var current_scale: float:
 	get:
@@ -83,6 +83,7 @@ func on_scale_update():
 	current_scale = Globals.scale
 	camera.near = original_camera_near * Globals.scale
 	interact.target_position.z = original_interact_length * Globals.scale
+	update_launchpad_image()
 
 func _ready():
 	Globals.add_scale_watcher(on_scale_update)
@@ -135,7 +136,7 @@ func _physics_process(delta: float):
 		velocity.length()
 	)
 	speedline_weight = clamp(speedline_weight, 0, 1)
-	$Camera3D/Interact2/Control/TextureRect.modulate.a = lerp(0.0, SPEEDLINE_MAX_ALPHA, speedline_weight)
+	$Camera3D/Interact2/Control/SpeedLines.modulate.a = lerp(0.0, SPEEDLINE_MAX_ALPHA, speedline_weight)
 
 func climb(delta: float):
 	var dir = lc_dest - lc_start
@@ -179,13 +180,19 @@ func apply_vertical_movement(delta: float):
 			gravity = falling_gravity
 		
 		velocity.y -= gravity * delta * current_scale
-
-	if jump_just_pressed and time_from_last_jump_press > jump_buffer and time_from_last_on_floor < coyote_time:
+	
+	if jump_just_pressed and time_from_last_jump_press > jump_buffer:
+		var jumped: bool = false
+		
 		if launchpad_timer <= 0:
 			apply_launchpads()
-		velocity.y = max(velocity.y, JUMP_VELOCITY * current_scale)
+			jumped = true
 		
-		if not jump_audio_player.playing:
+		if time_from_last_on_floor < coyote_time:
+			velocity.y = max(velocity.y, JUMP_VELOCITY * current_scale)
+			jumped = true
+		
+		if jumped and not jump_audio_player.playing:
 			jump_audio_player.play()
 	
 	if jump_just_pressed:
@@ -322,9 +329,18 @@ func _input(event: InputEvent):
 
 func on_pad_entered(area: LaunchPad) -> void:
 	launchpads.append(area)
+	update_launchpad_image()
 
 func on_pad_exited(area: LaunchPad) -> void:
 	launchpads.erase(area)
+	update_launchpad_image()
+
+func update_launchpad_image():
+	for pad in launchpads:
+		if pad.can_launch(self):
+			lp_image.show()
+			return
+	lp_image.hide()
 
 func apply_launchpads() -> void:
 	if launchpads.size() == 0:
@@ -334,11 +350,10 @@ func apply_launchpads() -> void:
 		# disabled for big sizes
 		return
 	
-	print("launching!")
-	
 	var dir: Vector3 = Vector3.ZERO
 	for pad: LaunchPad in launchpads:
 		dir += pad.dir
+		pad.play_anim()
 	
 	velocity = 20 * Globals.scale * dir / launchpads.size()
 	launchpad_timer = LAUNCHPAD_TIME
