@@ -1,0 +1,22 @@
+[gd_resource type="ORMMaterial3D" load_steps=5 format=3 uid="uid://b53jyanmdrjvw"]
+
+[ext_resource type="Texture2D" uid="uid://bh5h7c7jk6g4j" path="res://assets/textures/atlas_color.png" id="1_8ixgs"]
+[ext_resource type="Texture2D" uid="uid://ch61u8ekfb2v4" path="res://assets/textures/atlas_emission.png" id="2_alxjq"]
+[ext_resource type="Texture2D" uid="uid://d3kbjbhrdf4ds" path="res://assets/textures/atlas_normal.png" id="3_c0djx"]
+[ext_resource type="Texture2D" uid="uid://cfe31mybgvxeh" path="res://assets/textures/atlas_orm.png" id="4_ljy0e"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_8ixgs")
+orm_texture = ExtResource("4_ljy0e")
+emission_enabled = true
+emission_texture = ExtResource("2_alxjq")
+normal_enabled = true
+normal_scale = 0.55
+normal_texture = ExtResource("3_c0djx")
+rim_enabled = true
+rim = 0.24
+rim_tint = 0.16
