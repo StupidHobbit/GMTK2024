@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm6267qak31jk"]
+[gd_scene load_steps=5 format=3 uid="uid://5qjf2oyi5lcu"]
 
 [ext_resource type="Script" path="res://scenes/interactables/launch_pad.gd" id="1_h87am"]
 
@@ -31,5 +31,5 @@ shape = SubResource("CylinderShape3D_shubk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0)
 mesh = SubResource("CylinderMesh_ta55d")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="VisualDir" type="RayCast3D" parent="."]
 target_position = Vector3(0, 1, 0)

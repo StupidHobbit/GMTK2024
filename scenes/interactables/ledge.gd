@@ -16,6 +16,8 @@ const SHOW_DELAY: int = 10
 			shape.height = length
 			mesh.height = length
 
+@export_flags("Big:1", "Medium:2", "Small:4", "Smaller:8") var allowed_scales: int = 31
+
 var last_hover: int = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -25,10 +27,7 @@ func _ready() -> void:
 	
 	if not Engine.is_editor_hint():
 		$MeshInstance3D.visible = false
-		
 		Globals.add_scale_watcher(on_scale_update)
-		shape.radius = 0.2 * Globals.scale
-		mesh.radius = 0.02 * Globals.scale
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -37,8 +36,8 @@ func _process(_delta: float) -> void:
 			$MeshInstance3D.visible = false
 
 func on_scale_update():
-	shape.radius = 0.2 * Globals.scale
-	mesh.radius = 0.02 * Globals.scale
+	shape.radius = min(0.3 * Globals.scale, length/2)
+	mesh.radius = min(0.02 * Globals.scale, length/2)
 
 func get_label() -> String:
 	return "Climb"
@@ -51,6 +50,10 @@ func can_interact(player: Character) -> bool:
 	var local_pos = to_local(player.position)
 	if local_pos.y > 0:
 		# player needs to be under ledge
+		return false
+	
+	var cur_scale: int = pow(2, player.scale_index)
+	if (allowed_scales & cur_scale) == 0:
 		return false
 	
 	return true
