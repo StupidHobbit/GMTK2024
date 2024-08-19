@@ -9,7 +9,6 @@ class_name Character
 @export var SPEED_DAMPING = 4.0
 @export var CROUCHING_SPEED = 4.0
 @export var ZIPLINE_SPEED = 15.0
-@export var CROUCHING_DELTA = 0.5
 @export var CROUCHING_BOOST_SPEED = 13.0
 @export var CROUCHING_BOOST_COOLDOWN = 5.0
 @export var JUMP_VELOCITY = 6
@@ -25,6 +24,7 @@ class_name Character
 @export var slowdown_time: float = 0.1
 @export var crouching_animation_time: float = 0.2
 @export var current_checkpoint: CheckPoint
+@export var crouching_scale = 0.5
 
 @export var scales: Array[float] = [1, 0.5, 0.25, 0.1]
 var scale_index: int = 0
@@ -45,6 +45,7 @@ var is_falling: bool = false
 var examinated_item: Examinable
 var original_camera_near: float
 var original_interact_length: float
+var original_camera_height: float
 
 # variables for zipline
 var current_zipline: Zipline
@@ -97,6 +98,7 @@ func _ready():
 	viewport_size = get_viewport().size / 2
 	original_camera_near = camera.near
 	original_interact_length = interact.target_position.z
+	original_camera_height = camera.position.y
 	
 	health_component.health_depleted.connect(on_health_depleted)
 	
@@ -137,6 +139,7 @@ func _physics_process(delta: float):
 	else:
 		apply_vertical_movement(delta)
 		apply_horizontal_movement(delta)
+		apply_crouching(delta)
 	move_and_slide()
 	launchpad_timer = max(0, launchpad_timer - delta)
 	
@@ -249,11 +252,11 @@ func apply_crouching(delta: float):
 	if Input.is_action_just_pressed("crouch") and time_from_last_crouching_boost <= 0:
 		has_crouching_boost = true
 	
-	var to = 0
+	var to = original_camera_height
 	
 	if is_crouching():
-		to = -CROUCHING_DELTA
-	camera.position.y = move_toward(camera.position.y, to, CROUCHING_DELTA * delta / crouching_animation_time)
+		to = original_camera_height * crouching_scale
+	camera.position.y = move_toward(camera.position.y, to, original_camera_height * (1 - crouching_scale) * delta / crouching_animation_time)
 
 func apply_horizontal_movement(delta: float):
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
@@ -293,12 +296,6 @@ func apply_horizontal_movement(delta: float):
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, speed * delta / slowdown_time)
 			velocity.z = move_toward(velocity.z, 0, speed * delta / slowdown_time)
-	
-func apply_dash(delta: float):
-	if not has_dash_boost:
-		return
-	#velocity += interact.force_raycast_update().normalized() * DASH_VELOCITY
-	has_dash_boost = false
 
 func _get_actual_horizontal_speed() -> float:
 	return sqrt(velocity.x ** 2 + velocity.z ** 2)
@@ -342,9 +339,6 @@ func disable_movement():
 
 func enable_movement():
 	movement_disabled = false
-
-func dash():
-	has_dash_boost = true
 
 func get_current_speed() -> float:
 	return _get_current_speed_without_scale() * current_scale

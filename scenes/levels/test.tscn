@@ -16,7 +16,7 @@ sky_material = SubResource("ProceduralSkyMaterial_qg2we")
 [sub_resource type="Environment" id="Environment_jnky0"]
 background_mode = 2
 sky = SubResource("Sky_5t1ig")
-tonemap_mode = 2
+ssr_fade_in = 0.109806
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_670vm"]
 
@@ -272,3 +272,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3565, 0.261626, -10.2456)
 
 [node name="Node3D5" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9385, 11.5341, -10.1443)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 1.08921, 0)
