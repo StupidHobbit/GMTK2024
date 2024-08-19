@@ -1,14 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://tle17qkiuhpj"]
+[gd_scene load_steps=21 format=3 uid="uid://tle17qkiuhpj"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_oijy8"]
 [ext_resource type="Script" path="res://scenes/levels/main_level.gd" id="1_sbuhx"]
-[ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/Ledge.tscn" id="2_dmerr"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/Ledge.tscn" id="2_dmerr"]
 [ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_0pgsn"]
 [ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="3_i20k6"]
-[ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
+[ext_resource type="PackedScene" uid="uid://by6w3uuptdb1a" path="res://scenes/interactables/LaunchPad-smol.tscn" id="6_22uk8"]
 [ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="6_ef1m2"]
-[ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
-[ext_resource type="PackedScene" uid="uid://bn5onbb7ngwm3" path="res://scenes/interactables/door_knob.tscn" id="8_pthfv"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/door_knob.tscn" id="8_pthfv"]
+[ext_resource type="PackedScene" uid="uid://boo7xq0mt4g6y" path="res://scenes/interactables/zipline/zipline.tscn" id="10_wf6re"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_670vm"]
 
@@ -76,7 +78,8 @@ wall_min_slide_angle = 0.523599
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 0.523599
-climbing_time_limit = 0.2
+coyote_time = 0.2
+climbing_time_limit = 0.3
 current_checkpoint = NodePath("../CheckPoint")
 scales = Array[float]([2.75, 0.5, 0.1])
 
@@ -105,14 +108,25 @@ allowed_scales = 28
 
 [node name="LaunchPads" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
 
-[node name="LaunchPad2" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 4.72579, 0.303857, -1.64812)
-scale_ = 0.2
-
 [node name="LaunchPad3" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
-transform = Transform3D(-8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0, 0.2, 5.29625, 1.24805, -1.64812)
-scale_ = 0.2
-dir = Vector3(-1, 0, 0)
+transform = Transform3D(0.356326, 0, -0.0791, 0, 0.365, 0, 0.0791, 0, 0.356326, 2.41327, 0.3149, 2.70673)
+scale_ = 0.365
+dir = Vector3(0, 3.375, 0)
+
+[node name="LaunchPad4" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
+transform = Transform3D(0.356326, 0, -0.0791, 0, 0.365, 0, 0.0791, 0, 0.356326, 2.42122, 0.3149, 5.94266)
+scale_ = 0.365
+dir = Vector3(0, 2.96, 0)
+
+[node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
+transform = Transform3D(0.00365771, -0.289119, -0.222759, 0.364922, 0.00691765, -0.00298639, 0.00658738, -0.222682, 0.289127, 2.57138, 0.625323, 7.86943)
+scale_ = 0.365
+dir = Vector3(-3.3, 1.36, -3)
+
+[node name="LaunchPad" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("6_22uk8")]
+transform = Transform3D(-2.95052e-08, -0.675, 0, 0.675, -2.95052e-08, 0, 0, 0, 0.675, 5.26431, 4.9814, -1.85785)
+scale_ = 0.675
+dir = Vector3(-3.255, 0.905, -3.175)
 
 [node name="CheckPoint" parent="gmtk2024_blocking-accurateGodot" instance=ExtResource("5_wkxdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09436, 3.51682, 5.5866)
@@ -163,6 +177,47 @@ size = Vector3(2.29919, 2, 6.64603)
 [node name="DoorKnob" parent="gmtk2024_blocking-accurateGodot" instance=ExtResource("8_pthfv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18911, 3.16599, -19.4937)
 
+[node name="ZipLines" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18911, 3.16599, -19.4937)
+
+[node name="ZiplineBed" parent="gmtk2024_blocking-accurateGodot/ZipLines" node_paths=PackedStringArray("start_point", "end_point") instance=ExtResource("10_wf6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56843, 3.53193, 5.92959)
+start_point = NodePath("Marker3D")
+end_point = NodePath("Marker3D2")
+
+[node name="Marker3D" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineBed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.939056, 0.236265)
+
+[node name="Marker3D2" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineBed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1728, 0, -6.62)
+
+[node name="ZiplineTV" parent="gmtk2024_blocking-accurateGodot/ZipLines" node_paths=PackedStringArray("start_point", "end_point") instance=ExtResource("10_wf6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53525, -0.783947, 24.7107)
+start_point = NodePath("Marker3D")
+end_point = NodePath("Marker3D2")
+
+[node name="Marker3D" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineTV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0757685, 0.191706, 0.220925)
+
+[node name="Marker3D2" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineTV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719489, 2.59988, -2.44817)
+
+[node name="ZiplineTop" parent="gmtk2024_blocking-accurateGodot/ZipLines" node_paths=PackedStringArray("start_point", "end_point") instance=ExtResource("10_wf6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.23702, -2.78409, 23.8531)
+start_point = NodePath("Marker3D")
+end_point = NodePath("Marker3D2")
+
+[node name="Marker3D" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19136, 0.162878, -0.692142)
+
+[node name="Marker3D2" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7061, 0.283538, 3.26741)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+
+[node name="LaunchPad" parent="." instance=ExtResource("6_22uk8")]
+transform = Transform3D(0.26766, 0, -0.035471, 0, 0.27, 0, 0.035471, 0, 0.26766, 4.44239, 0.350571, -1.98589)
+scale_ = 0.27
+dir = Vector3(0, 3.66, 0)

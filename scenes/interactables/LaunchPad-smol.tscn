@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://by6w3uuptdb1a"]
+
+[ext_resource type="Script" path="res://scenes/interactables/launch_pad.gd" id="1_mqfh0"]
+[ext_resource type="PackedScene" uid="uid://cq6bwx1ujri8y" path="res://assets/3DModel/GMTK24_Mesh_JumpPadAnim.glb" id="2_j5hjy"]
+[ext_resource type="PackedScene" uid="uid://03gfoo2ejcs4" path="res://assets/3DModel/GMTK24_Mesh_JumpPadAnim-FIX-2.glb" id="2_xmx7r"]
+[ext_resource type="Material" uid="uid://q3gqdmet2m52" path="res://assets/materials/atlasORM.tres" id="3_hstli"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8e3w0"]
+size = Vector3(0.8, 0.680151, 0.8)
+
+[node name="LaunchPad" type="Area3D"]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_mqfh0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.912664, 0)
+shape = SubResource("BoxShape3D_8e3w0")
+
+[node name="VisualDir" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+target_position = Vector3(0, 1, 0)
+
+[node name="GMTK24_Mesh_JumpPadAnim-FIX-2" parent="." instance=ExtResource("2_xmx7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0098882, 0.5103)
+
+[node name="Cube_007" parent="GMTK24_Mesh_JumpPadAnim-FIX-2" index="0"]
+surface_material_override/0 = ExtResource("3_hstli")
+
+[node name="bardelut" parent="GMTK24_Mesh_JumpPadAnim-FIX-2/Armature" index="0"]
+surface_material_override/0 = ExtResource("3_hstli")
+
+[node name="Cube_008" parent="GMTK24_Mesh_JumpPadAnim-FIX-2/Armature" index="1"]
+surface_material_override/0 = ExtResource("3_hstli")
+
+[node name="lutin" parent="GMTK24_Mesh_JumpPadAnim-FIX-2/Armature" index="3"]
+surface_material_override/0 = ExtResource("3_hstli")
+
+[node name="ressord" parent="GMTK24_Mesh_JumpPadAnim-FIX-2/Armature" index="4"]
+surface_material_override/0 = ExtResource("3_hstli")
+
+[node name="GMTK24_Mesh_JumpPadAnim" parent="." instance=ExtResource("2_j5hjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 0)
+visible = false
+
+[node name="Armature" parent="GMTK24_Mesh_JumpPadAnim" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.236852, 0)
+
+[node name="AnimationPlayer" parent="GMTK24_Mesh_JumpPadAnim" index="3"]
+speed_scale = 2.0
+
+[editable path="GMTK24_Mesh_JumpPadAnim-FIX-2"]
+[editable path="GMTK24_Mesh_JumpPadAnim"]
