@@ -10,6 +10,7 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
+albedo_color = Color(0.964742, 0.964742, 0.964742, 1)
 albedo_texture = ExtResource("1_n6fr5")
 orm_texture = ExtResource("4_buwxh")
 emission_enabled = true
