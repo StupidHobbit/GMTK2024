@@ -9,6 +9,9 @@ var current_hp: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	reset()
+
+func reset():
 	current_hp = max_hp
 
 func take_damage(damage: float):
