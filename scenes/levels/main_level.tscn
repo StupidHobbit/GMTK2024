@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_0pgsn"]
 [ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="3_i20k6"]
 [ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/LaunchPad-smol.tscn" id="6_22uk8"]
+[ext_resource type="PackedScene" uid="uid://uws68vyrofw2" path="res://scenes/interactables/LaunchPad-smol.tscn" id="6_22uk8"]
 [ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="6_ef1m2"]
 [ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
 [ext_resource type="PackedScene" uid="uid://bn5onbb7ngwm3" path="res://scenes/interactables/door_knob.tscn" id="8_pthfv"]
@@ -45,6 +45,9 @@ sky_material = SubResource("ProceduralSkyMaterial_qg2we")
 background_mode = 2
 sky = SubResource("Sky_5t1ig")
 tonemap_mode = 2
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_blmu7"]
 size = Vector3(17.2, 0.4, 30.6)

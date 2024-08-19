@@ -1,6 +1,6 @@
 extends RayCast3D
 
-@export var interaction_buffer_time = 0.2
+@export var interaction_buffer_time = 0.3
 var buffered_interactable: Interactable
 var time_from_last_interact_press: float
 var time_from_last_interactable: float
