@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbi1bqkg8eoot"]
+
+[sub_resource type="Gradient" id="Gradient_p8y6t"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.190647, 0.679856, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.784314, 1, 1, 1, 0.784314, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bewgf"]
+gradient = SubResource("Gradient_p8y6t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_62lm2"]
+emission_shape_scale = Vector3(0.5, 1, 0.5)
+emission_shape = 3
+emission_box_extents = Vector3(17.2, 0.5, 30.6)
+gravity = Vector3(0, 0.3, 0)
+color = Color(1, 1, 1, 0.25098)
+color_ramp = SubResource("GradientTexture1D_bewgf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8mtil"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.129412, 1, 0.188235, 1)
+proximity_fade_enabled = true
+proximity_fade_distance = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_6vxax"]
+material = SubResource("StandardMaterial3D_8mtil")
+radius = 0.4
+height = 0.4
+radial_segments = 16
+rings = 16
+
+[node name="SmokeClouds" type="GPUParticles3D"]
+amount = 1600
+lifetime = 1.5
+fixed_fps = 0
+interpolate = false
+visibility_aabb = AABB(-8.6, 0, -15.3, 17.2, 0.2, 30.6)
+process_material = SubResource("ParticleProcessMaterial_62lm2")
+draw_pass_1 = SubResource("SphereMesh_6vxax")

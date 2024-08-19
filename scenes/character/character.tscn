@@ -7,15 +7,16 @@
 [ext_resource type="AudioStream" uid="uid://dnjga03stbgtk" path="res://assets/sounds/zapsplat_foley_footsteps_on_wooden_floor_barefoor_16329.mp3" id="6_jjv4l"]
 [ext_resource type="AudioStream" uid="uid://djng7flr2cva0" path="res://assets/sounds/wood landing.wav" id="7_y6003"]
 [ext_resource type="PackedScene" uid="uid://dilj54b7qj63h" path="res://scenes/character/character_animation.tscn" id="8_n7h8n"]
-[ext_resource type="Texture2D" uid="uid://b0awu3b2dqd1u" path="res://assets/sprites/gmtk2024_texture_speedLine1.png" id="9_8cxce"]
-[ext_resource type="Texture2D" uid="uid://don6jfxxuts7d" path="res://assets/sprites/gmtk2024_texture_speedLine2.png" id="10_jh640"]
+[ext_resource type="Texture2D" uid="uid://ctq1fg7lsnagw" path="res://assets/sprites/gmtk2024_texture_speedLine1.png" id="9_8cxce"]
+[ext_resource type="Texture2D" uid="uid://cr2qlkipcv7n7" path="res://assets/sprites/gmtk2024_texture_speedLine2.png" id="10_jh640"]
 [ext_resource type="PackedScene" uid="uid://xo3w3js6jcj5" path="res://scenes/components/HurtBoxComponent.tscn" id="11_hti3i"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_abrjf"]
 height = 1.7
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qvg1i"]
-height = 0.37
+height = 1.2
+radius = 0.55
 
 [sub_resource type="Animation" id="Animation_rsuby"]
 length = 0.001
@@ -76,7 +77,7 @@ skeleton = NodePath("../..")
 health = NodePath("../../HealthComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D/HurtBoxComponent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.322246, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 shape = SubResource("CylinderShape3D_qvg1i")
 
 [node name="PadDetector" type="Area3D" parent="CollisionShape3D"]
