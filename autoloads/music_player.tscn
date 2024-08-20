@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://7a6erjm7d2ux"]
+[gd_scene load_steps=7 format=3 uid="uid://7a6erjm7d2ux"]
 
 [ext_resource type="Script" path="res://autoloads/music_player.gd" id="1_ftjie"]
 [ext_resource type="AudioStream" uid="uid://b1a3olyxxvwso" path="res://assets/music/i don't want this to end (1).mp3" id="2_3b667"]
 [ext_resource type="AudioStream" uid="uid://chrpydn3mjnh0" path="res://assets/music/main menu for GMTK2024 (2).mp3" id="3_ors7y"]
 [ext_resource type="AudioStream" uid="uid://ijuh8ypvmm6g" path="res://assets/music/dull life1.mp3" id="4_33klv"]
 [ext_resource type="AudioStream" uid="uid://cvbl0djpptin7" path="res://assets/music/so its like that.mp3" id="5_q3xnb"]
+[ext_resource type="AudioStream" uid="uid://c12u5v2ejxmhp" path="res://assets/music/ending GMTK2024.mp3" id="6_cwbm0"]
 
 [node name="MusicPlayer" type="Node"]
 script = ExtResource("1_ftjie")
@@ -23,4 +24,8 @@ bus = &"BGM"
 
 [node name="level2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_q3xnb")
+bus = &"BGM"
+
+[node name="ending" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cwbm0")
 bus = &"BGM"

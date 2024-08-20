@@ -16,6 +16,7 @@ func end_level() -> void:
 	player.reset(level_starts[Globals.scale_index])
 
 func end_game() -> void:
+	MusicPlayer.play_ending_music()
 	Game.change_scene_to_file("res://scenes/menu/end_scene.tscn", {"show_progress_bar": false})
 
 func on_checkpoint_activated(cp: CheckPoint) -> void:

@@ -4,6 +4,7 @@ extends Node
 @onready var level_1: AudioStreamPlayer = $level1
 @onready var level_2: AudioStreamPlayer = $level2
 @onready var level_3: AudioStreamPlayer = $level3
+@onready var ending: AudioStreamPlayer = $ending
 
 var all_streams: Array[AudioStreamPlayer]
 
@@ -15,6 +16,9 @@ func play_stream(stream_to_play: AudioStreamPlayer):
 
 func start_menu_music():
 	play_stream(main_menu)
+	
+func play_ending_music():
+	play_stream(ending)
 
 func _ready() -> void:
 	all_streams = [
@@ -22,6 +26,7 @@ func _ready() -> void:
 		level_1,
 		level_2,
 		level_3,
+		ending,
 	]
 	start_menu_music()
 	Globals.add_scale_watcher(update_music)
