@@ -392,7 +392,7 @@ func apply_launchpads() -> void:
 		if not pad.can_launch(self): continue
 		dir += pad.dir
 		count += 1
-		pad.play_anim()
+		pad.play()
 
 	if count == 0:
 		return

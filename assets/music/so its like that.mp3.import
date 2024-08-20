@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvbl0djpptin7"
+path="res://.godot/imported/so its like that.mp3-2d498ba74ed3ceb3140b1501b06cde5f.mp3str"
+
+[deps]
+
+source_file="res://assets/music/so its like that.mp3"
+dest_files=["res://.godot/imported/so its like that.mp3-2d498ba74ed3ceb3140b1501b06cde5f.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

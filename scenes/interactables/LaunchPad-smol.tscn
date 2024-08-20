@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://by6w3uuptdb1a"]
+[gd_scene load_steps=6 format=3 uid="uid://by6w3uuptdb1a"]
 
 [ext_resource type="Script" path="res://scenes/interactables/launch_pad.gd" id="1_mqfh0"]
 [ext_resource type="PackedScene" uid="uid://03gfoo2ejcs4" path="res://assets/3DModel/GMTK24_Mesh_JumpPadAnim-FIX-2.glb" id="2_xmx7r"]
 [ext_resource type="Material" uid="uid://q3gqdmet2m52" path="res://assets/materials/atlasORM.tres" id="3_hstli"]
+[ext_resource type="AudioStream" uid="uid://xvqh7vkaqduu" path="res://assets/sounds/497705__miksmusic__funny-boing-1.wav" id="4_2ooh8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8e3w0"]
 size = Vector3(0.8, 0.680151, 0.8)
@@ -37,5 +38,9 @@ surface_material_override/0 = ExtResource("3_hstli")
 
 [node name="ressord" parent="GMTK24_Mesh_JumpPadAnim/Armature" index="4"]
 surface_material_override/0 = ExtResource("3_hstli")
+
+[node name="SoundPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_2ooh8")
+bus = &"SFX"
 
 [editable path="GMTK24_Mesh_JumpPadAnim"]
