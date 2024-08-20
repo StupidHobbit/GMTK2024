@@ -56,6 +56,8 @@ func _process(delta):
 	
 	if time_from_last_interact_press < interaction_buffer_time:
 		interactable.on_interact(character)
+		time_from_last_interact_press = interaction_buffer_time
+		buffered_interactable = null
 	
 
 func show_message(msg: String, key: String = ""):
