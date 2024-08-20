@@ -12,7 +12,7 @@ func end_level() -> void:
 		return
 	
 	Globals.scale_down()
-	player.reset(level_starts[Globals.scale_index].position)
+	player.reset(level_starts[Globals.scale_index])
 
 func end_game() -> void:
 	pass

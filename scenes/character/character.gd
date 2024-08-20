@@ -82,8 +82,10 @@ var height: float:
 	get():
 		return $Camera3D.position.y
 
-func reset(new_pos: Vector3) -> void:
-	position = new_pos
+func reset(new_checkpoint: CheckPoint = null) -> void:
+	if new_checkpoint != null:
+		current_checkpoint = new_checkpoint
+	position = current_checkpoint.position
 	velocity = Vector3.ZERO
 	current_zipline = null
 
@@ -321,7 +323,7 @@ func on_health_depleted():
 		return
 	
 	health_component.reset()
-	position = current_checkpoint.position 
+	reset()
 
 func is_crouching()  -> bool:
 	return Input.is_action_pressed("crouch")
@@ -384,8 +386,6 @@ func update_launchpad_image():
 	lp_image.hide()
 
 func apply_launchpads() -> void:
-	#print("start apply launchpads")
-	
 	var dir: Vector3 = Vector3.ZERO
 	var count: int = 0
 	for pad: LaunchPad in launchpads:
@@ -395,10 +395,7 @@ func apply_launchpads() -> void:
 		pad.play_anim()
 	
 	if count == 0:
-		#print("no launchpads")
 		return
 	
-	#print("launching!")
-	
-	velocity = 20 * Globals.scale * dir / count
+	velocity += 20 * Globals.scale * dir / count
 	launchpad_timer = LAUNCHPAD_TIME
