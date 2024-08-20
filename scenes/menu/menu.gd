@@ -15,7 +15,7 @@ func _on_PlayButton_pressed() -> void:
 	var params = {
 		"show_progress_bar": true,
 	}
-	Game.change_scene_to_file("res://scenes/levels/main_level.tscn", params)
+	Game.change_scene_to_file("res://scenes/levels/main_copy.tscn", params)
 
 
 func _on_ExitButton_pressed() -> void:
