@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ygu2m1fulcmk"]
-
-[ext_resource type="PackedScene" uid="uid://c75266txibkxa" path="res://assets/meshes/gmtk2024_blocking.glb" id="1_ejppv"]
-[ext_resource type="Material" uid="uid://xgq2a124yl1i" path="res://assets/materials/floorMatColor.tres" id="2_kxx4i"]
-
-[node name="gmtk2024_blocking" instance=ExtResource("1_ejppv")]
-
-[node name="floor" parent="." index="6"]
-material_override = ExtResource("2_kxx4i")

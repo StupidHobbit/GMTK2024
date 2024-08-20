@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b86d8g3kslaq6"]
-
-[ext_resource type="PackedScene" uid="uid://bvfmpv3pechk8" path="res://assets/3DModel/GMTK24_mesh_drawer_imgnone.glb" id="1_sbo7e"]
-
-[node name="SceneTestAliona" type="Node3D"]
-
-[node name="GMTK24_mesh_drawer_imgnone" parent="." instance=ExtResource("1_sbo7e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0183434, 0, -0.739039)
