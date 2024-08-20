@@ -381,6 +381,9 @@ func _input(event: InputEvent):
 		turn += event.relative
 	turn.y = clampf(turn.y, -viewport_size.y / 2, viewport_size.y / 2)
 
+	if event.is_action_pressed("restart"):
+		reset()
+
 func on_pad_entered(area: LaunchPad) -> void:
 	launchpads.append(area)
 	update_launchpad_image()

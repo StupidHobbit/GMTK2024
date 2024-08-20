@@ -103,7 +103,7 @@ shader_parameter/rim_spread = 1.559
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uv5r0"]
 resource_local_to_scene = true
 radius = 0.177857
-height = 0.364526
+height = 0.364521
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_535x5"]
 albedo_color = Color(0.13, 1, 0.6085, 1)
@@ -112,7 +112,7 @@ albedo_color = Color(0.13, 1, 0.6085, 1)
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_535x5")
 radius = 0.02
-height = 0.364526
+height = 0.364521
 
 [node name="Main2" type="Node3D" node_paths=PackedStringArray("player", "level_starts")]
 script = ExtResource("1_sbuhx")
@@ -320,8 +320,8 @@ transform = Transform3D(0.86048, 9.02667e-05, 0.509483, -7.76727e-05, 1, -4.5989
 length = 1.35073
 
 [node name="LedgeComponent8" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(-0.177967, -0.00263932, -0.984033, -0.0153198, 0.999883, 8.88256e-05, 0.983917, 0.015091, -0.177986, 3.1236, -1.36308, 11.2263)
-length = 0.364526
+transform = Transform3D(-0.177967, -0.00263919, -0.984033, -0.015319, 0.999883, 8.88249e-05, 0.983917, 0.0150903, -0.177987, 3.1236, -1.36308, 11.2263)
+length = 0.364521
 
 [node name="CollisionShape3D" parent="gmtk2024_blocking-accurateGodot/Ledges/LedgeComponent8" index="0"]
 shape = SubResource("CapsuleShape3D_uv5r0")
@@ -336,8 +336,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6291, 0.760289, 2.56792)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27023, 0.765879, 2.50423)
 
 [node name="LedgeComponent11" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(-0.239345, -0.00358072, -0.970928, -0.0153143, 0.999883, 8.76427e-05, 0.970814, 0.01489, -0.239372, 2.78145, -1.36305, 11.1231)
-length = 0.364526
+transform = Transform3D(-0.177967, -0.00263919, -0.984033, -0.015319, 0.999883, 8.88249e-05, 0.983917, 0.0150903, -0.177987, 3.1236, -1.36308, 11.2263)
+length = 0.364521
 
 [node name="CollisionShape3D" parent="gmtk2024_blocking-accurateGodot/Ledges/LedgeComponent11" index="0"]
 shape = SubResource("CapsuleShape3D_uv5r0")
@@ -352,8 +352,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6291, 0.760289, 2.56792)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27023, 0.765879, 2.50423)
 
 [node name="LedgeComponent13" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(0.968695, 0.0149478, -0.247802, -0.0154233, 0.999881, 2.23683e-05, 0.247773, 0.00380026, 0.96881, 2.99516, -1.36307, 11.0074)
-length = 0.364526
+transform = Transform3D(-0.177967, -0.00263919, -0.984032, -0.015319, 0.999883, 8.88249e-05, 0.983917, 0.0150902, -0.177987, 3.1236, -1.36308, 11.2263)
+length = 0.364521
 
 [node name="CollisionShape3D" parent="gmtk2024_blocking-accurateGodot/Ledges/LedgeComponent13" index="0"]
 shape = SubResource("CapsuleShape3D_uv5r0")
@@ -368,8 +368,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6291, 0.760289, 2.56792)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27023, 0.765879, 2.50423)
 
 [node name="LedgeComponent12" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(-0.225308, -0.00336543, -0.974282, -0.0153155, 0.999883, 8.79452e-05, 0.974167, 0.0149415, -0.225334, -0.133784, -1.36278, 11.2484)
-length = 0.364526
+transform = Transform3D(-0.177967, -0.00263919, -0.984033, -0.015319, 0.999883, 8.8825e-05, 0.983917, 0.0150903, -0.177987, 3.1236, -1.36308, 11.2263)
+length = 0.364521
 
 [node name="CollisionShape3D" parent="gmtk2024_blocking-accurateGodot/Ledges/LedgeComponent12" index="0"]
 shape = SubResource("CapsuleShape3D_uv5r0")
@@ -384,8 +384,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6291, 0.760289, 2.56792)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27023, 0.765879, 2.50423)
 
 [node name="LedgeComponent9" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(-0.177967, -0.00263932, -0.984033, -0.0153198, 0.999883, 8.88257e-05, 0.983917, 0.015091, -0.177986, -0.457445, -1.27292, 11.1425)
-length = 0.364526
+transform = Transform3D(-0.177967, -0.00263919, -0.984033, -0.015319, 0.999883, 8.88249e-05, 0.983917, 0.0150903, -0.177987, 3.1236, -1.36308, 11.2263)
+length = 0.364521
 
 [node name="CollisionShape3D" parent="gmtk2024_blocking-accurateGodot/Ledges/LedgeComponent9" index="0"]
 shape = SubResource("CapsuleShape3D_uv5r0")
@@ -412,7 +412,7 @@ scale_ = 0.365
 dir = Vector3(0, 2.96, 0)
 
 [node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
-transform = Transform3D(0.000746458, -0.177148, -0.319128, 0.364922, 0.00691765, -0.00298642, 0.00749769, -0.319054, 0.177125, 2.2984, 0.630873, 8.0594)
+transform = Transform3D(0.000746458, -0.177148, -0.319128, 0.364922, 0.00691765, -0.00298641, 0.00749769, -0.319054, 0.177125, 2.2984, 0.630873, 8.0594)
 scale_ = 0.365
 dir = Vector3(-3, 1.36, -8)
 
