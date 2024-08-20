@@ -2,7 +2,7 @@ extends Node
 
 signal scale_update()
 
-const SCALES: Array[float] = [2.75, 1, 0.5]
+const SCALES: Array[float] = [2.75, 0.5, 0.1]
 
 var scale_index: int = 0:
 	set(new_scale_id):
@@ -13,7 +13,6 @@ var scale: float = SCALES[0]:
 	set(new_scale):
 		scale = new_scale
 		scale_update.emit()
-# 1 is base scale
 
 func add_scale_watcher(callable: Callable):
 	scale_update.connect(callable)
