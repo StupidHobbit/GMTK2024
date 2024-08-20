@@ -88,6 +88,7 @@ current = true
 [node name="Interact2" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, -2)
 collision_mask = 8
+hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("2_psckv")

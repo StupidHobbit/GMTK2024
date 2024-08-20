@@ -36,8 +36,8 @@ func _process(_delta: float) -> void:
 			$MeshInstance3D.visible = false
 
 func on_scale_update():
-	shape.radius = min(0.4 * Globals.scale, length/2)
-	mesh.radius = min(0.02 * Globals.scale, length/2)
+	shape.radius = min(0.5 * Globals.scale, length/2)
+	mesh.radius = min(0.05 * Globals.scale, length/2)
 
 func get_label() -> String:
 	return "Climb"
@@ -50,12 +50,10 @@ func can_interact(player: Character) -> bool:
 	var local_pos = to_local(player.position)
 	if local_pos.y + player.height / 2 > 0:
 		# player needs to be under ledge
-		print("player too high")
 		return false
 	
 	var cur_scale: int = roundi(pow(2, Globals.scale_index))
 	if (allowed_scales & cur_scale) == 0:
-		print("player at wrong scale")
 		return false
 	
 	return true
