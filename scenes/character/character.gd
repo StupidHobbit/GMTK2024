@@ -85,7 +85,7 @@ var height: float:
 func reset(new_checkpoint: CheckPoint = null) -> void:
 	if new_checkpoint != null:
 		current_checkpoint = new_checkpoint
-	position = current_checkpoint.position
+	position = current_checkpoint.global_position
 	velocity = Vector3.ZERO
 	if current_zipline != null:
 		current_zipline.current_player = null

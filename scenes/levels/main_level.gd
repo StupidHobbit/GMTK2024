@@ -17,3 +17,6 @@ func end_level() -> void:
 
 func end_game() -> void:
 	pass
+
+func on_checkpoint_activated(cp: CheckPoint) -> void:
+	player.current_checkpoint = cp

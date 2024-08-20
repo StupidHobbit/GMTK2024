@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhad8osjfv3ve"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/cp_trigger.gd" id="1_b2kdq"]
+[ext_resource type="Script" path="res://scenes/gameplay/check_point.gd" id="1_ld1xy"]
+
+[node name="CpTrigger" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_b2kdq")
+
+[node name="CheckPoint" type="Marker3D" parent="."]
+script = ExtResource("1_ld1xy")
+
+[connection signal="body_entered" from="." to="." method="on_body_entered"]
