@@ -384,8 +384,7 @@ func update_launchpad_image():
 	lp_image.hide()
 
 func apply_launchpads() -> void:
-	if launchpads.size() == 0:
-		return
+	#print("start apply launchpads")
 	
 	var dir: Vector3 = Vector3.ZERO
 	var count: int = 0
@@ -394,6 +393,12 @@ func apply_launchpads() -> void:
 		dir += pad.dir
 		count += 1
 		pad.play_anim()
+	
+	if count == 0:
+		#print("no launchpads")
+		return
+	
+	#print("launching!")
 	
 	velocity = 20 * Globals.scale * dir / count
 	launchpad_timer = LAUNCHPAD_TIME
