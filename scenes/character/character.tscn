@@ -6,8 +6,8 @@
 [ext_resource type="Shape3D" path="res://scenes/character/player_collision.tres" id="3_2d50f"]
 [ext_resource type="AudioStream" uid="uid://dnjga03stbgtk" path="res://assets/sounds/zapsplat_foley_footsteps_on_wooden_floor_barefoor_16329.mp3" id="6_jjv4l"]
 [ext_resource type="AudioStream" uid="uid://djng7flr2cva0" path="res://assets/sounds/wood landing.wav" id="7_y6003"]
+[ext_resource type="Texture2D" uid="uid://bx7ekvm5ljls0" path="res://scenes/character/gmtk2024_texture_launchPad-Incentive.png" id="8_1nnd8"]
 [ext_resource type="PackedScene" uid="uid://dilj54b7qj63h" path="res://scenes/character/character_animation.tscn" id="8_n7h8n"]
-[ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="8_rmmf5"]
 [ext_resource type="Texture2D" uid="uid://ctq1fg7lsnagw" path="res://assets/sprites/gmtk2024_texture_speedLine1.png" id="9_8cxce"]
 [ext_resource type="Texture2D" uid="uid://cr2qlkipcv7n7" path="res://assets/sprites/gmtk2024_texture_speedLine2.png" id="10_jh640"]
 [ext_resource type="AudioStream" uid="uid://coua8gvwp8myv" path="res://assets/sounds/471428__juaner__24_jump.wav" id="11_4hwpl"]
@@ -54,7 +54,9 @@ _data = {
 [node name="Character" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_611ae")
-climbing_time_limit = 0.5
+ZIPLINE_SPEED = 23.0
+coyote_time = 0.21
+climbing_time_limit = 0.7
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_2wxrl")]
 max_hp = 2
@@ -132,20 +134,18 @@ texture = SubResource("AnimatedTexture_lv8mh")
 expand_mode = 1
 
 [node name="LaunchPadIndicator" type="TextureRect" parent="Camera3D/Interact2/Control"]
-visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 63.0
+offset_top = -89.0
+offset_right = 2419.0
+offset_bottom = 1743.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_rmmf5")
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("8_1nnd8")
 
 [node name="Holder" type="SpringArm3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -0.998754, -0.0499131, 0, 0.0499131, -0.998754, -0.0213728, -0.00767004, -0.0725299)

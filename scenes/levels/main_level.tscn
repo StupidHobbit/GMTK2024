@@ -129,7 +129,6 @@ wall_min_slide_angle = 0.523599
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 0.523599
-coyote_time = 0.2
 climbing_time_limit = 0.3
 current_checkpoint = NodePath("../Checkpoints/Bed")
 
@@ -318,7 +317,7 @@ dir = Vector3(0, 2.96, 0)
 [node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
 transform = Transform3D(0.000746465, -0.177148, -0.319128, 0.364922, 0.00691765, -0.00298641, 0.00749769, -0.319054, 0.177125, 2.2984, 0.630873, 8.0594)
 scale_ = 0.365
-dir = Vector3(-3, 1.36, -7)
+dir = Vector3(-3, 1.36, -8)
 
 [node name="LaunchPad" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("6_22uk8")]
 transform = Transform3D(-2.95052e-08, -0.675, 0, 0.675, -2.95052e-08, 0, 0, 0, 0.675, 5.26431, 4.9814, -1.85785)
