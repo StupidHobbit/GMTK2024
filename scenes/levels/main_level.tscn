@@ -2,15 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_oijy8"]
 [ext_resource type="Script" path="res://scenes/levels/main_level.gd" id="1_sbuhx"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/Ledge.tscn" id="2_dmerr"]
+[ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/Ledge.tscn" id="2_dmerr"]
 [ext_resource type="Script" path="res://scenes/levels/world_environment.gd" id="2_tb2iy"]
 [ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_0pgsn"]
 [ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="3_i20k6"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
+[ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
 [ext_resource type="PackedScene" uid="uid://by6w3uuptdb1a" path="res://scenes/interactables/LaunchPad-smol.tscn" id="6_22uk8"]
 [ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="6_ef1m2"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/door_knob.tscn" id="8_pthfv"]
+[ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
+[ext_resource type="PackedScene" uid="uid://bn5onbb7ngwm3" path="res://scenes/interactables/door_knob.tscn" id="8_pthfv"]
 [ext_resource type="PackedScene" uid="uid://boo7xq0mt4g6y" path="res://scenes/interactables/zipline/zipline.tscn" id="10_wf6re"]
 [ext_resource type="PackedScene" uid="uid://dt8qosg5l58r4" path="res://scenes/LODCollisionShape.tscn" id="13_jsbuj"]
 [ext_resource type="PackedScene" uid="uid://gnab3it26f2q" path="res://assets/3DModel/gmtk2024_mesh_InvisibleWall.glb" id="14_rsr1e"]
@@ -84,27 +84,9 @@ wall_min_slide_angle = 0.523599
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 0.523599
-SPEED = null
-RUNNING_SPEED = null
-SPEED_DAMPING = null
-CROUCHING_SPEED = null
-ZIPLINE_SPEED = null
-CROUCHING_BOOST_SPEED = null
-CROUCHING_BOOST_COOLDOWN = null
-JUMP_VELOCITY = null
-DASH_VELOCITY = null
-LAUNCHPAD_TIME = null
-jumping_gravity = null
-falling_gravity = null
-pad_gravity = null
-jump_buffer = null
 coyote_time = 0.2
 climbing_time_limit = 0.3
-climbing_speed = null
-slowdown_time = null
-crouching_animation_time = null
 current_checkpoint = NodePath("../Checkpoints/Bed")
-crouching_scale = null
 
 [node name="Ledges" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
 transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)

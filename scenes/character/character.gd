@@ -78,6 +78,10 @@ var SPEEDLINE_MAX_ALPHA = 1.0
 @onready var lp_image = $Camera3D/Interact2/Control/LaunchPadIndicator
 @onready var speedlines = $Camera3D/Interact2/Control/SpeedLines
 
+var height: float:
+	get():
+		return $Camera3D.position.y
+
 func reset(new_pos: Vector3) -> void:
 	position = new_pos
 	velocity = Vector3.ZERO
@@ -131,11 +135,12 @@ func _physics_process(delta: float):
 		apply_ledge_climbing(delta)
 	elif current_zipline != null:
 		apply_zipline_move(delta)
+		move_and_slide()
 	else:
 		apply_vertical_movement(delta)
 		apply_horizontal_movement(delta)
 		apply_crouching(delta)
-	move_and_slide()
+		move_and_slide()
 	launchpad_timer = max(0, launchpad_timer - delta)
 	
 	var speedline_weight = inverse_lerp(

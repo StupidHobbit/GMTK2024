@@ -48,7 +48,7 @@ func on_hover():
 
 func can_interact(player: Character) -> bool:
 	var local_pos = to_local(player.position)
-	if local_pos.y > 0:
+	if local_pos.y + player.height / 2 > 0:
 		# player needs to be under ledge
 		return false
 	
