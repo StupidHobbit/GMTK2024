@@ -80,7 +80,7 @@ var SPEEDLINE_MAX_ALPHA = 1.0
 
 var height: float:
 	get():
-		return $Camera3D.position.y
+		return $Camera3D.position.y * Globals.scale
 
 func reset(new_checkpoint: CheckPoint = null) -> void:
 	if new_checkpoint != null:
