@@ -1,8 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://lh6fo2hyydyg"]
+[gd_scene load_steps=5 format=3 uid="uid://lh6fo2hyydyg"]
 
 [ext_resource type="PackedScene" uid="uid://tle17qkiuhpj" path="res://scenes/levels/main_level.tscn" id="1_5d4e0"]
+[ext_resource type="Shader" path="res://assets/materials/post_processing_effects/spatial/TF2.gdshader" id="2_vllrv"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_y1o5h"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_khyil"]
+render_priority = 0
+shader = ExtResource("2_vllrv")
+shader_parameter/diffuse_color = Color(0.613143, 0.369003, 0.12786, 1)
+shader_parameter/normal_strength = 2.267
+shader_parameter/phong = 0.69
+shader_parameter/phong_exponent = 0.25
+shader_parameter/rim_strength = 0.007
+shader_parameter/rim_spread = 1.559
 
 [node name="Main" instance=ExtResource("1_5d4e0")]
+
+[node name="@Node3D@23618" type="Node3D" parent="gmtk2024_blocking-accurateGodot" index="465"]
+
+[node name="@Node3D@23621" type="Node3D" parent="gmtk2024_blocking-accurateGodot" index="467"]
+
+[node name="@Node3D@23631" type="Node3D" parent="gmtk2024_blocking-accurateGodot" index="469"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18911, 3.16599, -19.4937)
+
+[node name="@MeshInstance3D@23641" type="MeshInstance3D" parent="gmtk2024_blocking-accurateGodot" index="471"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35346, 3.55769, 0.050617)
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_y1o5h")
+surface_material_override/0 = SubResource("ShaderMaterial_khyil")
+
+[node name="@Node3D@23642" type="Node3D" parent="gmtk2024_blocking-accurateGodot" index="473"]
+transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
 
 [node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" index="2"]
 transform = Transform3D(0.000746468, -0.177148, -0.319129, 0.364922, 0.00691765, -0.00298639, 0.00749768, -0.319055, 0.177124, 2.2984, 0.630873, 8.0594)
