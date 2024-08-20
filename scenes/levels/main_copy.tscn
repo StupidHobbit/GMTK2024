@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://lh6fo2hyydyg"]
+
+[ext_resource type="PackedScene" uid="uid://tle17qkiuhpj" path="res://scenes/levels/main_level.tscn" id="1_5d4e0"]
+
+[node name="Main" instance=ExtResource("1_5d4e0")]
+
+[node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" index="2"]
+transform = Transform3D(0.000746468, -0.177148, -0.319129, 0.364922, 0.00691765, -0.00298639, 0.00749768, -0.319055, 0.177124, 2.2984, 0.630873, 8.0594)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01628, 3.42688, 7.57022)
