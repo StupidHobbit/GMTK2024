@@ -141,10 +141,40 @@ surface_material_override/0 = ExtResource("2_rduor")
 transform = Transform3D(3.31952, 0, 0, 0, 2.55974, 0, 0, 0, 0.628281, 0.716619, 3.66223, 9.45557)
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="floor" parent="GMTK24_Mesh_BlockingLevel" index="18"]
+[node name="GMTK24_mesh_trunk" parent="." index="35"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_slipper_right" parent="." index="37"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_slipper_left" parent="." index="39"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_shoe_right" parent="." index="41"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_shoe_left" parent="." index="43"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_briefcase" parent="." index="45"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_bag_hole" parent="." index="47"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_bag_hole_001" parent="." index="48"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_trunk_001" parent="." index="49"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_trunk_002" parent="." index="51"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="floor" parent="GMTK24_Mesh_BlockingLevel" index="3"]
 surface_material_override/0 = ExtResource("3_f503r")
 
-[node name="SM_Bookshelf_001" parent="GMTK24_Mesh_BlockingLevel" index="48"]
+[node name="SM_Bookshelf_001" parent="GMTK24_Mesh_BlockingLevel" index="33"]
 surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="GMTK24_Mesh_MovieArietty" parent="." index="87" instance=ExtResource("4_nayni")]
@@ -186,332 +216,274 @@ transform = Transform3D(0.858647, -0.511619, 0.00332758, 0, -0.00829256, -0.7814
 [node name="GMTK24_Mesh_MovieTotoro2" parent="." index="99" instance=ExtResource("11_r85cf")]
 transform = Transform3D(0.858647, -0.511619, 0.00332758, 0, -0.00829256, -0.78142, 0.512568, 0.857058, -0.00557432, 4.25432, 1.55415, 4.07372)
 
-[node name="clothesOnBed" parent="." index="141"]
+[node name="clothesOnBed" parent="." index="174"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="clothesOnBed2" parent="." index="142"]
+[node name="clothesOnBed2" parent="." index="175"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="clothesOnBed3" parent="." index="143"]
+[node name="clothesOnBed3" parent="." index="176"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="clothesOnBed4" parent="." index="144"]
+[node name="clothesOnBed4" parent="." index="177"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin" parent="." index="145"]
+[node name="litCoussin" parent="." index="178"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin_001" parent="." index="146"]
+[node name="litCoussin_001" parent="." index="179"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin_002" parent="." index="147"]
+[node name="litCoussin_002" parent="." index="180"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin_003" parent="." index="148"]
+[node name="litCoussin_003" parent="." index="181"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin_004" parent="." index="149"]
+[node name="litCoussin_004" parent="." index="182"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin_005" parent="." index="150"]
+[node name="litCoussin_005" parent="." index="183"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Dragon" parent="." index="151"]
+[node name="Dragon" parent="." index="184"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Dragon_001" parent="." index="152"]
+[node name="Dragon_001" parent="." index="185"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Blahaj" parent="." index="153"]
+[node name="Blahaj" parent="." index="186"]
 surface_material_override/0 = ExtResource("13_4s0q5")
 
-[node name="BlahajEYE" parent="." index="154"]
+[node name="BlahajEYE" parent="." index="187"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="eye" parent="." index="155"]
+[node name="eye" parent="." index="188"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="yeux" parent="." index="156"]
+[node name="yeux" parent="." index="189"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Blahaj_002" parent="." index="157"]
+[node name="Blahaj_002" parent="." index="190"]
 surface_material_override/0 = ExtResource("13_4s0q5")
 
-[node name="BlahajEYE_001" parent="." index="158"]
+[node name="BlahajEYE_001" parent="." index="191"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_006" parent="." index="160"]
+[node name="Cube_006" parent="." index="193"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="fliyer" parent="." index="161"]
+[node name="fliyer" parent="." index="194"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="lamp" parent="." index="162"]
+[node name="lamp" parent="." index="195"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="mouchoir" parent="." index="164"]
+[node name="mouchoir" parent="." index="197"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="tabledeChevet" parent="." index="167"]
+[node name="tabledeChevet" parent="." index="200"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031" parent="." index="169"]
+[node name="book_031" parent="." index="202"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_001" parent="." index="170"]
+[node name="book_031_001" parent="." index="203"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_002" parent="." index="171"]
+[node name="book_031_002" parent="." index="204"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_003" parent="." index="172"]
+[node name="book_031_003" parent="." index="205"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_004" parent="." index="173"]
+[node name="book_031_004" parent="." index="206"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_005" parent="." index="174"]
+[node name="book_031_005" parent="." index="207"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_006" parent="." index="175"]
+[node name="book_031_006" parent="." index="208"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_007" parent="." index="176"]
+[node name="book_031_007" parent="." index="209"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_009" parent="." index="177"]
+[node name="book_031_009" parent="." index="210"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_010" parent="." index="178"]
+[node name="book_031_010" parent="." index="211"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_011" parent="." index="179"]
+[node name="book_031_011" parent="." index="212"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_012" parent="." index="180"]
+[node name="book_031_012" parent="." index="213"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_013" parent="." index="181"]
+[node name="book_031_013" parent="." index="214"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031-col" parent="." index="182"]
+[node name="book_031-col" parent="." index="215"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_032" parent="." index="183"]
+[node name="book_032" parent="." index="216"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_040" parent="." index="187"]
+[node name="book_040" parent="." index="220"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_041_2" parent="." index="189"]
+[node name="book_041_2" parent="." index="222"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="bookH" parent="." index="193"]
+[node name="bookH" parent="." index="226"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="BookH2" parent="." index="194"]
+[node name="BookH2" parent="." index="227"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_035" parent="." index="196"]
+[node name="book_045" parent="." index="228"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_036" parent="." index="197"]
+[node name="book_031_035" parent="." index="229"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book" parent="." index="199"]
+[node name="book_031_036" parent="." index="230"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_100" parent="." index="200"]
+[node name="book" parent="." index="232"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_101" parent="." index="201"]
+[node name="book_100" parent="." index="233"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_002" parent="." index="203"]
+[node name="book_101" parent="." index="234"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_003" parent="." index="205"]
+[node name="book_002" parent="." index="236"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_005" parent="." index="207"]
+[node name="book_106" parent="." index="237"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_008" parent="." index="210"]
+[node name="book_003" parent="." index="238"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_008" parent="." index="218"]
+[node name="book_103" parent="." index="239"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_014" parent="." index="219"]
+[node name="book_005" parent="." index="240"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_015" parent="." index="220"]
+[node name="book_008" parent="." index="243"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_016" parent="." index="221"]
+[node name="book_031_008" parent="." index="251"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_017" parent="." index="222"]
+[node name="book_031_014" parent="." index="252"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_018" parent="." index="223"]
+[node name="book_031_015" parent="." index="253"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_019" parent="." index="224"]
+[node name="book_031_016" parent="." index="254"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_020" parent="." index="225"]
+[node name="book_031_017" parent="." index="255"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_021" parent="." index="226"]
+[node name="book_031_018" parent="." index="256"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_022" parent="." index="227"]
+[node name="book_031_019" parent="." index="257"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_023" parent="." index="228"]
+[node name="book_031_020" parent="." index="258"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_024" parent="." index="229"]
+[node name="book_031_021" parent="." index="259"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_025" parent="." index="230"]
+[node name="book_031_022" parent="." index="260"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_026" parent="." index="231"]
+[node name="book_031_023" parent="." index="261"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_027" parent="." index="232"]
+[node name="book_031_024" parent="." index="262"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_028" parent="." index="233"]
+[node name="book_031_025" parent="." index="263"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_029" parent="." index="234"]
+[node name="book_031_026" parent="." index="264"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_030" parent="." index="235"]
+[node name="book_031_027" parent="." index="265"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_031" parent="." index="236"]
+[node name="book_031_028" parent="." index="266"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_032" parent="." index="237"]
+[node name="book_031_029" parent="." index="267"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_033" parent="." index="238"]
+[node name="book_031_030" parent="." index="268"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_034" parent="." index="239"]
+[node name="book_031_031" parent="." index="269"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_102" parent="." index="242"]
+[node name="book_031_032" parent="." index="270"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="bookH3" parent="." index="243"]
+[node name="book_031_033" parent="." index="271"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="BookH4" parent="." index="244"]
+[node name="book_031_034" parent="." index="272"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="BookH5" parent="." index="245"]
+[node name="book_1002" parent="." index="273"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_clock" parent="." index="247"]
+[node name="book_1012" parent="." index="274"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_coffeecup" parent="." index="249"]
+[node name="book_102" parent="." index="275"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_lamp" parent="." index="251"]
+[node name="bookH3" parent="." index="276"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_mug" parent="." index="252"]
+[node name="BookH4" parent="." index="277"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_Xbox" parent="." index="258"]
+[node name="BookH5" parent="." index="278"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="cable" parent="." index="260"]
+[node name="BookH6" parent="." index="279"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Ordinateur" parent="." index="261"]
+[node name="GMTK24_mesh_clock" parent="." index="280"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Touch_004" parent="." index="264"]
+[node name="GMTK24_mesh_coffeecup" parent="." index="282"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="wacom" parent="." index="265"]
+[node name="GMTK24_mesh_lamp" parent="." index="284"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_coffeecup_001" parent="." index="267"]
+[node name="GMTK24_mesh_mug" parent="." index="285"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_coffeecup_002" parent="." index="269"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_coffeecup_003" parent="." index="271"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_coffeecup_004" parent="." index="273"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V1_001" parent="." index="275"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V1_002" parent="." index="276"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V1_003" parent="." index="277"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V1_004" parent="." index="278"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V1_005" parent="." index="279"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V1_006" parent="." index="280"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V1_007" parent="." index="281"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V1_008" parent="." index="282"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V1_009" parent="." index="283"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V2_001" parent="." index="284"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V2_002" parent="." index="285"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V2_003" parent="." index="286"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V2_004" parent="." index="287"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V2_005" parent="." index="288"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V2_006" parent="." index="289"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_pencil_V2_007" parent="." index="290"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="Cube" parent="." index="292"]
+[node name="GMTK24_mesh_Xbox" parent="." index="291"]
 surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="Cube5" type="MeshInstance3D" parent="." index="293"]
 transform = Transform3D(0.999998, -0.00011567, -0.00174149, 0.000140095, 0.999902, 0.0140319, 0.0017397, -0.0140321, 0.9999, 5.86814, 4.64406, -1.97739)
 mesh = SubResource("ArrayMesh_8tbcn")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube5" index="0"]
 
@@ -522,7 +494,6 @@ shape = SubResource("ConcavePolygonShape3D_nmg4m")
 transform = Transform3D(0.999114, -0.000116495, -0.000856086, 0.000113259, 1.00713, -0.000652113, 0.0017401, 0.00133582, 0.491581, -9.94681, 0.248021, 3.79873)
 mesh = SubResource("ArrayMesh_8tbcn")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube6" index="0"]
 
@@ -534,138 +505,273 @@ transform = Transform3D(0.999152, -0.0095023, -0.00161949, 0.00943591, 1.00584, 
 mesh = SubResource("ArrayMesh_yt0pc")
 skeleton = NodePath("")
 
-[node name="Chicken" parent="." index="297"]
+[node name="cable" parent="." index="296"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="camion" parent="." index="299"]
+[node name="Ordinateur" parent="." index="297"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="chickenEye" parent="." index="301"]
+[node name="Touch_004" parent="." index="300"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle" parent="." index="302"]
+[node name="wacom" parent="." index="301"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_001" parent="." index="303"]
+[node name="GMTK24_mesh_coffeecup_001" parent="." index="303"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_002" parent="." index="304"]
+[node name="GMTK24_mesh_coffeecup_002" parent="." index="305"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_003" parent="." index="305"]
+[node name="GMTK24_mesh_coffeecup_003" parent="." index="307"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_004" parent="." index="306"]
+[node name="GMTK24_mesh_coffeecup_004" parent="." index="309"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_005" parent="." index="307"]
+[node name="GMTK24_mesh_pencil_V1_001" parent="." index="311"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_006" parent="." index="308"]
+[node name="GMTK24_mesh_pencil_V1_002" parent="." index="312"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_007" parent="." index="309"]
+[node name="GMTK24_mesh_pencil_V1_003" parent="." index="313"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_001" parent="." index="310"]
+[node name="GMTK24_mesh_pencil_V1_004" parent="." index="314"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_002" parent="." index="311"]
+[node name="GMTK24_mesh_pencil_V1_005" parent="." index="315"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_003" parent="." index="312"]
+[node name="GMTK24_mesh_pencil_V1_006" parent="." index="316"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_004" parent="." index="313"]
+[node name="GMTK24_mesh_pencil_V1_007" parent="." index="317"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_005" parent="." index="314"]
+[node name="GMTK24_mesh_pencil_V1_008" parent="." index="318"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_006" parent="." index="315"]
+[node name="GMTK24_mesh_pencil_V1_009" parent="." index="319"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="head" parent="." index="316"]
+[node name="GMTK24_mesh_pencil_V2_001" parent="." index="320"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="head_001" parent="." index="317"]
+[node name="GMTK24_mesh_pencil_V2_002" parent="." index="321"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Sphere" parent="." index="318"]
+[node name="GMTK24_mesh_pencil_V2_003" parent="." index="322"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="ours" parent="." index="319"]
+[node name="GMTK24_mesh_pencil_V2_004" parent="." index="323"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="NurbsPath" parent="." index="321"]
+[node name="GMTK24_mesh_pencil_V2_005" parent="." index="324"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_008" parent="." index="322"]
+[node name="GMTK24_mesh_pencil_V2_006" parent="." index="325"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_009" parent="." index="323"]
+[node name="GMTK24_mesh_pencil_V2_007" parent="." index="326"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_010" parent="." index="324"]
+[node name="Cube" parent="." index="328"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_011" parent="." index="325"]
+[node name="Cube_001" parent="." index="329"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_012" parent="." index="326"]
+[node name="Cube_002" parent="." index="330"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_013" parent="." index="327"]
+[node name="Cube_003" parent="." index="331"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_004" parent="." index="332"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_005" parent="." index="333"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_007" parent="." index="334"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_008" parent="." index="335"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_009" parent="." index="336"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_010" parent="." index="337"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_011" parent="." index="338"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_012" parent="." index="339"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_013" parent="." index="340"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_014" parent="." index="341"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_015" parent="." index="342"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_016" parent="." index="343"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_017" parent="." index="344"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_018" parent="." index="345"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_019" parent="." index="346"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_020" parent="." index="347"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_021" parent="." index="348"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Chicken" parent="." index="350"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="camion" parent="." index="352"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="chickenEye" parent="." index="354"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle" parent="." index="355"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_001" parent="." index="356"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_002" parent="." index="357"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_003" parent="." index="358"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_004" parent="." index="359"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_005" parent="." index="360"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_006" parent="." index="361"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_007" parent="." index="362"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cylinder_001" parent="." index="363"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cylinder_002" parent="." index="364"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cylinder_003" parent="." index="365"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cylinder_004" parent="." index="366"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cylinder_005" parent="." index="367"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cylinder_006" parent="." index="368"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="head" parent="." index="369"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="head_001" parent="." index="370"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Sphere" parent="." index="371"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="ours" parent="." index="372"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="NurbsPath" parent="." index="374"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_008" parent="." index="375"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_009" parent="." index="376"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_010" parent="." index="377"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_011" parent="." index="378"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_012" parent="." index="379"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_013" parent="." index="380"]
 transform = Transform3D(-1.397e-07, -1.026, 0.566256, 1.17189, -1.64498e-07, -8.94019e-09, 8.73126e-08, 0.566256, 1.026, 3.23309, 0.314628, -6.35285)
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_014" parent="." index="328"]
+[node name="Circle_014" parent="." index="381"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_015" parent="." index="329"]
+[node name="Circle_015" parent="." index="382"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_007" parent="." index="330"]
+[node name="Cylinder_007" parent="." index="383"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_008" parent="." index="331"]
+[node name="Cylinder_008" parent="." index="384"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_009" parent="." index="332"]
+[node name="Cylinder_009" parent="." index="385"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_010" parent="." index="333"]
+[node name="Cylinder_010" parent="." index="386"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_011" parent="." index="334"]
+[node name="Cylinder_011" parent="." index="387"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_012" parent="." index="335"]
+[node name="Cylinder_012" parent="." index="388"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="head_002" parent="." index="336"]
+[node name="head_002" parent="." index="389"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="head_003" parent="." index="337"]
+[node name="head_003" parent="." index="390"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Sphere_001" parent="." index="338"]
+[node name="Sphere_001" parent="." index="391"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="NurbsPath_001" parent="." index="339"]
+[node name="NurbsPath_001" parent="." index="392"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="camion_003" parent="." index="340"]
+[node name="camion_003" parent="." index="393"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Chicken_001" parent="." index="342"]
+[node name="Chicken_001" parent="." index="395"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="chickenEye_001" parent="." index="344"]
+[node name="chickenEye_001" parent="." index="397"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="camion_001" parent="." index="346"]
+[node name="camion_001" parent="." index="399"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="camion_002" parent="." index="348"]
+[node name="camion_002" parent="." index="401"]
 surface_material_override/0 = ExtResource("2_rduor")
