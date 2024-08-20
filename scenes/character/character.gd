@@ -219,9 +219,9 @@ func apply_vertical_movement(delta: float):
 	
 	if not on_floor:
 		is_falling = true
-		if is_climbing(jump_pressed) and velocity.y < get_scaled_climbing_speed():
-			velocity.y = get_scaled_climbing_speed()
-			climbing_time += delta
+		#if is_climbing(jump_pressed) and velocity.y < get_scaled_climbing_speed():
+			#velocity.y = get_scaled_climbing_speed()
+			#climbing_time += delta
 		
 		var gravity
 		if launchpad_timer > 0:
@@ -290,10 +290,15 @@ func apply_horizontal_movement(delta: float):
 			else:
 				new_horizontal_velocity = direction * cur_speed
 		else:
-			if current_velocity and dot < change_direction_dot_limit:
-				new_horizontal_velocity = current_velocity
-			else:
-				new_horizontal_velocity = direction * cur_speed
+			new_horizontal_velocity = current_velocity
+			new_horizontal_velocity += direction * speed
+			new_horizontal_velocity = new_horizontal_velocity.limit_length(
+				max(speed, current_velocity.length())
+			)
+			#if current_velocity and dot < change_direction_dot_limit:
+				#new_horizontal_velocity = current_velocity
+			#else:
+				#new_horizontal_velocity = direction * cur_speed
 		velocity.x = new_horizontal_velocity.x
 		velocity.z = new_horizontal_velocity.z
 	else:
