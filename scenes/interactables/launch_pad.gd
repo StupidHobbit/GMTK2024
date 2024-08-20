@@ -2,6 +2,8 @@
 extends Area3D
 class_name LaunchPad
 
+@onready var sound_player: AudioStreamPlayer3D = $SoundPlayer
+
 @export var scale_: float = 1:
 	set(new_value):
 		scale = Vector3(new_value, new_value, new_value)
@@ -32,5 +34,12 @@ func can_launch(player: Character):
 	
 	return true
 
+func play() -> void:
+	play_anim()
+	play_sound()
+
 func play_anim() -> void:
 	$GMTK24_Mesh_JumpPadAnim/AnimationPlayer.play("ArmatureAction")
+
+func play_sound() -> void:
+	sound_player.play()

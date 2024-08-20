@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d5360lvtbvie"]
+[gd_scene load_steps=21 format=3 uid="uid://d5360lvtbvie"]
 
 [ext_resource type="Script" path="res://scenes/character/character.gd" id="1_611ae"]
 [ext_resource type="PackedScene" uid="uid://c7orvpb14unq5" path="res://scenes/components/HealthComponent.tscn" id="2_2wxrl"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="8_rmmf5"]
 [ext_resource type="Texture2D" uid="uid://ctq1fg7lsnagw" path="res://assets/sprites/gmtk2024_texture_speedLine1.png" id="9_8cxce"]
 [ext_resource type="Texture2D" uid="uid://cr2qlkipcv7n7" path="res://assets/sprites/gmtk2024_texture_speedLine2.png" id="10_jh640"]
+[ext_resource type="AudioStream" uid="uid://coua8gvwp8myv" path="res://assets/sounds/471428__juaner__24_jump.wav" id="11_4hwpl"]
 [ext_resource type="PackedScene" uid="uid://xo3w3js6jcj5" path="res://scenes/components/HurtBoxComponent.tscn" id="11_hti3i"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_abrjf"]
@@ -165,10 +166,13 @@ volume_db = -20.0
 bus = &"SFX"
 
 [node name="JumpAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_4hwpl")
+volume_db = 2.552
 bus = &"SFX"
 
 [node name="FallAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_y6003")
+bus = &"SFX"
 
 [connection signal="area_entered" from="CollisionShape3D/PadDetector" to="." method="on_pad_entered"]
 [connection signal="area_exited" from="CollisionShape3D/PadDetector" to="." method="on_pad_exited"]

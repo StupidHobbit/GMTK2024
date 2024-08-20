@@ -5,6 +5,7 @@ extends Node3D
 
 func _ready() -> void:
 	Globals.scale_update.emit()
+	MusicPlayer.update_music()
 
 func end_level() -> void:
 	if Globals.scale_index == Globals.SCALES.size()-1:

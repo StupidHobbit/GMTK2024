@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="GMTK2024"
-config/version="0.0.1"
-run/main_scene="res://scenes/levels/main_level.tscn"
+config/name="Shrinking depression"
+config/version="1.0"
+run/main_scene="res://scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.3")
 boot_splash/bg_color=Color(0.0862745, 0.0862745, 0.0862745, 1)
 boot_splash/image="res://assets/splash.png"
@@ -26,6 +26,7 @@ Transitions="*res://addons/ggt-core/transitions/transitions.tscn"
 Scenes="*res://addons/ggt-core/scenes/scenes.gd"
 Utils="*res://addons/ggt-core/utils/utils.gd"
 Globals="*res://autoloads/globals.gd"
+MusicPlayer="*res://autoloads/music_player.tscn"
 
 [category]
 
