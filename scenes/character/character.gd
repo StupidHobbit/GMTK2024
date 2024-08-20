@@ -8,7 +8,7 @@ class_name Character
 @export var RUNNING_SPEED = 10.0
 @export var SPEED_DAMPING = 4.0
 @export var CROUCHING_SPEED = 4.0
-@export var ZIPLINE_SPEED = 15.0
+@export var ZIPLINE_SPEED = 20.0
 @export var CROUCHING_BOOST_SPEED = 13.0
 @export var CROUCHING_BOOST_COOLDOWN = 5.0
 @export var JUMP_VELOCITY = 6
@@ -26,7 +26,7 @@ class_name Character
 @export var current_checkpoint: CheckPoint
 @export var crouching_scale = 0.5
 
-var change_direction_dot_limit = 0.9
+var change_direction_dot_limit = 0.95
 
 var time_from_last_jump_press: float = 100 
 var time_from_last_on_floor: float = 0 
@@ -187,7 +187,7 @@ func apply_zipline_move(delta: float):
 		velocity = Vector3.ZERO
 		return
 		
-	velocity = target_vector.normalized() * ZIPLINE_SPEED
+	velocity = target_vector.normalized() * ZIPLINE_SPEED * Globals.scale
 	
 func stop_zipline():
 	if current_zipline == null:
@@ -393,9 +393,9 @@ func apply_launchpads() -> void:
 		dir += pad.dir
 		count += 1
 		pad.play_anim()
-	
+
 	if count == 0:
 		return
-	
+
 	velocity += 20 * Globals.scale * dir / count
 	launchpad_timer = LAUNCHPAD_TIME
