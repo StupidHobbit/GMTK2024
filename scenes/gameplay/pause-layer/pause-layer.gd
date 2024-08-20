@@ -52,3 +52,4 @@ func _on_Resume_pressed():
 
 func _on_main_menu_pressed():
 	Game.change_scene_to_file("res://scenes/menu/menu.tscn", {"show_progress_bar": false})
+	MusicPlayer.start_menu_music()
