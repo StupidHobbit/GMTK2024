@@ -4,6 +4,5 @@
 
 [node name="LODcollisionShape" type="StaticBody3D"]
 script = ExtResource("1_i0dm1")
-shapes = Array[Shape3D]([null, null, null])
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CurrentShape" type="Node3D" parent="."]
