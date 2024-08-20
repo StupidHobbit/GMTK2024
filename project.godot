@@ -25,7 +25,7 @@ Game="*res://addons/ggt-core/game.gd"
 Transitions="*res://addons/ggt-core/transitions/transitions.tscn"
 Scenes="*res://addons/ggt-core/scenes/scenes.gd"
 Utils="*res://addons/ggt-core/utils/utils.gd"
-Globals="*res://autoloads/globals.gd"
+Globals="*res://globals.gd"
 
 [category]
 
