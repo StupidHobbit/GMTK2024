@@ -78,6 +78,11 @@ var SPEEDLINE_MAX_ALPHA = 1.0
 @onready var lp_image = $Camera3D/Interact2/Control/LaunchPadIndicator
 @onready var speedlines = $Camera3D/Interact2/Control/SpeedLines
 
+func reset(new_pos: Vector3) -> void:
+	position = new_pos
+	player.velocity = Vector3.ZERO
+	player.current_zipline = null
+
 func on_scale_update():
 	scale = Vector3(Globals.scale, Globals.scale, Globals.scale)
 	camera.near = original_camera_near * Globals.scale

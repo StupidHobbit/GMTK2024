@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var player: Character
-@export var level_start: CheckPoint
+@export var level_starts: Array[CheckPoint]
 
 func _ready() -> void:
 	Globals.scale_update.emit()
@@ -12,9 +12,7 @@ func end_level() -> void:
 		return
 	
 	Globals.scale_down()
-	player.position = level_start.position
-	player.velocity = Vector3.ZERO
-	player.current_zipline = null
+	player.reset(level_starts[Globals.scale_index].position)
 
 func end_game() -> void:
 	pass

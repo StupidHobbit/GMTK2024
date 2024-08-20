@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://tle17qkiuhpj"]
+[gd_scene load_steps=25 format=3 uid="uid://tle17qkiuhpj"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_oijy8"]
 [ext_resource type="Script" path="res://scenes/levels/main_level.gd" id="1_sbuhx"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://by6w3uuptdb1a" path="res://scenes/interactables/LaunchPad-smol.tscn" id="6_22uk8"]
 [ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="6_ef1m2"]
 [ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
+[ext_resource type="Script" path="res://scenes/gameplay/check_point.gd" id="8_horom"]
 [ext_resource type="PackedScene" uid="uid://bn5onbb7ngwm3" path="res://scenes/interactables/door_knob.tscn" id="8_pthfv"]
 [ext_resource type="PackedScene" uid="uid://boo7xq0mt4g6y" path="res://scenes/interactables/zipline/zipline.tscn" id="10_wf6re"]
 [ext_resource type="PackedScene" uid="uid://dt8qosg5l58r4" path="res://scenes/LODCollisionShape.tscn" id="13_jsbuj"]
@@ -54,10 +55,10 @@ sdfgi_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_blmu7"]
 size = Vector3(17.2, 0.4, 30.6)
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("player", "level_start")]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("player", "level_starts")]
 script = ExtResource("1_sbuhx")
 player = NodePath("gmtk2024_blocking-accurateGodot/Character")
-level_start = NodePath("gmtk2024_blocking-accurateGodot/CheckPoint")
+level_starts = [NodePath("gmtk2024_blocking-accurateGodot/Checkpoints/BigStart"), NodePath("gmtk2024_blocking-accurateGodot/Checkpoints/Bed"), NodePath("gmtk2024_blocking-accurateGodot/Checkpoints/Bed")]
 
 [node name="to_remove?" type="StaticBody3D" parent="."]
 
@@ -84,9 +85,27 @@ wall_min_slide_angle = 0.523599
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 0.523599
+SPEED = null
+RUNNING_SPEED = null
+SPEED_DAMPING = null
+CROUCHING_SPEED = null
+ZIPLINE_SPEED = null
+CROUCHING_BOOST_SPEED = null
+CROUCHING_BOOST_COOLDOWN = null
+JUMP_VELOCITY = null
+DASH_VELOCITY = null
+LAUNCHPAD_TIME = null
+jumping_gravity = null
+falling_gravity = null
+pad_gravity = null
+jump_buffer = null
 coyote_time = 0.2
 climbing_time_limit = 0.3
-current_checkpoint = NodePath("../CheckPoint")
+climbing_speed = null
+slowdown_time = null
+crouching_animation_time = null
+current_checkpoint = NodePath("../Checkpoints/Bed")
+crouching_scale = null
 
 [node name="Ledges" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
 transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
@@ -133,7 +152,12 @@ transform = Transform3D(-2.95052e-08, -0.675, 0, 0.675, -2.95052e-08, 0, 0, 0, 0
 scale_ = 0.675
 dir = Vector3(-3.255, 0.905, -3.175)
 
-[node name="CheckPoint" parent="gmtk2024_blocking-accurateGodot" instance=ExtResource("5_wkxdj")]
+[node name="Checkpoints" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+
+[node name="BigStart" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/Checkpoints"]
+script = ExtResource("8_horom")
+
+[node name="Bed" parent="gmtk2024_blocking-accurateGodot/Checkpoints" instance=ExtResource("5_wkxdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09436, 3.51682, 5.5866)
 
 [node name="HurtArea" parent="gmtk2024_blocking-accurateGodot" node_paths=PackedStringArray("vfx") instance=ExtResource("6_y2sbr")]
