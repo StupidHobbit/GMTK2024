@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt8qosg5l58r4"]
+
+[ext_resource type="Script" path="res://scenes/lod_collisions.gd" id="1_i0dm1"]
+
+[node name="LODcollisionShape" type="StaticBody3D"]
+script = ExtResource("1_i0dm1")
+shapes = Array[Shape3D]([null, null, null])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

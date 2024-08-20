@@ -3,7 +3,7 @@ extends Interactable
 signal end_level()
 
 func can_interact(player: Character) -> bool:
-	return player.scale_index == 0
+	return true
 
 func on_hover():
 	pass

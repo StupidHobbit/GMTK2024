@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_0pgsn"]
 [ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="3_i20k6"]
 [ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
-[ext_resource type="PackedScene" uid="uid://uws68vyrofw2" path="res://scenes/interactables/LaunchPad-smol.tscn" id="6_22uk8"]
+[ext_resource type="PackedScene" uid="uid://by6w3uuptdb1a" path="res://scenes/interactables/LaunchPad-smol.tscn" id="6_22uk8"]
 [ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="6_ef1m2"]
 [ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
 [ext_resource type="PackedScene" uid="uid://bn5onbb7ngwm3" path="res://scenes/interactables/door_knob.tscn" id="8_pthfv"]
@@ -52,8 +52,10 @@ sdfgi_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_blmu7"]
 size = Vector3(17.2, 0.4, 30.6)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("player", "level_start")]
 script = ExtResource("1_sbuhx")
+player = NodePath("gmtk2024_blocking-accurateGodot/Character")
+level_start = NodePath("gmtk2024_blocking-accurateGodot/CheckPoint")
 
 [node name="to_remove?" type="StaticBody3D" parent="."]
 visible = false
@@ -86,7 +88,6 @@ floor_max_angle = 0.523599
 coyote_time = 0.2
 climbing_time_limit = 0.3
 current_checkpoint = NodePath("../CheckPoint")
-scales = Array[float]([2.75, 0.5, 0.1])
 
 [node name="Ledges" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
 transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
@@ -226,3 +227,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7061, 0.283538, 3.26741)
 transform = Transform3D(0.26766, 0, -0.035471, 0, 0.27, 0, 0.035471, 0, 0.26766, 4.44239, 0.350571, -1.98589)
 scale_ = 0.27
 dir = Vector3(0, 3.66, 0)
+
+[connection signal="end_level" from="gmtk2024_blocking-accurateGodot/DoorKnob" to="." method="end_level"]

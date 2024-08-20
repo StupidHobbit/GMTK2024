@@ -26,9 +26,6 @@ class_name Character
 @export var current_checkpoint: CheckPoint
 @export var crouching_scale = 0.5
 
-@export var scales: Array[float] = [1, 0.5, 0.25, 0.1]
-var scale_index: int = 0
-
 var change_direction_dot_limit = 0.9
 
 var time_from_last_jump_press: float = 100 
@@ -81,14 +78,8 @@ var SPEEDLINE_MAX_ALPHA = 1.0
 @onready var lp_image = $Camera3D/Interact2/Control/LaunchPadIndicator
 @onready var speedlines = $Camera3D/Interact2/Control/SpeedLines
 
-var current_scale: float:
-	get:
-		return scale[0]
-	set(value):
-		scale = Vector3(value, value, value)
-
 func on_scale_update():
-	current_scale = Globals.scale
+	scale = Vector3(Globals.scale, Globals.scale, Globals.scale)
 	camera.near = original_camera_near * Globals.scale
 	interact.target_position.z = original_interact_length * Globals.scale
 	update_launchpad_image()
@@ -103,7 +94,6 @@ func _ready():
 	health_component.health_depleted.connect(on_health_depleted)
 	
 	start_handle_input()
-	Globals.scale = current_scale
 
 func start_handle_input():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -180,7 +170,7 @@ func apply_zipline_move(delta: float):
 		target_position = zipline_end_position
 	
 	var target_vector = target_position - global_position
-	if target_vector.length() < current_scale * 0.3:
+	if target_vector.length() < Globals.scale * 0.3:
 		stop_zipline()
 		velocity = Vector3.ZERO
 		return
@@ -215,7 +205,7 @@ func apply_vertical_movement(delta: float):
 	if not on_floor:
 		is_falling = true
 		if is_climbing(jump_pressed):
-			velocity.y = climbing_speed * current_scale
+			velocity.y = climbing_speed * Globals.scale
 			climbing_time += delta
 		
 		var gravity
@@ -226,7 +216,7 @@ func apply_vertical_movement(delta: float):
 		else:
 			gravity = falling_gravity
 		
-		velocity.y -= gravity * delta * current_scale
+		velocity.y -= gravity * delta * Globals.scale
 	
 	if jump_pressed and time_from_last_jump_press < jump_buffer:
 		var jumped: bool = false
@@ -236,7 +226,7 @@ func apply_vertical_movement(delta: float):
 			jumped = true
 		
 		if time_from_last_on_floor < coyote_time:
-			velocity.y = max(velocity.y, JUMP_VELOCITY * current_scale)
+			velocity.y = max(velocity.y, JUMP_VELOCITY * Globals.scale)
 			jumped = true
 		
 		if jumped and not jump_audio_player.playing:
@@ -310,18 +300,16 @@ func update_examination():
 	
 func update_scale():
 	if Input.is_action_just_pressed("scale_down"):
-		scale_index += 1
+		Globals.scale_down()
 	elif Input.is_action_just_pressed("scale_up"):
-		scale_index -= 1
+		Globals.scale_up()
 	else:
 		return
-	scale_index = clampi(scale_index, 0, len(scales) - 1)
-	Globals.scale = scales[scale_index]
 
 func on_health_depleted():
 	if current_checkpoint == null:
 		return
-		
+	
 	health_component.reset()
 	position = current_checkpoint.position 
 
@@ -341,7 +329,7 @@ func enable_movement():
 	movement_disabled = false
 
 func get_current_speed() -> float:
-	return _get_current_speed_without_scale() * current_scale
+	return _get_current_speed_without_scale() * Globals.scale
 	
 func _get_current_speed_without_scale() -> float:
 	if has_crouching_boost and is_on_floor():
@@ -389,14 +377,13 @@ func apply_launchpads() -> void:
 	if launchpads.size() == 0:
 		return
 	
-	if scale_index < 2:
-		# disabled for big sizes
-		return
-	
 	var dir: Vector3 = Vector3.ZERO
+	var count: int = 0
 	for pad: LaunchPad in launchpads:
+		if not pad.can_launch(self): continue
 		dir += pad.dir
+		count += 1
 		pad.play_anim()
 	
-	velocity = 20 * Globals.scale * dir / launchpads.size()
+	velocity = 20 * Globals.scale * dir / count
 	launchpad_timer = LAUNCHPAD_TIME

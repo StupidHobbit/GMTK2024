@@ -26,7 +26,7 @@ func _process(_delta: float) -> void:
 			$VisualDir.target_position = target
 
 func can_launch(player: Character):
-	var cur_scale: int = roundi(pow(2, player.scale_index))
+	var cur_scale: int = roundi(pow(2, Globals.scale_index))
 	if (allowed_scales & cur_scale) == 0:
 		return false
 	
