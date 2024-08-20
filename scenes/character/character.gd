@@ -218,7 +218,7 @@ func apply_vertical_movement(delta: float):
 		
 		velocity.y -= gravity * delta * Globals.scale
 	
-	if jump_pressed and time_from_last_jump_press < jump_buffer:
+	if Globals.scale_index > 0 and time_from_last_jump_press < jump_buffer:
 		var jumped: bool = false
 		
 		if launchpad_timer <= 0:

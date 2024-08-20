@@ -13,6 +13,8 @@ func end_level() -> void:
 	
 	Globals.scale_down()
 	player.position = level_start.position
+	player.velocity = Vector3.ZERO
+	player.current_zipline = null
 
 func end_game() -> void:
 	pass
