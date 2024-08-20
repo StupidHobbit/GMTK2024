@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://tle17qkiuhpj"]
+[gd_scene load_steps=31 format=3 uid="uid://tle17qkiuhpj"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_oijy8"]
 [ext_resource type="Script" path="res://scenes/levels/main_level.gd" id="1_sbuhx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
 [ext_resource type="PackedScene" uid="uid://by6w3uuptdb1a" path="res://scenes/interactables/LaunchPad-smol.tscn" id="6_22uk8"]
 [ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="6_ef1m2"]
+[ext_resource type="PackedScene" uid="uid://dhad8osjfv3ve" path="res://scenes/gameplay/cp_trigger.tscn" id="6_x5axg"]
 [ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
 [ext_resource type="PackedScene" uid="uid://bn5onbb7ngwm3" path="res://scenes/interactables/door_knob.tscn" id="8_pthfv"]
 [ext_resource type="PackedScene" uid="uid://boo7xq0mt4g6y" path="res://scenes/interactables/zipline/zipline.tscn" id="10_wf6re"]
@@ -53,6 +54,12 @@ ambient_light_source = 2
 ambient_light_color = Color(0.896435, 0.77191, 0.534455, 1)
 tonemap_mode = 2
 ssao_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jhvld"]
+size = Vector3(1, 1.16553, 1.23035)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_efmrv"]
+size = Vector3(3.0769, 0.550293, 5.4053)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_blmu7"]
 size = Vector3(17.2, 0.4, 30.6)
@@ -112,6 +119,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53045, 0.116211, 2.8304)
 
 [node name="Bed" parent="gmtk2024_blocking-accurateGodot/Checkpoints" instance=ExtResource("5_wkxdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09436, 3.51682, 5.5866)
+
+[node name="BookshelfCP" parent="gmtk2024_blocking-accurateGodot/Checkpoints" instance=ExtResource("6_x5axg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.822, 1.766, -8.113)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gmtk2024_blocking-accurateGodot/Checkpoints/BookshelfCP"]
+transform = Transform3D(0.987987, 0, -0.154538, 0, 1, 0, 0.154538, 0, 0.987987, 0.0926719, 0.0827637, -0.592466)
+shape = SubResource("BoxShape3D_jhvld")
+
+[node name="DeskCP" parent="gmtk2024_blocking-accurateGodot/Checkpoints" instance=ExtResource("6_x5axg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60629, 2.81109, -13.164)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gmtk2024_blocking-accurateGodot/Checkpoints/DeskCP"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21692, 0.224854, -2.13808)
+shape = SubResource("BoxShape3D_efmrv")
 
 [node name="HurtArea" parent="gmtk2024_blocking-accurateGodot" node_paths=PackedStringArray("vfx") instance=ExtResource("6_y2sbr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 0, -5.6)
@@ -274,7 +295,7 @@ scale_ = 0.365
 dir = Vector3(0, 2.96, 0)
 
 [node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
-transform = Transform3D(0.000746465, -0.177148, -0.319129, 0.364922, 0.00691765, -0.00298639, 0.00749768, -0.319055, 0.177124, 2.2984, 0.630873, 8.0594)
+transform = Transform3D(0.000746463, -0.177148, -0.319129, 0.364922, 0.00691765, -0.0029864, 0.00749768, -0.319055, 0.177124, 2.2984, 0.630873, 8.0594)
 scale_ = 0.365
 dir = Vector3(-2.5, 1.36, -2)
 
@@ -295,4 +316,6 @@ dir = Vector3(0, 2.6, 0)
 [node name="PauseLayer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_hrpjg")]
 player = NodePath("../gmtk2024_blocking-accurateGodot/Character")
 
+[connection signal="checkpoint_activated" from="gmtk2024_blocking-accurateGodot/Checkpoints/BookshelfCP" to="." method="on_checkpoint_activated"]
+[connection signal="checkpoint_activated" from="gmtk2024_blocking-accurateGodot/Checkpoints/DeskCP" to="." method="on_checkpoint_activated"]
 [connection signal="end_level" from="gmtk2024_blocking-accurateGodot/DoorKnob" to="." method="end_level"]
