@@ -87,7 +87,9 @@ func reset(new_checkpoint: CheckPoint = null) -> void:
 		current_checkpoint = new_checkpoint
 	position = current_checkpoint.position
 	velocity = Vector3.ZERO
-	current_zipline = null
+	if current_zipline != null:
+		current_zipline.current_player = null
+		current_zipline = null
 
 func on_scale_update():
 	scale = Vector3(Globals.scale, Globals.scale, Globals.scale)
