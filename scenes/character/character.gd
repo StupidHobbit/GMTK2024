@@ -90,6 +90,7 @@ func reset(new_checkpoint: CheckPoint = null) -> void:
 	if current_zipline != null:
 		current_zipline.current_player = null
 		current_zipline = null
+	interact.buffered_interactable = null
 
 func on_scale_update():
 	scale = Vector3(Globals.scale, Globals.scale, Globals.scale)

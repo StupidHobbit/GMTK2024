@@ -316,7 +316,7 @@ scale_ = 0.365
 dir = Vector3(0, 2.96, 0)
 
 [node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
-transform = Transform3D(0.000746462, -0.177148, -0.319128, 0.364922, 0.00691765, -0.00298641, 0.00749769, -0.319054, 0.177125, 2.2984, 0.630873, 8.0594)
+transform = Transform3D(0.000746457, -0.177148, -0.319128, 0.364922, 0.00691765, -0.00298642, 0.00749769, -0.319054, 0.177125, 2.2984, 0.630873, 8.0594)
 scale_ = 0.365
 dir = Vector3(-3, 1.36, -8)
 
