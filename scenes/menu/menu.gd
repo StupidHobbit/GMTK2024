@@ -6,6 +6,7 @@ extends Control
 
 func _ready():
 	# needed for gamepads to work
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	btn_play.grab_focus()
 	if OS.has_feature('web'):
 		btn_exit.queue_free() # exit button dosn't make sense on HTML5

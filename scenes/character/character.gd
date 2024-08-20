@@ -127,7 +127,7 @@ func examine(item: Examinable, collision_rid: RID):
 
 func _physics_process(delta: float):
 	update_examination()
-	update_scale()
+	#update_scale()
 	if movement_disabled:
 		return
 	apply_rotation()
