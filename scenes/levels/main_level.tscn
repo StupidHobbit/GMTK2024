@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://tle17qkiuhpj"]
+[gd_scene load_steps=28 format=3 uid="uid://tle17qkiuhpj"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_oijy8"]
 [ext_resource type="Script" path="res://scenes/levels/main_level.gd" id="1_sbuhx"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://boo7xq0mt4g6y" path="res://scenes/interactables/zipline/zipline.tscn" id="10_wf6re"]
 [ext_resource type="PackedScene" uid="uid://dt8qosg5l58r4" path="res://scenes/LODCollisionShape.tscn" id="13_jsbuj"]
 [ext_resource type="PackedScene" uid="uid://gnab3it26f2q" path="res://assets/3DModel/gmtk2024_mesh_InvisibleWall.glb" id="14_rsr1e"]
+[ext_resource type="PackedScene" uid="uid://barl4q1kugrmm" path="res://scenes/gameplay/pause-layer/pause-layer.tscn" id="16_hrpjg"]
 [ext_resource type="Shader" path="res://assets/materials/post_processing_effects/spatial/TF2.gdshader" id="34_hs5pa"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_670vm"]
@@ -106,6 +107,7 @@ current_checkpoint = NodePath("../Checkpoints/Bed")
 [node name="Checkpoints" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
 
 [node name="BigStart" parent="gmtk2024_blocking-accurateGodot/Checkpoints" instance=ExtResource("5_wkxdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53045, 0.116211, 2.8304)
 
 [node name="Bed" parent="gmtk2024_blocking-accurateGodot/Checkpoints" instance=ExtResource("5_wkxdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09436, 3.51682, 5.5866)
@@ -285,5 +287,8 @@ dir = Vector3(0, 2.6, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+
+[node name="PauseLayer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_hrpjg")]
+player = NodePath("../gmtk2024_blocking-accurateGodot/Character")
 
 [connection signal="end_level" from="gmtk2024_blocking-accurateGodot/DoorKnob" to="." method="end_level"]

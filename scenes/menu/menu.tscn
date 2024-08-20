@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2gocuhw2o7py"]
+[gd_scene load_steps=6 format=3 uid="uid://c2gocuhw2o7py"]
 
 [ext_resource type="FontFile" uid="uid://da2t6lyf41wty" path="res://assets/fonts/open-sans/open-sans-bold.ttf" id="4"]
 [ext_resource type="Script" path="res://scenes/menu/game_version.gd" id="4_3hod2"]
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://b7uwbh0qvijxf" path="res://scenes/gameplay/pause-layer/audio_sliders.tscn" id="5_c3rp8"]
 [ext_resource type="Script" path="res://scenes/menu/godot_version.gd" id="5_fdyjp"]
 
 [node name="Menu" type="Control"]
@@ -49,7 +50,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4")
 theme_override_font_sizes/font_size = 60
-text = "Godot Game Template"
+text = "Shrinking Depression"
 uppercase = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
@@ -119,20 +120,22 @@ grow_vertical = 0
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "made by: ..."
+text = "made by:"
+horizontal_alignment = 2
 
 [node name="Developer1" type="Label" parent="MarginContainer/Control/Credits"]
-visible = false
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+text = "Uriel A., Leroymilo, StupidHobbit"
+horizontal_alignment = 2
 
 [node name="Developer2" type="Label" parent="MarginContainer/Control/Credits"]
-visible = false
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)
-text = "Developer 2"
+text = "Oktotoster, Pauline Nuellas, SayuriNyooko"
+horizontal_alignment = 2
 
 [node name="Developer3" type="Label" parent="MarginContainer/Control/Credits"]
 visible = false
@@ -140,6 +143,13 @@ layout_mode = 2
 theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)
 text = "Developer 3"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="AudioSliders" parent="MarginContainer/MarginContainer" instance=ExtResource("5_c3rp8")]
+layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
