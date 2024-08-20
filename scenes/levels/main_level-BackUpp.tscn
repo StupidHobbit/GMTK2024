@@ -1,0 +1,276 @@
+[gd_scene load_steps=22 format=3 uid="uid://bm3g7yugr1i7q"]
+
+[ext_resource type="Script" path="res://scenes/levels/main_level.gd" id="1_k3vko"]
+[ext_resource type="Script" path="res://scenes/levels/world_environment.gd" id="2_ihbjc"]
+[ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_7gels"]
+[ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="4_hmrte"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/Ledge.tscn" id="5_184aq"]
+[ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="6_v4xfj"]
+[ext_resource type="PackedScene" uid="uid://by6w3uuptdb1a" path="res://scenes/interactables/LaunchPad-smol.tscn" id="7_fhvjq"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/CheckPoint.tscn" id="8_te8nj"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/HurtArea.tscn" id="9_dicpr"]
+[ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="10_cr2fy"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/door_knob.tscn" id="11_m3ac1"]
+[ext_resource type="PackedScene" uid="uid://boo7xq0mt4g6y" path="res://scenes/interactables/zipline/zipline.tscn" id="12_q6jph"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_670vm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b63ex"]
+noise_type = 2
+frequency = 1.0
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pg2hx"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_b63ex")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6hod"]
+shading_mode = 2
+diffuse_mode = 3
+albedo_texture = SubResource("NoiseTexture2D_pg2hx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mjsou"]
+material = SubResource("StandardMaterial3D_t6hod")
+size = Vector2(100, 100)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qg2we"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_5t1ig"]
+sky_material = SubResource("ProceduralSkyMaterial_qg2we")
+
+[sub_resource type="Environment" id="Environment_jnky0"]
+background_mode = 2
+sky = SubResource("Sky_5t1ig")
+tonemap_mode = 2
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_blmu7"]
+size = Vector3(17.2, 0.4, 30.6)
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("player", "level_start")]
+script = ExtResource("1_k3vko")
+player = NodePath("gmtk2024_blocking-accurateGodot/Character")
+level_start = NodePath("gmtk2024_blocking-accurateGodot/CheckPoint")
+
+[node name="to_remove?" type="StaticBody3D" parent="."]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="to_remove?"]
+shape = SubResource("WorldBoundaryShape3D_670vm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="to_remove?"]
+mesh = SubResource("PlaneMesh_mjsou")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="to_remove?"]
+mesh = SubResource("PlaneMesh_mjsou")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jnky0")
+script = ExtResource("2_ihbjc")
+
+[node name="gmtk2024_blocking-accurateGodot" parent="." instance=ExtResource("3_7gels")]
+
+[node name="Character" parent="gmtk2024_blocking-accurateGodot" node_paths=PackedStringArray("current_checkpoint") instance=ExtResource("4_hmrte")]
+transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, -1.53045, 0.116211, 2.8304)
+wall_min_slide_angle = 0.523599
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_max_angle = 0.523599
+coyote_time = 0.2
+climbing_time_limit = 0.3
+current_checkpoint = NodePath("../CheckPoint")
+
+[node name="Ledges" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
+
+[node name="LedgeComponent" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(-0.999982, 9.02667e-05, 0.00591623, 9.02651e-05, 1, -5.34033e-07, -0.00591623, 5.79803e-12, -0.999981, 1.14596, 0.0225546, 11.4689)
+length = 3.88694
+allowed_scales = 30
+
+[node name="To_move1" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(0.719946, 0.010331, 0.00303251, -0.00745974, 0.997069, -2.7373e-07, -0.00217445, -3.09301e-05, 1.00407, 0.581534, 0.0119631, 11.8041)
+length = 0.484887
+enabled = false
+
+[node name="To_move2" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(0.00693597, 0.000188672, -1.00402, -0.00739538, 0.99707, 9.063e-05, 0.719917, 0.0102406, 0.00967406, 0.755694, 0.0119474, 11.9696)
+length = 0.484887
+enabled = false
+
+[node name="To_move4" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(-0.173207, -0.00231067, -0.974581, 0.00606059, 0.997078, -0.00449189, 0.698817, -0.00922009, -0.241519, 2.77587, -1.37452, 11.1532)
+length = 0.484887
+enabled = false
+
+[node name="To_move5" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(-0.703241, 0.00924188, 0.215102, 0.00610843, 0.997077, -0.00459928, -0.154267, -0.00264887, -0.98075, 3.00046, -1.37454, 11.0224)
+length = 0.484887
+enabled = false
+
+[node name="To_move6" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(0.124002, 0.00312847, 0.989063, 0.00603376, 0.997077, -0.00466914, -0.709204, 0.00903001, 0.172895, 3.13275, -1.37456, 11.2257)
+length = 0.484887
+enabled = false
+
+[node name="To_move7" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(-0.173207, -0.00231067, -0.974581, 0.00606059, 0.997078, -0.00449189, 0.698817, -0.00922009, -0.241519, -0.488869, -1.37423, 11.1622)
+length = 0.484887
+enabled = false
+
+[node name="To_move9" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(0.124002, 0.00312847, 0.989063, 0.00603376, 0.997077, -0.00466914, -0.709204, 0.00903001, 0.172895, -0.131993, -1.37426, 11.2346)
+length = 0.484887
+enabled = false
+
+[node name="To_move3" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(0.00693597, 0.000188672, -1.00402, -0.00739538, 0.99707, 9.063e-05, 0.719917, 0.0102406, 0.00967406, 0.431578, 0.0119765, 11.9686)
+length = 0.484887
+enabled = false
+
+[node name="LedgeComponent2" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(0.252663, 0.000875244, 0.967554, -0.0031296, 0.999995, -8.73382e-05, -0.967549, -0.00300599, 0.252664, 16.4603, 0.224851, 12.1559)
+length = 0.675935
+allowed_scales = 28
+
+[node name="LedgeComponent3" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(0.0889499, 0.000366618, 0.996036, -0.00311482, 0.999995, -8.99093e-05, -0.996031, -0.00309448, 0.0889504, 17.3284, 2.79632, 12.5019)
+length = 0.675935
+allowed_scales = 28
+
+[node name="LedgeComponent4" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(-0.563405, -0.00166013, 0.826179, -0.00305594, 0.999996, -7.4577e-05, -0.826175, -0.00256677, -0.563407, 21.2397, 1.62, 11.5163)
+length = 0.675935
+allowed_scales = 28
+
+[node name="LedgeComponent5" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_184aq")]
+transform = Transform3D(-0.494209, -0.00144515, 0.869341, -0.00306218, 0.999996, -7.84735e-05, -0.869338, -0.00270087, -0.494212, 22.6466, 1.98842, 9.69448)
+length = 0.675935
+allowed_scales = 28
+
+[node name="LaunchPads" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+
+[node name="LaunchPad3" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("6_v4xfj")]
+transform = Transform3D(0.356326, 0, -0.0791, 0, 0.365, 0, 0.0791, 0, 0.356326, 2.41327, 0.3149, 2.70673)
+scale_ = 0.365
+dir = Vector3(0, 3.375, 0)
+
+[node name="LaunchPad4" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("6_v4xfj")]
+transform = Transform3D(0.356326, 0, -0.0791, 0, 0.365, 0, 0.0791, 0, 0.356326, 2.42122, 0.3149, 5.94266)
+scale_ = 0.365
+dir = Vector3(0, 2.96, 0)
+
+[node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("6_v4xfj")]
+transform = Transform3D(0.00365771, -0.289119, -0.222759, 0.364922, 0.00691765, -0.00298639, 0.00658738, -0.222682, 0.289127, 2.57138, 0.625323, 7.86943)
+scale_ = 0.365
+dir = Vector3(-3.3, 1.36, -3)
+
+[node name="LaunchPad" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("7_fhvjq")]
+transform = Transform3D(-2.95052e-08, -0.675, 0, 0.675, -2.95052e-08, 0, 0, 0, 0.675, 5.26431, 4.9814, -1.85785)
+scale_ = 0.675
+dir = Vector3(-3.255, 0.905, -3.175)
+
+[node name="CheckPoint" parent="gmtk2024_blocking-accurateGodot" instance=ExtResource("8_te8nj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09436, 3.51682, 5.5866)
+
+[node name="HurtArea" parent="gmtk2024_blocking-accurateGodot" node_paths=PackedStringArray("vfx") instance=ExtResource("9_dicpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 0, -5.6)
+vfx = NodePath("SmokeClouds")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gmtk2024_blocking-accurateGodot/HurtArea"]
+shape = SubResource("BoxShape3D_blmu7")
+
+[node name="SmokeClouds" parent="gmtk2024_blocking-accurateGodot/HurtArea" instance=ExtResource("10_cr2fy")]
+
+[node name="ParticleBlockers" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+
+[node name="Carpet" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89407, 0, -18.63)
+size = Vector3(3.54724, 2, 3.70709)
+
+[node name="Desk" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07833, 0, 4.11387)
+size = Vector3(2.3208, 2, 4.58102)
+
+[node name="Drawer1" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58903, 0, 2.7856)
+size = Vector3(1.76147, 2, 1.64865)
+
+[node name="Drawer2" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83949, 0, 5.67353)
+size = Vector3(1.93689, 2, 1.64865)
+
+[node name="Books1" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(0.793396, 0, -0.608706, 0, 1, 0, 0.608706, 0, 0.793396, 1.47413, 0, 4.04864)
+size = Vector3(3.47412, 2, 1.26318)
+
+[node name="Books2" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56312, 0, 1.66053)
+size = Vector3(2.272, 2, 5.64172)
+
+[node name="Shelf1" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(0.987231, 0, -0.159295, 0, 1, 0, 0.159295, 0, 0.987231, 3.87347, 0, -11.0156)
+size = Vector3(2.88428, 2, 6.35889)
+
+[node name="Shelf2" type="GPUParticlesCollisionBox3D" parent="gmtk2024_blocking-accurateGodot/ParticleBlockers"]
+transform = Transform3D(0.861337, 0, 0.508035, 0, 1, 0, -0.508035, 0, 0.861337, 2.24416, 0, -17.1219)
+size = Vector3(2.29919, 2, 6.64603)
+
+[node name="DoorKnob" parent="gmtk2024_blocking-accurateGodot" instance=ExtResource("11_m3ac1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18911, 3.16599, -19.4937)
+
+[node name="ZipLines" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18911, 3.16599, -19.4937)
+
+[node name="ZiplineBed" parent="gmtk2024_blocking-accurateGodot/ZipLines" node_paths=PackedStringArray("start_point", "end_point") instance=ExtResource("12_q6jph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56843, 3.53193, 5.92959)
+start_point = NodePath("Marker3D")
+end_point = NodePath("Marker3D2")
+
+[node name="Marker3D" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineBed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.939056, 0.236265)
+
+[node name="Marker3D2" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineBed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1728, 0, -6.62)
+
+[node name="ZiplineTV" parent="gmtk2024_blocking-accurateGodot/ZipLines" node_paths=PackedStringArray("start_point", "end_point") instance=ExtResource("12_q6jph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53525, -0.783947, 24.7107)
+start_point = NodePath("Marker3D")
+end_point = NodePath("Marker3D2")
+
+[node name="Marker3D" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineTV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0757685, 0.191706, 0.220925)
+
+[node name="Marker3D2" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineTV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719489, 2.59988, -2.44817)
+
+[node name="ZiplineTop" parent="gmtk2024_blocking-accurateGodot/ZipLines" node_paths=PackedStringArray("start_point", "end_point") instance=ExtResource("12_q6jph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.23702, -2.78409, 23.8531)
+start_point = NodePath("Marker3D")
+end_point = NodePath("Marker3D2")
+
+[node name="Marker3D" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19136, 0.162878, -0.692142)
+
+[node name="Marker3D2" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7061, 0.283538, 3.26741)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+
+[node name="LaunchPad" parent="." instance=ExtResource("7_fhvjq")]
+transform = Transform3D(0.26766, 0, -0.035471, 0, 0.27, 0, 0.035471, 0, 0.26766, 4.44239, 0.350571, -1.98589)
+scale_ = 0.27
+dir = Vector3(0, 3.66, 0)
+
+[connection signal="end_level" from="gmtk2024_blocking-accurateGodot/DoorKnob" to="." method="end_level"]

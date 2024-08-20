@@ -141,6 +141,36 @@ surface_material_override/0 = ExtResource("2_rduor")
 transform = Transform3D(3.31952, 0, 0, 0, 2.55974, 0, 0, 0, 0.628281, 0.716619, 3.66223, 9.45557)
 surface_material_override/0 = ExtResource("2_rduor")
 
+[node name="GMTK24_mesh_trunk" parent="." index="35"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_slipper_right" parent="." index="37"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_slipper_left" parent="." index="39"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_shoe_right" parent="." index="41"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_shoe_left" parent="." index="43"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_briefcase" parent="." index="45"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_bag_hole" parent="." index="47"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_bag_hole_001" parent="." index="48"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_trunk_001" parent="." index="49"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_trunk_002" parent="." index="51"]
+surface_material_override/0 = ExtResource("2_rduor")
+
 [node name="floor" parent="GMTK24_Mesh_BlockingLevel" index="3"]
 surface_material_override/0 = ExtResource("3_f503r")
 
@@ -148,10 +178,10 @@ surface_material_override/0 = ExtResource("3_f503r")
 surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="GMTK24_Mesh_MovieArietty" parent="." index="87" instance=ExtResource("4_nayni")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1435, 0.193492, 3.68322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1435, 0.169175, 3.68322)
 
 [node name="GMTK24_Mesh_MovieAvatar" parent="." index="88" instance=ExtResource("5_geym2")]
-transform = Transform3D(0.983841, 0, -0.179043, 0, 1, 0, 0.179043, 0, 0.983841, 1.17043, 0.193492, 2.2162)
+transform = Transform3D(0.983841, 0, -0.179043, 0, 1, 0, 0.179043, 0, 0.983841, 1.17043, 0.176363, 2.2162)
 
 [node name="GMTK24_Mesh_MovieChihiro" parent="." index="89" instance=ExtResource("6_8u4uo")]
 transform = Transform3D(0.898909, 0, 0.438136, 0, 1, 0, -0.438136, 0, 0.898909, 1.60846, 0.283061, -0.21681)
@@ -548,6 +578,66 @@ surface_material_override/0 = ExtResource("2_rduor")
 surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="Cube" parent="." index="328"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_001" parent="." index="329"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_002" parent="." index="330"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_003" parent="." index="331"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_004" parent="." index="332"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_005" parent="." index="333"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_007" parent="." index="334"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_008" parent="." index="335"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_009" parent="." index="336"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_010" parent="." index="337"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_011" parent="." index="338"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_012" parent="." index="339"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_013" parent="." index="340"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_014" parent="." index="341"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_015" parent="." index="342"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_016" parent="." index="343"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_017" parent="." index="344"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_018" parent="." index="345"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_019" parent="." index="346"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_020" parent="." index="347"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_021" parent="." index="348"]
 surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="Chicken" parent="." index="350"]
