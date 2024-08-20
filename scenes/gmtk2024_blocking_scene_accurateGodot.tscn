@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=4 uid="uid://dhb3fdpcoj15d"]
+[gd_scene load_steps=43 format=4 uid="uid://dhb3fdpcoj15d"]
 
 [ext_resource type="PackedScene" uid="uid://djs73tajvjljq" path="res://assets/3DModel/gmtk2024_blocking-accurateGodot.glb" id="1_sfmc8"]
 [ext_resource type="Material" uid="uid://q3gqdmet2m52" path="res://assets/materials/atlasORM.tres" id="2_rduor"]
+[ext_resource type="Material" uid="uid://dftuhrq7ne71q" path="res://assets/materials/BoxMaterial.tres" id="3_2wwie"]
 [ext_resource type="Material" uid="uid://e4yntx1y51cg" path="res://assets/materials/floorMatColor.tres" id="3_f503r"]
 [ext_resource type="PackedScene" uid="uid://c5damh7r03iwt" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieArietty.glb" id="4_nayni"]
 [ext_resource type="PackedScene" uid="uid://fodl5tadlg4f" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieAvatar.glb" id="5_geym2"]
@@ -13,6 +14,98 @@
 [ext_resource type="PackedScene" uid="uid://b80mufpg6i21v" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieTotoro.glb" id="11_r85cf"]
 [ext_resource type="PackedScene" uid="uid://cixdx50c2ed5y" path="res://assets/3DModel/Movies/GMTK24_Mesh_MovieZootopia.glb" id="12_713sy"]
 [ext_resource type="Material" uid="uid://b53jyanmdrjvw" path="res://assets/materials/atlasORM-Blahaj.tres" id="13_4s0q5"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_1mx13"]
+albedo_color = Color(0.479869, 0.668586, 0.653107, 1)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_e2er1"]
+albedo_color = Color(0.610743, 0.483017, 0.266432, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5b84j"]
+resource_name = "GMTK24_Mat_Atlas.028"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+metallic = 1.0
+emission_enabled = true
+emission = Color(0.735357, 0.735357, 0.735357, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2edp8"]
+resource_name = "GMTK24_Mat_toyCube.013"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vf7ib"]
+_surfaces = [{
+"aabb": AABB(-0.493666, -0.493666, -0.493666, 0.987332, 0.987332, 0.987332),
+"format": 34896613377,
+"index_count": 960,
+"index_data": PackedByteArray("IABoACIAIABqAGgARQCJAD0ARQCKAIkAKQB1ACoAKQBtAHUAOQB9ADEAOQB+AH0AHQBpAB4AHQBkAGkALQBxACUALQByAHEAAQA+AA0AAQBHAD4ABABfAA8ABABbAF8AEgAmAAcAEgAvACYAAwBHAAEAAwBDAEcACABMABQACABKAEwAFABPAA4AFABMAE8AGABjABsAGABgAGMAFQBYAAkAFQBWAFgAFwAvABIAFwArAC8AEwA0ABYAEwAyADQADwBWABUADwBfAFYADQBAABAADQA+AEAAEQA7AAwAEQA3ADsABwAoAAoABwAmACgADgBTAAAADgBPAFMABgAaAAIABgAjABoACwAjAAYACwAfACMADAAyABMADAA7ADIACQBbAAQACQBYAFsAAgAcAAUAAgAaABwACgArABcACgAoACsABQAfAAsABQAcAB8AEABDAAMAEABAAEMAFgA3ABEAFgA0ADcANQCBADYANQB5AIEAUQCVAEkAUQCWAJUALAB0AC4ALAB2AHQAQQCNAEIAQQCFAI0AXQChAFUAXQCiAKEAJABsACcAJABvAGwAOACAADoAOACCAIAATQCZAE4ATQCRAJkAMAB4ADMAMAB7AHgARACMAEYARACOAIwAWQClAFoAWQCdAKUAPACEAD8APACHAIQAUACYAFIAUACaAJgASACQAEsASACTAJAAXACkAF4AXACmAKQAVACcAFcAVACfAJwAIQBiABkAIQBmAGIAAAACAAEAAwAFAAQABgAIAAcACQALAAoADAAOAA0ADwARABAAEgAUABMAFQAXABYAGAAaABkAGwAdABwAHgAgAB8AIQAjACIAJAAmACUAJwApACgAKgAsACsALQAvAC4AMAAyADEAMwA1ADQANgA4ADcAOQA7ADoAPAA+AD0APwBBAEAAQgBEAEMARQBHAEYASABKAEkASwBNAEwATgBQAE8AUQBTAFIAVABWAFUAVwBZAFgAWgBcAFsAXQBfAF4AYABiAGEAYwBlAGQAZgBoAGcAaQBrAGoAbABuAG0AbwBxAHAAcgB0AHMAdQB3AHYAeAB6AHkAewB9AHwAfgCAAH8AgQCDAIIAhACGAIUAhwCJAIgAigCMAIsAjQCPAI4AkACSAJEAkwCVAJQAlgCYAJcAmQCbAJoAnACeAJ0AnwChAKAAogCkAKMApQCnAKYACAACAAAACAAGAAIAAQAFAAMAAQACAAUABAALAAkABAAFAAsACgAGAAcACgALAAYAFAAHAAgAFAASAAcACQAXABUACQAKABcAFgASABMAFgAXABIADgATABQADgAMABMAFQARAA8AFQAWABEAEAAMAA0AEAARAAwAAAANAA4AAAABAA0ADwADAAQADwAQAAMAGgAbABwAGgAYABsAIwAZABoAIwAhABkAHAAeAB8AHAAdAB4AHwAiACMAHwAgACIAJwAmACQAJwAoACYALwAlACYALwAtACUAKAAqACsAKAApACoAKwAuAC8AKwAsAC4AMwAyADAAMwA0ADIAOwAxADIAOwA5ADEANAA2ADcANAA1ADYANwA6ADsANwA4ADoAPwA+ADwAPwBAAD4ARwA9AD4ARwBFAD0AQABCAEMAQABBAEIARgBDAEQARgBHAEMASwBKAEgASwBMAEoASQBTAFEASQBKAFMATgBMAE0ATgBPAEwAUgBPAFAAUgBTAE8AVwBWAFQAVwBYAFYAVQBfAF0AVQBWAF8AWgBYAFkAWgBbAFgAXgBbAFwAXgBfAFsAYABlAGMAYABhAGUAZgBhAGIAZgBnAGEAZABrAGkAZABlAGsAagBnAGgAagBrAGcAbgBvAHAAbgBsAG8AcgBwAHEAcgBzAHAAbQB3AHUAbQBuAHcAdgBzAHQAdgB3AHMAegB7AHwAegB4AHsAfgB8AH0AfgB/AHwAeQCDAIEAeQB6AIMAggB/AIAAggCDAH8AhgCHAIgAhgCEAIcAigCIAIkAigCLAIgAhQCPAI0AhQCGAI8AiwCOAI8AiwCMAI4AkgCTAJQAkgCQAJMAlACWAJcAlACVAJYAmwCRAJIAmwCZAJEAlwCaAJsAlwCYAJoAngCfAKAAngCcAJ8AoACiAKMAoAChAKIApwCdAJ4ApwClAJ0AowCmAKcAowCkAKYAKQBsAG0AKQAnAGwAcQAkACUAcQBvACQAGABiAGAAGAAZAGIAaAAhACIAaABmACEANQB4AHkANQAzAHgAfQAwADEAfQB7ADAAdAAtAC4AdAByAC0AQQCEAIUAQQA/AIQAiQA8AD0AiQCHADwAIABpAGoAIAAeAGkAYwAdABsAYwBkAB0AgAA5ADoAgAB+ADkATQCQAJEATQBLAJAAlQBIAEkAlQCTAEgALAB1AHYALAAqAHUAjABFAEYAjACKAEUAWQCcAJ0AWQBXAJwAoQBUAFUAoQCfAFQAOACBAIIAOAA2AIEAmABRAFIAmACWAFEARACNAI4ARABCAI0ApABdAF4ApACiAF0AUACZAJoAUABOAJkAXAClAKYAXABaAKUAAABKAAgAAABTAEoA"),
+"name": "GMTK24_Mat_Atlas.028",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 168,
+"vertex_data": PackedByteArray("lwIAAGf9AACXApcC//8AAAAAlwJn/QAAlwJn/f//AACXAv//Z/0AAAAAZ/1n/QAAAACXApcCAACXApcCAAAAAJcCAACXAgAAlwL//5cCAACXAmf9AAAAAAAAZ/2XAgAA//+XAmf9AABn/ZcC//8AAGf9AABn/QAAZ/3//2f9AABn/Wf9//8AAP//Z/1n/QAAZ/2XAgAAAAD//5cClwIAAGf9AACXAgAAZ/3//5cCAAD//2f9lwIAAGf9Z/0AAAAAlwKYHv7jAACXAgAcZuEAAAAAaBmW5gAAlwJm4f7jAAAAAJbmluYAAJcC/uNm4QAAlwL+45geAAAAAJbmaBkAAJcCZuEAHAAAlwIAHJgeAACXApgeABwAAAAAaBloGQAAAByYHpcCAACYHgAclwIAAGgZaBkAAAAAABxm4ZcCAABoGZbmAAAAAJge/uOXAgAAZuH+45cCAACW5pbmAAAAAP7jZuGXAgAAZuEAHJcCAAD+45gelwIAAJbmaBkAAAAAZ/2YHgAcAABn/QAcmB4AAP//aBloGQAAZ/1m4QAcAAD//5bmaBkAAGf9/uOYHgAAZ/3+42bhAAD//5bmluYAAGf9ZuH+4wAAZ/0AHGbhAABn/Zge/uMAAP//aBmW5gAA/uOYHmf9AABm4QAcZ/0AAJbmaBn//wAA/uNm4Wf9AACW5pbm//8AAGbh/uNn/QAAmB7+42f9AABoGZbm//8AAAAcZuFn/QAAmB4AHGf9AAAAHJgeZ/0AAGgZaBn//wAAmB6XAgAcAAAAHJcCmB4AAGgZAABoGQAAZuGXAgAcAACW5gAAaBkAAP7jlwKYHgAA/uOXAmbhAACW5gAAluYAAGbhlwL+4wAAAByXAmbhAACYHpcC/uMAAGgZAACW5gAAZuFn/QAcAAD+42f9mB4AAJbm//9oGQAAmB5n/QAcAABoGf//aBkAAAAcZ/2YHgAAABxn/WbhAABoGf//luYAAJgeZ/3+4wAA/uNn/WbhAABm4Wf9/uMAAJbm//+W5gAACwqYHv7jAACiDJgeZuEAAAsKABxm4QAACwpm4f7jAAALCv7jZuEAAKIMZuFm4QAACwoAHJgeAACiDJgemB4AAAsKmB4AHAAACwr+45geAAALCmbhABwAAKIMZuGYHgAAABxm4QsKAACYHv7jCwoAAJgeZuGiDAAAAByYHgsKAACYHpgeogwAAJgeABwLCgAAZuEAHAsKAABm4ZgeogwAAP7jmB4LCgAAZuH+4wsKAAD+42bhCwoAAGbhZuGiDAAA8/Vm4QAcAADz9f7jmB4AAFzzZuGYHgAA8/WYHgAcAABc85gemB4AAPP1AByYHgAA8/UAHGbhAABc85geZuEAAPP1mB7+4wAA8/X+42bhAADz9Wbh/uMAAFzzZuFm4QAA/uNm4fP1AABm4f7j8/UAAGbhZuFc8wAA/uOYHvP1AABm4ZgeXPMAAGbhABzz9QAAmB4AHPP1AACYHpgeXPMAAAAcmB7z9QAAmB7+4/P1AAAAHGbh8/UAAJgeZuFc8wAAZuELCgAcAAD+4wsKmB4AAGbhogyYHgAAmB4LCgAcAACYHqIMmB4AAAAcCwqYHgAAABwLCmbhAACYHqIMZuEAAJgeCwr+4wAA/uMLCmbhAABm4QsK/uMAAGbhogxm4QAAmB7z9QAcAAAAHPP1mB4AAJgeXPOYHgAAZuHz9QAcAABm4VzzmB4AAP7j8/WYHgAA/uPz9WbhAABm4VzzZuEAAGbh8/X+4wAAABzz9WbhAACYHvP1/uMAAJgeXPNm4QAA")
+}, {
+"aabb": AABB(-0.44493, -0.44493, -0.44493, 0.889859, 0.889859, 0.889859),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("BQAHAAQABQAGAAcACQALAAgACQAKAAsADQAPAAwADQAOAA8AEQATABAAEQASABMAFQAXABQAFQAWABcAAAADAAEAAAACAAMA"),
+"name": "GMTK24_Mat_toyCube.013",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AADtExHsAAAAABHsEewAAAAA7RPtEwAAAAAR7O0TAADtExHsAAAAAO0T7RMAAAAAEeztEwAAAAAR7BHsAAAAAP//EeztEwAA///tE+0TAAD//+0TEewAAP//EewR7AAAEewR7P//AAAR7O0T//8AAO0T7RP//wAA7RMR7P//AAAR7AAA7RMAAO0TAADtEwAA7RMAABHsAAAR7AAAEewAAO0T///tEwAAEez//+0TAAAR7P//EewAAO0T//8R7AAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ulx6n"]
+resource_name = "gmtk2024_blocking-accurateGodot_Cube_148"
+_surfaces = [{
+"aabb": AABB(-0.493666, -0.493666, -0.493666, 0.987332, 0.987332, 0.987332),
+"attribute_data": PackedByteArray("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"),
+"format": 34896613399,
+"index_count": 960,
+"index_data": PackedByteArray("iACqAZAAiACyAaoBHwEkAv4AHwEoAiQCrQDbAbEArQC+AdsB7QD4Ac0A7QD8AfgBfQCvAYEAfQCdAa8BvQDMAZ0AvQDQAcwBBAABATUABAAmAQEBEgCKAUAAEgB6AYoBTACgAB0ATADEAKAADQAmAQQADQAWASYBIgA7AVYAIgAzATsBVgBJAToAVgA8AUkBZwCYAXQAZwCNAZgBWwBuASYAWwBmAW4BYgDEAE0AYgC0AMQAVADbAGEAVADTANsAPwBmAVoAPwCKAWYBNQAKAUMANQABAQoBSwD3ADQASwDnAPcAHQCoACkAHQCgAKgAOwBaAQEAOwBIAVoBHABzAAwAHACXAHMAMACXABwAMACHAJcANADTAFQANAD4ANMAJgB6ARIAJgBuAXoBCwB7ABgACwByAHsAKQC0AGMAKQCoALQAGACHADAAGAB7AIcARAAWAQ0ARAAJARYBYQDnAEsAYQDbAOcA3QAHAuEA3QDqAQcCUwFSAjEBUwFWAlICuwDZAcMAuwDhAdkBDwEzAhMBDwEWAjMChAF+AmQBhAGCAn4CmwC8AacAmwDHAbwB6AACAvAA6AAKAgICQgFhAkYBQgFEAmECyADlAdQAyADwAeUBHQExAiUBHQE5AjECdAGNAngBdAFwAo0C/AAUAggB/AAfAhQCTAFaAlQBTAFiAloCKgE9AjYBKgFIAj0CfQGGAoUBfQGOAoYCXQFpAmkBXQF0AmkCjQCVAWwAjQCkAZUBAgAIAAYADwAVABMAGQAjAB8AJwAtACsAMQA8ADcAQQBIAEYATwBXAFEAXABlAF4AagBxAG4AdwB/AHoAgwCLAIYAjwCWAJMAmACiAJ4ApACuAKoAsgC4ALYAvgDGAMAAywDSAM8A1wDfANoA4wDrAOYA7wD2APMA+QADAf8ABQEQAQwBFAEaARgBIAEoASIBLAE0AS4BOAE/AT0BQwFOAUoBUAFbAVYBXwFnAWEBawFxAW8BdQF/AXsBgQGLAYcBjwGWAZEBmgGgAZ4BpQGsAacBsAG2AbQBuQHCAb8BxAHNAckB0QHWAdQB3AHjAd4B5wHtAesB8gH5AfQB/QEEAv8BCAIOAgwCEQIaAhcCHAIlAiECKQIuAiwCNAI7AjYCPwJGAkECSgJPAk0CUwJcAlgCXgJnAmQCawJyAm0CdgJ7AnkCfwKIAoQCigKTApACJAAKAAMAJAAbAAoABwAWABAABwAJABYAFAAvACgAFAAXAC8ALAAaACAALAAuABoAVQAeACEAVQBOAB4AJQBkAFkAJQAqAGQAXwBQAFIAXwBmAFAAPQBTAFgAPQAzAFMAXQBKAEIAXQBgAEoARwAyADgARwBJADIAAAA2ADkAAAAFADYAPgAOABEAPgBFAA4AbwB2AHgAbwBpAHYAlQBtAHAAlQCOAG0AeQCCAIUAeQB+AIIAhACSAJQAhACKAJIApQCjAJkApQCrAKMAxQCcAKEAxQC8AJwAqQCwALUAqQCsALAAtwDBAMcAtwC5AMEA1gDQAMoA1gDYANAA9QDOANEA9QDuAM4A2QDiAOUA2QDeAOIA5ADyAPQA5ADqAPIABgEEAfoABgENAQQBJwH9AAIBJwEeAf0ACwESARcBCwEOARIBIwEZARsBIwEpARkBNwEyASsBNwE6ATIBMAFcAVIBMAE1AVwBRQE+AUEBRQFLAT4BVQFHAU0BVQFYAUcBagFlAV4BagFtAWUBYwGMAYMBYwFoAYwBdwFwAXMBdwF8AXABhgF5AX4BhgGJAXkBkAGhAZsBkAGSAaEBpgGTAZcBpgGpAZMBnwG4AbEBnwGiAbgBtQGoAa0BtQG3AagBwwHFAcoBwwG6AcUBzwHIAcsBzwHTAcgBvQHiAdoBvQHBAeIB3wHVAdcB3wHkAdUB7gHzAfUB7gHoAfMB/gH2AfoB/gEBAvYB7AEQAgkC7AHvARACDQIAAgUCDQIPAgACGwIdAiICGwISAh0CJwIgAiMCJwIrAiACFQI6AjICFQIZAjoCLQI3AjwCLQIvAjcCRQJJAkwCRQI+AkkCTgJVAlkCTgJRAlUCaAJDAkcCaAJgAkMCVwJjAmYCVwJbAmMCcQJ1AngCcQJqAnUCegKBAoUCegJ9AoEClAJvAnMClAKMAm8CgwKPApICgwKHAo8CrwC7AcABrwCmALsBzgGaAJ8AzgHGAZoAaACUAY4BaABrAJQBqwGMAJEAqwGjAYwA3ADmAekB3ADVAOYB9wHJAMwA9wHxAckA2AG/AMIA2AHSAb8AEQETAhgCEQEHARMCJgL7AAABJgIeAvsAiQCuAbMBiQCAAK4BmQF8AHUAmQGcAXwAAwLsAPEAAwL7AewAQAFAAkICQAE5AUACUAItAS8BUAJLAi0BugDdAeABugCzAN0BMAIhASQBMAIqAiEBcgFsAm4CcgFsAWwCfAJgAWIBfAJ3AmAB6QAGAgsC6QDgAAYCXQJRAVcBXQJUAlEBHAE1AjgCHAEVATUCiQKCAYgBiQKAAoIBTwFfAmUCTwFEAV8CgAGLApECgAF2AYsCAQAzASIAAQBZATMB"),
+"material": SubResource("StandardMaterial3D_5b84j"),
+"name": "GMTK24_Mat_Atlas.028",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 661,
+"vertex_data": PackedByteArray("lwIAAGf9D6CXAgAAZ/0qwJcCAABn/XWolwIAAGf9aMaXApcC//+iv5cClwL//w+glwKXAv//daiXApcC//+rwgAAlwJn/XWoAACXAmf9rMIAAJcCZ/1nxgAAlwJn/ZDTAACXAmf9GtOXAmf9///swpcCZ/3//zD+lwJn/f//PveXAmf9//9mwpcC//9n/TH+lwL//2f98P+XAv//Z/0+95cC//9n/RfqAABn/Wf9PvcAAGf9Z/1mwgAAZ/1n/RbqAABn/Wf9CtUAAJcClwLU2wAAlwKXAoXoAACXApcCNcYAAJcClwIK1ZcClwIAAP//lwKXAgAAAeCXApcCAADU25cClwIAAIXolwIAAJcCAeCXAgAAlwL/v5cCAACXAtTblwIAAJcCNcaXAv//lwI0/5cC//+XAqP9lwL//5cCNemXAv//lwJ16pcCZ/0AAP//lwJn/QAANP+XAmf9AAA16ZcCZ/0AAJroAABn/ZcCNekAAGf9lwKb6AAAZ/2XAnTqAABn/ZcCVdP//5cCZ/31sv//lwJn/TbE//+XAmf9Ucb//5cCZ/1g0mf9lwL//+zCZ/2XAv//DaBn/ZcC///1smf9lwL//zXEZ/0AAGf9DaBn/QAAZ/0CwGf9AABn/QHAZ/0AAGf99bJn/QAAZ/1Nxmf9//9n/Rf+Z/3//2f9TPxn/f//Z/35/mf9//9n/cj1Z/3//2f9qOdn/Wf9///NwWf9Z/3//3a9Z/1n/f//Fv5n/Wf9///I9Wf9Z/3//03E//9n/Wf9yPX//2f9Z/1OxP//Z/1n/ajn//9n/Wf9YNVn/ZcCAAD//2f9lwIAAP//Z/2XAgAAAeBn/ZcCAABS4Wf9lwIAAB/p//+XApcCUuH//5cClwIf6f//lwKXAq7E//+XApcCYNVn/QAAlwIB4Gf9AACXAirAZ/0AAJcCUuFn/QAAlwKqxGf9//+XAj//Z/3//5cCBv9n/f//lwIj/2f9//+XAp7tZ/3//5cCqef//2f9lwKe7f//Z/2XAhjp//9n/ZcCqef//2f9lwJu02f9Z/0AAP//Z/1n/QAA//9n/Wf9AAA//2f9Z/0AAJ7tZ/1n/QAAGOmXApge/uP//5cCmB7+41nzlwKYHv7jCOmXApge/uOt5pcCABxm4X7zlwIAHGbhyeyXAgAcZuF19ZcCABxm4a3mAABoGZbmCOkAAGgZ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")
+}, {
+"aabb": AABB(-0.44493, -0.44493, -0.44493, 0.889859, 0.889859, 0.889859),
+"attribute_data": PackedByteArray("h6ypF4esGAf2m6kX9psYB6us+garrIoXGpyKFxqc+gbPrMAGz6xRFz6cURc+nMAG86wOB/OsnxdjnJ8XY5wOB6usDgerrJ8XGpyfFxqcDge8rHwHvKy6F32cuhd9nHwH"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("BQAHAAQABQAGAAcACQALAAgACQAKAAsADQAPAAwADQAOAA8AEQATABAAEQASABMAFQAXABQAFQAWABcAAAADAAEAAAACAAMA"),
+"material": SubResource("StandardMaterial3D_2edp8"),
+"name": "GMTK24_Mat_toyCube.013",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AADtExHs/78AABHsEez/vwAA7RPtE/+/AAAR7O0T/7/tExHsAAD//+0T7RMAAP//EeztEwAA//8R7BHsAAD/////EeztE/+////tE+0T/7///+0TEez/v///EewR7P+/EewR7P//AIAR7O0T//8AgO0T7RP//wCA7RMR7P//AIAR7AAA7RNU1e0TAADtE1TV7RMAABHsVNUR7AAAEexU1e0T///tE1TVEez//+0TVNUR7P//EexU1e0T//8R7FTV/3/+//9//v//f////3/+//9//v//f/7//3////9//v//fwAA/38AAP9/AAD/fwAA/3////9/////f////3///1VVVFVVVVRVVFVUVVVVVFVU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_vf7ib")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_6snju"]
+albedo_color = Color(0.863177, 0.963995, 0.996446, 1)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_kucen"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_o2frf"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_bg8dd"]
+albedo_color = Color(0.843184, 0.843184, 0.843184, 1)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_rtr0i"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_83i1s"]
+albedo_color = Color(0.419813, 0.419813, 0.419813, 1)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ll022"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2aat"]
 resource_name = "Material_1"
@@ -120,6 +213,41 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7ag0v")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isq5e"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_shtrp"]
+_surfaces = [{
+"aabb": AABB(-0.864885, -0.0199557, -1.35083, 1.72977, 0.0399114, 2.70167),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP////8AAAAAAAAAAAAAAAD//wAAAAD//wAA//8AAP///////wAA//8AAAAAAAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v6btr"]
+resource_name = "gmtk2024_blocking-accurateGodot_Cube_004"
+_surfaces = [{
+"aabb": AABB(-0.864885, -0.0199557, -1.35083, 1.72977, 0.0399114, 2.70167),
+"attribute_data": PackedByteArray("/18AANgH/H7/X////58AAPwHX0D/n////1//v7o4GX//X/+//5//v984fED/n/+//1//P+oHsF//X/8//5//P+oHq1//n/8//1//f804zF//X/9//5//f804yF//n/9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
+"material": SubResource("StandardMaterial3D_isq5e"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP///78AAAAA//9G1QAAAAD//1TVAAD//////78AAP////9i1QAA/////1TVAAAAAAAA//8AAAAAAABG1QAAAAAAAFTVAAD//wAA//8AAP//AABi1QAA//8AAFTV//8AAP///7///wAA//9G1f//AAD//1TV/////////7////////9i1f///////1TV//8AAAAA/////wAAAABG1f//AAAAAFTV/////wAA////////AABi1f////8AAFTV/////0RVXVVU1VTV/////0zVmSpU1VTV/7//v0RVXVVU1VTV/7//v0zVmSpU1VTV/////0RVXVWqKqoq/////0zVmSqqKqoq/7//v0RVXVWqKqoq/7//v0zVmSqqKqoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_shtrp")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_n63et"]
+data = PackedVector3Array(-0.864885, -0.0199557, 1.35083, -0.864885, 0.0199557, -1.35083, -0.864885, 0.0199557, 1.35083, -0.864885, -0.0199557, 1.35083, -0.864885, -0.0199557, -1.35083, -0.864885, 0.0199557, -1.35083, -0.864885, -0.0199557, -1.35083, 0.864885, 0.0199557, -1.35083, -0.864885, 0.0199557, -1.35083, -0.864885, -0.0199557, -1.35083, 0.864885, -0.0199557, -1.35083, 0.864885, 0.0199557, -1.35083, 0.864885, -0.0199557, -1.35083, 0.864885, 0.0199557, 1.35083, 0.864885, 0.0199557, -1.35083, 0.864885, -0.0199557, -1.35083, 0.864885, -0.0199557, 1.35083, 0.864885, 0.0199557, 1.35083, 0.864885, -0.0199557, 1.35083, -0.864885, 0.0199557, 1.35083, 0.864885, 0.0199557, 1.35083, 0.864885, -0.0199557, 1.35083, -0.864885, -0.0199557, 1.35083, -0.864885, 0.0199557, 1.35083, -0.864885, -0.0199557, -1.35083, 0.864885, -0.0199557, 1.35083, 0.864885, -0.0199557, -1.35083, -0.864885, -0.0199557, -1.35083, -0.864885, -0.0199557, 1.35083, 0.864885, -0.0199557, 1.35083, 0.864885, 0.0199557, -1.35083, -0.864885, 0.0199557, 1.35083, -0.864885, 0.0199557, -1.35083, 0.864885, 0.0199557, -1.35083, 0.864885, 0.0199557, 1.35083, -0.864885, 0.0199557, 1.35083)
+
 [node name="gmtk2024_blocking-accurateGodot" instance=ExtResource("1_sfmc8")]
 
 [node name="GMTK24_mesh_drawer" parent="." index="0"]
@@ -171,7 +299,7 @@ surface_material_override/0 = ExtResource("2_rduor")
 surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="fenetreverre" parent="." index="31"]
-transform = Transform3D(1.49407, 0, 0, 0, -1.0113e-07, -1.57295, 0, 0.282781, -5.62529e-07, 0.716619, 3.66293, 9.37578)
+transform = Transform3D(1.49407, 0, 0, 0, -1.0113e-07, -1.57295, 0, 0.282781, -5.62529e-07, 0.716619, 3.66293, 9.43689)
 
 [node name="FenêtreD" parent="." index="32"]
 surface_material_override/0 = ExtResource("2_rduor")
@@ -210,14 +338,79 @@ surface_material_override/0 = ExtResource("2_rduor")
 [node name="GMTK24_mesh_trunk_002" parent="." index="51"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="floor" parent="GMTK24_Mesh_BlockingLevel" index="3"]
+[node name="GMTK24_mesh_trunk_003" parent="." index="53"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="door" parent="." index="56"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_clothesmess" parent="." index="58"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_clothesbox" parent="." index="60"]
+transform = Transform3D(0.199184, 0, -1.49376, 0, 1.50698, 0, 1.49376, 0, 0.199184, -9.18402, -0.0180931, -7.62703)
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="@StaticBody3D@31115" parent="." index="61"]
+transform = Transform3D(0.199184, 0, -1.49376, 0, 1.50698, 0, 1.49376, 0, 0.199184, -9.18402, -0.0180931, -7.62703)
+
+[node name="GMTK24_mesh_clothesmess_001" parent="." index="62"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="GMTK24_mesh_clothesmess_002" parent="." index="64"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="toy-cube_008" parent="." index="71"]
+surface_material_override/0 = SubResource("ORMMaterial3D_1mx13")
+surface_material_override/1 = ExtResource("3_2wwie")
+
+[node name="toy-cube_007" parent="." index="72"]
+surface_material_override/0 = SubResource("ORMMaterial3D_e2er1")
+surface_material_override/1 = ExtResource("3_2wwie")
+
+[node name="toy-cube_012" type="MeshInstance3D" parent="." index="73"]
+transform = Transform3D(0.48505, 0, 0.354055, 0, 0.600523, 0, -0.354055, 0, 0.48505, 2.37586, 0.40749, -0.685864)
+mesh = SubResource("ArrayMesh_ulx6n")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ORMMaterial3D_6snju")
+surface_material_override/1 = ExtResource("3_2wwie")
+
+[node name="toy-cube_006" parent="." index="74"]
+surface_material_override/0 = SubResource("ORMMaterial3D_kucen")
+surface_material_override/1 = ExtResource("3_2wwie")
+
+[node name="toy-cube_005" parent="." index="75"]
+surface_material_override/0 = SubResource("ORMMaterial3D_o2frf")
+surface_material_override/1 = ExtResource("3_2wwie")
+
+[node name="toy-cube_003" parent="." index="78"]
+transform = Transform3D(0.530023, 0, -0.0770224, 0, 0.53559, 0, 0.0770224, 0, 0.530023, 4.14571, 0.375614, -5.4798)
+surface_material_override/0 = SubResource("ORMMaterial3D_bg8dd")
+surface_material_override/1 = ExtResource("3_2wwie")
+
+[node name="toy-cube_002" parent="." index="80"]
+surface_material_override/0 = SubResource("ORMMaterial3D_rtr0i")
+surface_material_override/1 = ExtResource("3_2wwie")
+
+[node name="toy-cube_001" parent="." index="82"]
+surface_material_override/0 = SubResource("ORMMaterial3D_83i1s")
+surface_material_override/1 = ExtResource("3_2wwie")
+
+[node name="toy-cube_011" parent="." index="84"]
+transform = Transform3D(0.416573, 0, -0.336636, 0, 0.53559, 0, 0.336636, 0, 0.416573, 4.83288, 0.375614, -5.5062)
+surface_material_override/0 = SubResource("ORMMaterial3D_ll022")
+surface_material_override/1 = ExtResource("3_2wwie")
+
+[node name="blockArea" parent="GMTK24_Mesh_BlockingLevel" index="0"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="floor" parent="GMTK24_Mesh_BlockingLevel" index="2"]
 surface_material_override/0 = ExtResource("3_f503r")
 
 [node name="floor2" type="MeshInstance3D" parent="GMTK24_Mesh_BlockingLevel" index="4"]
 transform = Transform3D(1.0511, 0, 0, 0, 1, 0, 0, 0, 1.0177, 0, 9.99583, 0.0798614)
 mesh = SubResource("ArrayMesh_8c8dh")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("3_f503r")
 
 [node name="StaticBody3D7" type="Node3D" parent="GMTK24_Mesh_BlockingLevel/floor2" index="0"]
 
@@ -228,321 +421,209 @@ surface_material_override/0 = ExtResource("3_f503r")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GMTK24_Mesh_BlockingLevel/floor2/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_61rxc")
 
-[node name="SM_Bookshelf_001" parent="GMTK24_Mesh_BlockingLevel" index="34"]
+[node name="SM_Bookshelf_001" parent="GMTK24_Mesh_BlockingLevel" index="15"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_Mesh_MovieArietty" parent="." index="87" instance=ExtResource("4_nayni")]
+[node name="GMTK24_Mesh_MovieArietty" parent="." index="88" instance=ExtResource("4_nayni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1435, 0.169175, 3.68322)
 
-[node name="GMTK24_Mesh_MovieAvatar" parent="." index="88" instance=ExtResource("5_geym2")]
+[node name="GMTK24_Mesh_MovieAvatar" parent="." index="89" instance=ExtResource("5_geym2")]
 transform = Transform3D(0.983841, 0, -0.179043, 0, 1, 0, 0.179043, 0, 0.983841, 1.17043, 0.176363, 2.2162)
 
-[node name="GMTK24_Mesh_MovieChihiro" parent="." index="89" instance=ExtResource("6_8u4uo")]
+[node name="GMTK24_Mesh_MovieChihiro" parent="." index="90" instance=ExtResource("6_8u4uo")]
 transform = Transform3D(0.898909, 0, 0.438136, 0, 1, 0, -0.438136, 0, 0.898909, 1.60846, 0.283061, -0.21681)
 
-[node name="GMTK24_Mesh_MovieET" parent="." index="90" instance=ExtResource("7_xaasr")]
+[node name="GMTK24_Mesh_MovieET" parent="." index="91" instance=ExtResource("7_xaasr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59146, 0.193492, -0.183194)
 
-[node name="GMTK24_Mesh_MovieET2" parent="." index="91" instance=ExtResource("7_xaasr")]
+[node name="GMTK24_Mesh_MovieET2" parent="." index="92" instance=ExtResource("7_xaasr")]
 transform = Transform3D(0.338689, 0, -0.940899, 0, 1, 0, 0.940899, 0, 0.338689, 0.651945, 0.193492, 5.65405)
 
-[node name="GMTK24_Mesh_MovieIO" parent="." index="92" instance=ExtResource("8_mwcwk")]
+[node name="GMTK24_Mesh_MovieIO" parent="." index="93" instance=ExtResource("8_mwcwk")]
 transform = Transform3D(0.995924, -0.090198, 0, 0.090198, 0.995924, 0, 0, 0, 1, 0.535551, 0.164172, 3.42817)
 
-[node name="GMTK24_Mesh_MovieJaws" parent="." index="93" instance=ExtResource("9_4o3s2")]
+[node name="GMTK24_Mesh_MovieJaws" parent="." index="94" instance=ExtResource("9_4o3s2")]
 transform = Transform3D(0.52695, -0.364621, -0.767708, -0.072036, 0.880884, -0.467818, 0.846838, 0.301819, 0.437916, 1.93005, 0.634344, -0.403475)
 
-[node name="GMTK24_Mesh_MovieTitanic" parent="." index="94" instance=ExtResource("10_wnn6q")]
+[node name="GMTK24_Mesh_MovieTitanic" parent="." index="95" instance=ExtResource("10_wnn6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.951081, 0.193492, 0.478326)
 
-[node name="GMTK24_Mesh_MovieTotoro" parent="." index="95" instance=ExtResource("11_r85cf")]
+[node name="GMTK24_Mesh_MovieTotoro" parent="." index="96" instance=ExtResource("11_r85cf")]
 transform = Transform3D(0.525264, 0, 0.850939, 0, 1, 0, -0.850939, 0, 0.525264, 2.03924, 0.140944, 4.42981)
 
-[node name="GMTK24_Mesh_MovieZootopia" parent="." index="96" instance=ExtResource("12_713sy")]
+[node name="GMTK24_Mesh_MovieZootopia" parent="." index="97" instance=ExtResource("12_713sy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66319, 0.193492, 1.00826)
 
-[node name="GMTK24_Mesh_MovieArietty2" parent="." index="97" instance=ExtResource("4_nayni")]
+[node name="GMTK24_Mesh_MovieArietty2" parent="." index="98" instance=ExtResource("4_nayni")]
 transform = Transform3D(0.858647, -0.511619, 0.00332758, 0, -0.00829256, -0.78142, 0.512568, 0.857058, -0.00557432, 4.40523, 1.55606, 3.82091)
 
-[node name="GMTK24_Mesh_MovieTitanic2" parent="." index="98" instance=ExtResource("10_wnn6q")]
+[node name="GMTK24_Mesh_MovieTitanic2" parent="." index="99" instance=ExtResource("10_wnn6q")]
 transform = Transform3D(0.858647, -0.511619, 0.00332758, 0, -0.00829256, -0.78142, 0.512568, 0.857058, -0.00557432, 4.3273, 1.55508, 3.95146)
 
-[node name="GMTK24_Mesh_MovieTotoro2" parent="." index="99" instance=ExtResource("11_r85cf")]
+[node name="GMTK24_Mesh_MovieTotoro2" parent="." index="100" instance=ExtResource("11_r85cf")]
 transform = Transform3D(0.858647, -0.511619, 0.00332758, 0, -0.00829256, -0.78142, 0.512568, 0.857058, -0.00557432, 4.25432, 1.55415, 4.07372)
 
-[node name="clothesOnBed" parent="." index="174"]
+[node name="clothesOnBed" parent="." index="220"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="clothesOnBed2" parent="." index="175"]
+[node name="clothesOnBed2" parent="." index="221"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="clothesOnBed3" parent="." index="176"]
+[node name="clothesOnBed3" parent="." index="222"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="clothesOnBed4" parent="." index="177"]
+[node name="clothesOnBed4" parent="." index="223"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin" parent="." index="178"]
+[node name="litCoussin" parent="." index="224"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin_001" parent="." index="179"]
+[node name="litCoussin_001" parent="." index="225"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin_002" parent="." index="180"]
+[node name="litCoussin_002" parent="." index="226"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin_003" parent="." index="181"]
+[node name="litCoussin_003" parent="." index="227"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin_004" parent="." index="182"]
+[node name="litCoussin_004" parent="." index="228"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="litCoussin_005" parent="." index="183"]
+[node name="litCoussin_005" parent="." index="229"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Dragon" parent="." index="184"]
+[node name="Dragon" parent="." index="230"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Dragon_001" parent="." index="185"]
+[node name="Dragon_001" parent="." index="231"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Blahaj" parent="." index="186"]
+[node name="Blahaj" parent="." index="232"]
 surface_material_override/0 = ExtResource("13_4s0q5")
 
-[node name="BlahajEYE" parent="." index="187"]
+[node name="BlahajEYE" parent="." index="233"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="eye" parent="." index="188"]
+[node name="eye" parent="." index="234"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="yeux" parent="." index="189"]
+[node name="yeux" parent="." index="235"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Blahaj_002" parent="." index="190"]
+[node name="Blahaj_002" parent="." index="236"]
 surface_material_override/0 = ExtResource("13_4s0q5")
 
-[node name="BlahajEYE_001" parent="." index="191"]
+[node name="BlahajEYE_001" parent="." index="237"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_006" parent="." index="193"]
+[node name="Cube_006" parent="." index="239"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="fliyer" parent="." index="194"]
+[node name="fliyer" parent="." index="240"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="lamp" parent="." index="195"]
+[node name="lamp" parent="." index="241"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="mouchoir" parent="." index="197"]
+[node name="mouchoir" parent="." index="243"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="tabledeChevet" parent="." index="200"]
+[node name="tabledeChevet" parent="." index="246"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031" parent="." index="202"]
+[node name="book_031" parent="." index="248"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_001" parent="." index="203"]
+[node name="book_031_001" parent="." index="249"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_002" parent="." index="204"]
+[node name="book_031_002" parent="." index="250"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_003" parent="." index="205"]
+[node name="book_031_003" parent="." index="251"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_004" parent="." index="206"]
+[node name="book_031_004" parent="." index="252"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_005" parent="." index="207"]
+[node name="book_031_005" parent="." index="253"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_006" parent="." index="208"]
+[node name="book_031_006" parent="." index="254"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_007" parent="." index="209"]
+[node name="book_031_007" parent="." index="255"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_009" parent="." index="210"]
+[node name="book_031_009" parent="." index="256"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_010" parent="." index="211"]
+[node name="book_031_010" parent="." index="257"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_011" parent="." index="212"]
+[node name="book_031_011" parent="." index="258"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_012" parent="." index="213"]
+[node name="book_031_012" parent="." index="259"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_013" parent="." index="214"]
+[node name="book_031_013" parent="." index="260"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031-col" parent="." index="215"]
+[node name="book_031-col" parent="." index="261"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_032" parent="." index="216"]
+[node name="book_032" parent="." index="262"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_040" parent="." index="220"]
+[node name="book_040" parent="." index="266"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_041_2" parent="." index="222"]
+[node name="book_041_2" parent="." index="268"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="bookH" parent="." index="226"]
+[node name="bookH" parent="." index="272"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="BookH2" parent="." index="227"]
+[node name="BookH2" parent="." index="273"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_045" parent="." index="228"]
+[node name="book_045" parent="." index="274"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_035" parent="." index="229"]
+[node name="book_031_035" parent="." index="275"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_031_036" parent="." index="230"]
+[node name="book_031_036" parent="." index="276"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book" parent="." index="232"]
+[node name="book" parent="." index="278"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_100" parent="." index="233"]
+[node name="book_100" parent="." index="279"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_101" parent="." index="234"]
+[node name="book_101" parent="." index="280"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_002" parent="." index="236"]
+[node name="book_002" parent="." index="282"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_106" parent="." index="237"]
+[node name="book_106" parent="." index="283"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_003" parent="." index="238"]
+[node name="book_003" parent="." index="284"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_103" parent="." index="239"]
+[node name="book_103" parent="." index="285"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_005" parent="." index="240"]
+[node name="book_005" parent="." index="286"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="book_008" parent="." index="243"]
+[node name="book_008" parent="." index="289"]
 surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_008" parent="." index="251"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_014" parent="." index="252"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_015" parent="." index="253"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_016" parent="." index="254"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_017" parent="." index="255"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_018" parent="." index="256"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_019" parent="." index="257"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_020" parent="." index="258"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_021" parent="." index="259"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_022" parent="." index="260"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_023" parent="." index="261"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_024" parent="." index="262"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_025" parent="." index="263"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_026" parent="." index="264"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_027" parent="." index="265"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_028" parent="." index="266"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_029" parent="." index="267"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_030" parent="." index="268"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_031" parent="." index="269"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_032" parent="." index="270"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_033" parent="." index="271"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_031_034" parent="." index="272"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_1002" parent="." index="273"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_1012" parent="." index="274"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="book_102" parent="." index="275"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="bookH3" parent="." index="276"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="BookH4" parent="." index="277"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="BookH5" parent="." index="278"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="BookH6" parent="." index="279"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_clock" parent="." index="280"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_coffeecup" parent="." index="282"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_lamp" parent="." index="284"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_mug" parent="." index="285"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="GMTK24_mesh_Xbox" parent="." index="291"]
-surface_material_override/0 = ExtResource("2_rduor")
-
-[node name="Cube5" type="MeshInstance3D" parent="." index="293"]
-transform = Transform3D(0.999998, -0.00011567, -0.00174149, 0.000140095, 0.999902, 0.0140319, 0.0017397, -0.0140321, 0.9999, 5.86814, 4.64406, -1.97739)
-mesh = SubResource("ArrayMesh_8tbcn")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube5" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube5/StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_nmg4m")
 
 [node name="Cube6" type="MeshInstance3D" parent="." index="294"]
 transform = Transform3D(0.999114, -0.000116495, -0.000856086, 0.000113259, 1.00713, -0.000652113, 0.0017401, 0.00133582, 0.491581, -9.94681, 0.248021, 3.79873)
@@ -559,273 +640,438 @@ transform = Transform3D(0.999152, -0.0095023, -0.00161949, 0.00943591, 1.00584, 
 mesh = SubResource("ArrayMesh_yt0pc")
 skeleton = NodePath("")
 
-[node name="cable" parent="." index="296"]
+[node name="book_031_008" parent="." index="299"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Ordinateur" parent="." index="297"]
+[node name="book_031_014" parent="." index="300"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Touch_004" parent="." index="300"]
+[node name="book_031_015" parent="." index="301"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="wacom" parent="." index="301"]
+[node name="book_031_016" parent="." index="302"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_coffeecup_001" parent="." index="303"]
+[node name="book_031_017" parent="." index="303"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_coffeecup_002" parent="." index="305"]
+[node name="book_031_019" parent="." index="305"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_coffeecup_003" parent="." index="307"]
+[node name="book_031_020" parent="." index="306"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_coffeecup_004" parent="." index="309"]
+[node name="book_031_021" parent="." index="307"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V1_001" parent="." index="311"]
+[node name="book_031_022" parent="." index="308"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V1_002" parent="." index="312"]
+[node name="book_031_023" parent="." index="309"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V1_003" parent="." index="313"]
+[node name="book_031_024" parent="." index="310"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V1_004" parent="." index="314"]
+[node name="book_031_025" parent="." index="311"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V1_005" parent="." index="315"]
+[node name="book_031_026" parent="." index="312"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V1_006" parent="." index="316"]
+[node name="book_031_027" parent="." index="313"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V1_007" parent="." index="317"]
+[node name="book_031_028" parent="." index="314"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V1_008" parent="." index="318"]
+[node name="book_031_029" parent="." index="315"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V1_009" parent="." index="319"]
+[node name="book_031_030" parent="." index="316"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V2_001" parent="." index="320"]
+[node name="book_031_031" parent="." index="317"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V2_002" parent="." index="321"]
+[node name="book_031_032" parent="." index="318"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V2_003" parent="." index="322"]
+[node name="book_031_033" parent="." index="319"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V2_004" parent="." index="323"]
+[node name="book_031_034" parent="." index="320"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V2_005" parent="." index="324"]
+[node name="book_1002" parent="." index="321"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V2_006" parent="." index="325"]
+[node name="book_1012" parent="." index="322"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="GMTK24_mesh_pencil_V2_007" parent="." index="326"]
+[node name="book_102" parent="." index="323"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube" parent="." index="328"]
+[node name="bookH3" parent="." index="324"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_001" parent="." index="329"]
+[node name="BookH4" parent="." index="325"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_002" parent="." index="330"]
+[node name="BookH5" parent="." index="326"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_003" parent="." index="331"]
+[node name="BookH6" parent="." index="327"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_004" parent="." index="332"]
+[node name="GMTK24_mesh_clock" parent="." index="328"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_005" parent="." index="333"]
+[node name="GMTK24_mesh_coffeecup" parent="." index="330"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_007" parent="." index="334"]
+[node name="GMTK24_mesh_lamp" parent="." index="332"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_008" parent="." index="335"]
+[node name="GMTK24_mesh_mug" parent="." index="333"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_009" parent="." index="336"]
+[node name="GMTK24_mesh_Xbox" parent="." index="339"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_010" parent="." index="337"]
+[node name="cable" parent="." index="341"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_011" parent="." index="338"]
+[node name="Ordinateur" parent="." index="342"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_012" parent="." index="339"]
+[node name="Touch_004" parent="." index="345"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_013" parent="." index="340"]
+[node name="wacom" parent="." index="346"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_014" parent="." index="341"]
+[node name="GMTK24_mesh_coffeecup_001" parent="." index="348"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_015" parent="." index="342"]
+[node name="GMTK24_mesh_coffeecup_002" parent="." index="350"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_016" parent="." index="343"]
+[node name="GMTK24_mesh_coffeecup_003" parent="." index="352"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_017" parent="." index="344"]
+[node name="GMTK24_mesh_coffeecup_004" parent="." index="354"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_018" parent="." index="345"]
+[node name="GMTK24_mesh_pencil_V1_001" parent="." index="356"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_019" parent="." index="346"]
+[node name="GMTK24_mesh_pencil_V1_002" parent="." index="357"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_020" parent="." index="347"]
+[node name="GMTK24_mesh_pencil_V1_003" parent="." index="358"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cube_021" parent="." index="348"]
+[node name="GMTK24_mesh_pencil_V1_004" parent="." index="359"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Chicken" parent="." index="350"]
+[node name="GMTK24_mesh_pencil_V1_005" parent="." index="360"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="camion" parent="." index="352"]
+[node name="GMTK24_mesh_pencil_V1_006" parent="." index="361"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="chickenEye" parent="." index="354"]
+[node name="GMTK24_mesh_pencil_V1_007" parent="." index="362"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle" parent="." index="355"]
+[node name="GMTK24_mesh_pencil_V1_008" parent="." index="363"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_001" parent="." index="356"]
+[node name="GMTK24_mesh_pencil_V1_009" parent="." index="364"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_002" parent="." index="357"]
+[node name="GMTK24_mesh_pencil_V2_001" parent="." index="365"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_003" parent="." index="358"]
+[node name="GMTK24_mesh_pencil_V2_002" parent="." index="366"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_004" parent="." index="359"]
+[node name="GMTK24_mesh_pencil_V2_003" parent="." index="367"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_005" parent="." index="360"]
+[node name="GMTK24_mesh_pencil_V2_004" parent="." index="368"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_006" parent="." index="361"]
+[node name="GMTK24_mesh_pencil_V2_005" parent="." index="369"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_007" parent="." index="362"]
+[node name="GMTK24_mesh_pencil_V2_006" parent="." index="370"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_001" parent="." index="363"]
+[node name="GMTK24_mesh_pencil_V2_007" parent="." index="371"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_002" parent="." index="364"]
+[node name="Cube" parent="." index="373"]
+transform = Transform3D(0.999816, 0.0191227, -0.00131473, -0.0190963, 0.999659, 0.0177893, 0.00165446, -0.0177609, 0.999841, 5.77327, 4.64575, -1.99493)
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_003" parent="." index="365"]
+[node name="Cube3" type="MeshInstance3D" parent="." index="374"]
+transform = Transform3D(0.998978, 0.0192947, -0.000648731, -0.0190803, 1.00865, 0.00877784, 0.00165307, -0.0179207, 0.493356, 5.9475, 3.83487, 2.67756)
+mesh = SubResource("ArrayMesh_v6btr")
+skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_004" parent="." index="366"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube3" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube3/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_n63et")
+
+[node name="Cube2" type="MeshInstance3D" parent="." index="375"]
+transform = Transform3D(0.999816, 0.0191227, -0.00131473, -0.0180679, 0.917322, -0.397735, -0.00639973, 0.397686, 0.917499, 4.74244, 1.19503, -6.83875)
+mesh = SubResource("ArrayMesh_v6btr")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube2/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_n63et")
+
+[node name="Cube_001" parent="." index="376"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_002" parent="." index="377"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_003" parent="." index="378"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_004" parent="." index="379"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_005" parent="." index="380"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_007" parent="." index="381"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_008" parent="." index="382"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_009" parent="." index="383"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_010" parent="." index="384"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_011" parent="." index="385"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_012" parent="." index="386"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_013" parent="." index="387"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_014" parent="." index="388"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_015" parent="." index="389"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_016" parent="." index="390"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_017" parent="." index="391"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_018" parent="." index="392"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_019" parent="." index="393"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_020" parent="." index="394"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_021" parent="." index="395"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube-col_001" parent="." index="396"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube-col_002" parent="." index="397"]
+transform = Transform3D(0.453606, 0.00854005, -0.0016286, -0.00848438, 0.453383, 0.0143371, 0.00189738, -0.014304, 0.45346, 6.45273, 3.86939, 2.67345)
+
+[node name="ShelfPlank" parent="." index="398"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="ShelfPlank_001" parent="." index="399"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="ShelfPlank_002" parent="." index="400"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="ShelfPlank_003" parent="." index="401"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="ShelfPlank_004" parent="." index="402"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_022" parent="." index="403"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_023" parent="." index="404"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_024" parent="." index="405"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_025" parent="." index="406"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_026" parent="." index="407"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube_027" parent="." index="408"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="WindowBlueExt" parent="." index="409"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.715957, 3.67548, 9.43053)
+surface_material_override/0 = ExtResource("13_4s0q5")
+
+[node name="Chicken" parent="." index="411"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="camion" parent="." index="413"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="chickenEye" parent="." index="415"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle" parent="." index="416"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_001" parent="." index="417"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_002" parent="." index="418"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_003" parent="." index="419"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_004" parent="." index="420"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_005" parent="." index="421"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_006" parent="." index="422"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Circle_007" parent="." index="423"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cylinder_001" parent="." index="424"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cylinder_002" parent="." index="425"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cylinder_003" parent="." index="426"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cylinder_004" parent="." index="427"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_005" parent="." index="367"]
+[node name="Cylinder_005" parent="." index="428"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_006" parent="." index="368"]
+[node name="Cylinder_006" parent="." index="429"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="head" parent="." index="369"]
+[node name="head" parent="." index="430"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="head_001" parent="." index="370"]
+[node name="head_001" parent="." index="431"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Sphere" parent="." index="371"]
+[node name="Sphere" parent="." index="432"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="ours" parent="." index="372"]
+[node name="ours" parent="." index="433"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="NurbsPath" parent="." index="374"]
+[node name="NurbsPath" parent="." index="435"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_008" parent="." index="375"]
+[node name="Circle_008" parent="." index="436"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_009" parent="." index="376"]
+[node name="Circle_009" parent="." index="437"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_010" parent="." index="377"]
+[node name="Circle_010" parent="." index="438"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_011" parent="." index="378"]
+[node name="Circle_011" parent="." index="439"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_012" parent="." index="379"]
+[node name="Circle_012" parent="." index="440"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_013" parent="." index="380"]
+[node name="Circle_013" parent="." index="441"]
 transform = Transform3D(-1.397e-07, -1.026, 0.566256, 1.17189, -1.64498e-07, -8.94019e-09, 8.73126e-08, 0.566256, 1.026, 3.23309, 0.314628, -6.35285)
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_014" parent="." index="381"]
+[node name="Circle_014" parent="." index="442"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Circle_015" parent="." index="382"]
+[node name="Circle_015" parent="." index="443"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_007" parent="." index="383"]
+[node name="Cylinder_007" parent="." index="444"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_008" parent="." index="384"]
+[node name="Cylinder_008" parent="." index="445"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_009" parent="." index="385"]
+[node name="Cylinder_009" parent="." index="446"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_010" parent="." index="386"]
+[node name="Cylinder_010" parent="." index="447"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_011" parent="." index="387"]
+[node name="Cylinder_011" parent="." index="448"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Cylinder_012" parent="." index="388"]
+[node name="Cylinder_012" parent="." index="449"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="head_002" parent="." index="389"]
+[node name="head_002" parent="." index="450"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="head_003" parent="." index="390"]
+[node name="head_003" parent="." index="451"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Sphere_001" parent="." index="391"]
+[node name="Sphere_001" parent="." index="452"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="NurbsPath_001" parent="." index="392"]
+[node name="NurbsPath_001" parent="." index="453"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="camion_003" parent="." index="393"]
+[node name="camion_003" parent="." index="454"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="Chicken_001" parent="." index="395"]
+[node name="Chicken_001" parent="." index="456"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="chickenEye_001" parent="." index="397"]
+[node name="chickenEye_001" parent="." index="458"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="camion_001" parent="." index="399"]
+[node name="camion_001" parent="." index="460"]
 surface_material_override/0 = ExtResource("2_rduor")
 
-[node name="camion_002" parent="." index="401"]
+[node name="camion_002" parent="." index="462"]
 surface_material_override/0 = ExtResource("2_rduor")

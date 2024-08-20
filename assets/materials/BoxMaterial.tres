@@ -1,0 +1,10 @@
+[gd_resource type="ORMMaterial3D" load_steps=3 format=3 uid="uid://dftuhrq7ne71q"]
+
+[ext_resource type="Texture2D" uid="uid://dcrjuqj6502po" path="res://assets/textures/Cube.png" id="1_f76nw"]
+[ext_resource type="Texture2D" uid="uid://ew3gcv22rkix" path="res://assets/textures/Cube-Normal.png" id="2_tgu4g"]
+
+[resource]
+albedo_texture = ExtResource("1_f76nw")
+normal_enabled = true
+normal_scale = 2.07
+normal_texture = ExtResource("2_tgu4g")

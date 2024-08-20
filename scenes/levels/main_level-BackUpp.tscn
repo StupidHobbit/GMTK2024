@@ -132,46 +132,6 @@ transform = Transform3D(-0.999982, 9.02667e-05, 0.00591623, 9.02651e-05, 1, -5.3
 length = 3.88694
 allowed_scales = 30
 
-[node name="To_move1" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_iyn02")]
-transform = Transform3D(0.719946, 0.010331, 0.00303251, -0.00745974, 0.997069, -2.7373e-07, -0.00217445, -3.09301e-05, 1.00407, 0.581534, 0.0119631, 11.8041)
-length = 0.484887
-enabled = false
-
-[node name="To_move2" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_iyn02")]
-transform = Transform3D(0.00693597, 0.000188672, -1.00402, -0.00739538, 0.99707, 9.063e-05, 0.719917, 0.0102406, 0.00967406, 0.755694, 0.0119474, 11.9696)
-length = 0.484887
-enabled = false
-
-[node name="To_move4" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_iyn02")]
-transform = Transform3D(-0.173207, -0.00231067, -0.974581, 0.00606059, 0.997078, -0.00449189, 0.698817, -0.00922009, -0.241519, 2.77587, -1.37452, 11.1532)
-length = 0.484887
-enabled = false
-
-[node name="To_move5" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_iyn02")]
-transform = Transform3D(-0.703241, 0.00924188, 0.215102, 0.00610843, 0.997077, -0.00459928, -0.154267, -0.00264887, -0.98075, 3.00046, -1.37454, 11.0224)
-length = 0.484887
-enabled = false
-
-[node name="To_move6" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_iyn02")]
-transform = Transform3D(0.124002, 0.00312847, 0.989063, 0.00603376, 0.997077, -0.00466914, -0.709204, 0.00903001, 0.172895, 3.13275, -1.37456, 11.2257)
-length = 0.484887
-enabled = false
-
-[node name="To_move7" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_iyn02")]
-transform = Transform3D(-0.173207, -0.00231067, -0.974581, 0.00606059, 0.997078, -0.00449189, 0.698817, -0.00922009, -0.241519, -0.488869, -1.37423, 11.1622)
-length = 0.484887
-enabled = false
-
-[node name="To_move9" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_iyn02")]
-transform = Transform3D(0.124002, 0.00312847, 0.989063, 0.00603376, 0.997077, -0.00466914, -0.709204, 0.00903001, 0.172895, -0.131993, -1.37426, 11.2346)
-length = 0.484887
-enabled = false
-
-[node name="To_move3" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_iyn02")]
-transform = Transform3D(0.00693597, 0.000188672, -1.00402, -0.00739538, 0.99707, 9.063e-05, 0.719917, 0.0102406, 0.00967406, 0.431578, 0.0119765, 11.9686)
-length = 0.484887
-enabled = false
-
 [node name="LedgeComponent2" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("5_iyn02")]
 transform = Transform3D(0.252663, 0.000875244, 0.967554, -0.0031296, 0.999995, -8.73382e-05, -0.967549, -0.00300599, 0.252664, 16.4603, 0.224851, 12.1559)
 length = 0.675935
