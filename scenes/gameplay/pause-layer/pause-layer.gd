@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var pause_options = $MarginContainer/Control/VBoxOptions
 @onready var color_rect = $ColorRect
 @onready var audio_sliders = $MarginContainer/Control/AudioSliders
+@onready var tips = $Tips
 
 @onready var nodes_grp1 = [label] # should be visible during gamemplay and hidden during pause
 @onready var nodes_grp2 = [pause_options, color_rect, audio_sliders] # should be visible only in pause menu
@@ -14,6 +15,11 @@ extends CanvasLayer
 
 func _ready():
 	pause_hide()
+	Globals.add_scale_watcher(on_scale_update)
+
+func on_scale_update():
+	if is_node_ready():
+		$Tips/VBoxContainer/SmallTips.visible = (Globals.scale_index > 0)
 
 func pause_show():
 	for n in nodes_grp1:
@@ -33,6 +39,9 @@ func pause_hide():
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		if get_tree().paused:
+			if tips.visible:
+				tips.hide()
+				return
 			resume()
 		else:
 			pause_game()
@@ -53,3 +62,10 @@ func _on_Resume_pressed():
 func _on_main_menu_pressed():
 	Game.change_scene_to_file("res://scenes/menu/menu.tscn", {"show_progress_bar": false})
 	MusicPlayer.start_menu_music()
+
+func _on_tips_button_pressed() -> void:
+	tips.show()
+
+func _on_timer_timeout() -> void:
+	for n in nodes_grp1:
+		n.hide()

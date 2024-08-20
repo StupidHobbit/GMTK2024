@@ -1,12 +1,15 @@
 extends HBoxContainer
 
+@onready var sfx: HSlider = $PanelContainer/HBoxContainer/Sliders/SFXSlider
+@onready var music: HSlider = $PanelContainer/HBoxContainer/Sliders/MusicSlider
+
 func _ready() -> void:
 	var id = AudioServer.get_bus_index("SFX")
 	var vol = AudioServer.get_bus_volume_db(id)
-	$Sliders/SFXSlider.value = inverse_lerp(-25, 0, vol) * 100
+	sfx.value = inverse_lerp(-25, 0, vol) * 100
 	id = AudioServer.get_bus_index("BGM")
 	vol = AudioServer.get_bus_volume_db(id)
-	$Sliders/MusicSlider.value = inverse_lerp(-25, 0, vol) * 100
+	music.value = inverse_lerp(-25, 0, vol) * 100
 
 func on_music_slider_value_changed(value: float) -> void:
 	var bgm_index= AudioServer.get_bus_index("BGM")

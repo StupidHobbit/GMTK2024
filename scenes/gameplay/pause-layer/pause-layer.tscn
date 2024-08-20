@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://barl4q1kugrmm"]
+[gd_scene load_steps=6 format=3 uid="uid://barl4q1kugrmm"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/pause-layer/pause-layer.gd" id="2"]
 [ext_resource type="Theme" uid="uid://ducfept6pmkkm" path="res://resources/theme/theme-main.tres" id="3"]
 [ext_resource type="PackedScene" uid="uid://b7uwbh0qvijxf" path="res://scenes/gameplay/pause-layer/audio_sliders.tscn" id="3_xrgs8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hg64a"]
+bg_color = Color(0.25, 0.25, 0.25, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dv7bv"]
+font_size = 24
 
 [node name="PauseLayer" type="CanvasLayer"]
 process_mode = 3
@@ -55,6 +71,10 @@ focus_mode = 2
 mouse_filter = 1
 text = "MAIN MENU"
 
+[node name="LinkButton" type="LinkButton" parent="MarginContainer/Control/VBoxOptions"]
+layout_mode = 2
+text = "HELP & TIPS"
+
 [node name="Label" type="Label" parent="MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 5
@@ -72,5 +92,67 @@ text = "Pause: ESC (keyboard) or START button (joypad)"
 layout_mode = 1
 offset_top = -60.0
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Tips" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -95.0
+offset_right = 75.5
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hg64a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tips"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tips/VBoxContainer"]
+layout_mode = 2
+text = "Controls:                                                               "
+label_settings = SubResource("LabelSettings_dv7bv")
+
+[node name="Label2" type="Label" parent="Tips/VBoxContainer"]
+layout_mode = 2
+text = "W,A,S,D - move
+Space - jump
+E - interact
+Shift (hold) - run
+R - restart"
+
+[node name="HSeparator" type="HSeparator" parent="Tips/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Tips/VBoxContainer"]
+layout_mode = 2
+text = "Tips:                                                               "
+label_settings = SubResource("LabelSettings_dv7bv")
+
+[node name="Label4" type="Label" parent="Tips/VBoxContainer"]
+layout_mode = 2
+text = "Try to reach the door to exit the room.
+"
+
+[node name="SmallTips" type="VBoxContainer" parent="Tips/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tips/VBoxContainer/SmallTips"]
+layout_mode = 2
+text = "Make sure to avoid the carpet: it's so dirty it will kill you!
+But you'll be safe in front of the door.
+You can grab on some ledges with E to climb easily.
+There are some cables you can use as ziplines!"
+
 [connection signal="pressed" from="MarginContainer/Control/VBoxOptions/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxOptions/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/VBoxOptions/LinkButton" to="." method="_on_tips_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
