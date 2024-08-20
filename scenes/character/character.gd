@@ -216,8 +216,8 @@ func apply_vertical_movement(delta: float):
 	
 	if not on_floor:
 		is_falling = true
-		if is_climbing(jump_pressed):
-			velocity.y = climbing_speed * Globals.scale
+		if is_climbing(jump_pressed) and velocity.y < get_scaled_climbing_speed():
+			velocity.y = get_scaled_climbing_speed()
 			climbing_time += delta
 		
 		var gravity
@@ -342,6 +342,9 @@ func enable_movement():
 
 func get_current_speed() -> float:
 	return _get_current_speed_without_scale() * Globals.scale
+
+func get_scaled_climbing_speed() -> float:
+	return climbing_speed * Globals.scale
 	
 func _get_current_speed_without_scale() -> float:
 	if has_crouching_boost and is_on_floor():
