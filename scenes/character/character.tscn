@@ -64,6 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 shape = ExtResource("3_2d50f")
 
 [node name="Mesh" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
 layers = 2
 mesh = SubResource("CapsuleMesh_abrjf")
 skeleton = NodePath("../..")
