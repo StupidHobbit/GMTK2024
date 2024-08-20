@@ -80,8 +80,8 @@ var SPEEDLINE_MAX_ALPHA = 1.0
 
 func reset(new_pos: Vector3) -> void:
 	position = new_pos
-	player.velocity = Vector3.ZERO
-	player.current_zipline = null
+	velocity = Vector3.ZERO
+	current_zipline = null
 
 func on_scale_update():
 	scale = Vector3(Globals.scale, Globals.scale, Globals.scale)
