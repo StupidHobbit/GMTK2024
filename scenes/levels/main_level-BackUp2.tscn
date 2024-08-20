@@ -1,14 +1,14 @@
-[gd_scene load_steps=40 format=3 uid="uid://bb0f4lpb47git"]
+[gd_scene load_steps=40 format=3 uid="uid://bqr7ypbyo2qic"]
 
 [ext_resource type="Script" path="res://scenes/levels/main_level.gd" id="1_xe8nd"]
 [ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="2_to83o"]
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="3_6f0nc"]
-[ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/Ledge.tscn" id="4_d4ytd"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/Ledge.tscn" id="4_d4ytd"]
 [ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="5_4sivj"]
 [ext_resource type="PackedScene" path="res://scenes/gameplay/CheckPoint.tscn" id="6_d2ycq"]
 [ext_resource type="PackedScene" path="res://scenes/gameplay/HurtArea.tscn" id="7_kct5q"]
 [ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="8_ofmc1"]
-[ext_resource type="PackedScene" uid="uid://bn5onbb7ngwm3" path="res://scenes/interactables/door_knob.tscn" id="9_1e25g"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/door_knob.tscn" id="9_1e25g"]
 [ext_resource type="PackedScene" uid="uid://cl1lxflyunwhb" path="res://assets/3DModel/Movies/GMTK24_Mesh_DVD-AstObe.glb" id="10_g2160"]
 [ext_resource type="PackedScene" uid="uid://b8dgffb2umdod" path="res://assets/3DModel/Books/GMTK24_Mesh_Book-P5.glb" id="10_v4epv"]
 [ext_resource type="PackedScene" uid="uid://dtsdqojphlsj8" path="res://assets/3DModel/Movies/GMTK24_Mesh_DVD-DOOM.glb" id="11_2jko1"]
@@ -99,7 +99,6 @@ floor_constant_speed = true
 floor_max_angle = 0.523599
 climbing_time_limit = 0.2
 current_checkpoint = NodePath("../CheckPoint")
-scales = Array[float]([2.75, 0.5, 0.1])
 
 [node name="Ledges" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
 transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
