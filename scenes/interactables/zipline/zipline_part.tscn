@@ -11,8 +11,9 @@ top_radius = 0.01
 bottom_radius = 0.01
 height = 0.5
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6j83a"]
-size = Vector3(0.3, 0.3, 0.5)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pmgtl"]
+height = 0.5
+radius = 0.2
 
 [node name="ZiplinePart" type="Area3D"]
 collision_layer = 8
@@ -24,5 +25,5 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 mesh = SubResource("CylinderMesh_ovyhi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
-shape = SubResource("BoxShape3D_6j83a")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.25)
+shape = SubResource("CylinderShape3D_pmgtl")
