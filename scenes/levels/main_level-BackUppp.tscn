@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" path="res://scenes/gameplay/CheckPoint.tscn" id="26_xio3h"]
 [ext_resource type="PackedScene" path="res://scenes/gameplay/HurtArea.tscn" id="27_8hei6"]
 [ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="28_a3bib"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/door_knob.tscn" id="29_nkhxa"]
+[ext_resource type="PackedScene" uid="uid://d0sbtobe2ieqn" path="res://scenes/interactables/door_knob.tscn" id="29_nkhxa"]
 [ext_resource type="PackedScene" uid="uid://boo7xq0mt4g6y" path="res://scenes/interactables/zipline/zipline.tscn" id="30_ginl7"]
 [ext_resource type="Shader" path="res://assets/materials/post_processing_effects/spatial/TF2.gdshader" id="31_2sc2x"]
 [ext_resource type="PackedScene" uid="uid://dt8qosg5l58r4" path="res://scenes/LODCollisionShape.tscn" id="32_ij8y4"]
@@ -408,7 +408,7 @@ scale_ = 0.365
 dir = Vector3(0, 2.96, 0)
 
 [node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("35_mribk")]
-transform = Transform3D(0.000746468, -0.177148, -0.319129, 0.364922, 0.00691765, -0.00298639, 0.00749768, -0.319055, 0.177124, 2.2984, 0.630873, 8.0594)
+transform = Transform3D(0.000746464, -0.177148, -0.319129, 0.364922, 0.00691765, -0.0029864, 0.00749768, -0.319055, 0.177124, 2.2984, 0.630873, 8.0594)
 scale_ = 0.365
 dir = Vector3(-2.5, 1.36, -2)
 

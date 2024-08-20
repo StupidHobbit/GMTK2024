@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://da2t6lyf41wty" path="res://assets/fonts/open-sans/open-sans-bold.ttf" id="4"]
 [ext_resource type="Script" path="res://scenes/menu/game_version.gd" id="4_3hod2"]
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="5"]
-[ext_resource type="PackedScene" uid="uid://b7uwbh0qvijxf" path="res://scenes/gameplay/pause-layer/audio_sliders.tscn" id="5_c3rp8"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/pause-layer/audio_sliders.tscn" id="5_c3rp8"]
 [ext_resource type="Script" path="res://scenes/menu/godot_version.gd" id="5_fdyjp"]
 
 [sub_resource type="Theme" id="Theme_avlp1"]
