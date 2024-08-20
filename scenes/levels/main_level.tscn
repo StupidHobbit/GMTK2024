@@ -1,19 +1,20 @@
-[gd_scene load_steps=24 format=3 uid="uid://tle17qkiuhpj"]
+[gd_scene load_steps=27 format=3 uid="uid://tle17qkiuhpj"]
 
 [ext_resource type="PackedScene" uid="uid://d5360lvtbvie" path="res://scenes/character/character.tscn" id="1_oijy8"]
 [ext_resource type="Script" path="res://scenes/levels/main_level.gd" id="1_sbuhx"]
-[ext_resource type="PackedScene" uid="uid://us044os2og84" path="res://scenes/interactables/Ledge.tscn" id="2_dmerr"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/Ledge.tscn" id="2_dmerr"]
 [ext_resource type="Script" path="res://scenes/levels/world_environment.gd" id="2_tb2iy"]
 [ext_resource type="PackedScene" uid="uid://dhb3fdpcoj15d" path="res://scenes/gmtk2024_blocking_scene_accurateGodot.tscn" id="3_0pgsn"]
 [ext_resource type="PackedScene" uid="uid://5qjf2oyi5lcu" path="res://scenes/interactables/LaunchPad.tscn" id="3_i20k6"]
-[ext_resource type="PackedScene" uid="uid://ci6r3gxlbidjv" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/CheckPoint.tscn" id="5_wkxdj"]
 [ext_resource type="PackedScene" uid="uid://by6w3uuptdb1a" path="res://scenes/interactables/LaunchPad-smol.tscn" id="6_22uk8"]
 [ext_resource type="PackedScene" uid="uid://cbi1bqkg8eoot" path="res://assets/vfx/smoke_clouds.tscn" id="6_ef1m2"]
-[ext_resource type="PackedScene" uid="uid://duqfowq6brmd6" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
-[ext_resource type="PackedScene" uid="uid://bn5onbb7ngwm3" path="res://scenes/interactables/door_knob.tscn" id="8_pthfv"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/HurtArea.tscn" id="6_y2sbr"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/door_knob.tscn" id="8_pthfv"]
 [ext_resource type="PackedScene" uid="uid://boo7xq0mt4g6y" path="res://scenes/interactables/zipline/zipline.tscn" id="10_wf6re"]
 [ext_resource type="PackedScene" uid="uid://dt8qosg5l58r4" path="res://scenes/LODCollisionShape.tscn" id="13_jsbuj"]
 [ext_resource type="PackedScene" uid="uid://gnab3it26f2q" path="res://assets/3DModel/gmtk2024_mesh_InvisibleWall.glb" id="14_rsr1e"]
+[ext_resource type="Shader" path="res://assets/materials/post_processing_effects/spatial/TF2.gdshader" id="34_hs5pa"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_670vm"]
 
@@ -54,6 +55,20 @@ sdfgi_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_blmu7"]
 size = Vector3(17.2, 0.4, 30.6)
 
+[sub_resource type="QuadMesh" id="QuadMesh_y1o5h"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_khyil"]
+render_priority = 0
+shader = ExtResource("34_hs5pa")
+shader_parameter/diffuse_color = Color(0.613143, 0.369003, 0.12786, 1)
+shader_parameter/normal_strength = 2.267
+shader_parameter/phong = 0.69
+shader_parameter/phong_exponent = 0.25
+shader_parameter/rim_strength = 0.007
+shader_parameter/rim_spread = 1.559
+
 [node name="Main" type="Node3D" node_paths=PackedStringArray("player", "level_starts")]
 script = ExtResource("1_sbuhx")
 player = NodePath("gmtk2024_blocking-accurateGodot/Character")
@@ -87,51 +102,6 @@ floor_max_angle = 0.523599
 coyote_time = 0.2
 climbing_time_limit = 0.3
 current_checkpoint = NodePath("../Checkpoints/Bed")
-
-[node name="Ledges" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
-transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
-
-[node name="LedgeComponent" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(-0.999982, 9.02667e-05, 0.00591623, 9.02651e-05, 1, -5.34033e-07, -0.00591623, 5.79803e-12, -0.999981, 1.14596, 0.0225546, 11.4689)
-length = 3.88694
-allowed_scales = 30
-
-[node name="To_move1" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(0.999786, 0.0103592, -0.0178355, -0.0103609, 0.999945, 1.60996e-06, 0.0178345, 0.000183181, 0.99984, -0.135758, 0.18036, 11.9234)
-length = 0.484887
-enabled = false
-
-[node name="To_move2" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(-0.0148761, 1.02585e-05, -0.999889, -0.00537696, 0.999984, 9.02567e-05, 0.999875, 0.0053777, -0.0148759, 0.057694, 0.224509, 12.2442)
-length = 0.691676
-enabled = false
-
-[node name="LedgeComponent2" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(0.895492, 0.00287239, 0.445069, -0.00318763, 0.999995, -4.01749e-05, -0.445067, -0.00138274, 0.895496, 22.6839, 1.97416, 9.52747)
-length = 0.675935
-allowed_scales = 28
-
-[node name="LaunchPads" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
-
-[node name="LaunchPad3" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
-transform = Transform3D(0.356326, 0, -0.0791, 0, 0.365, 0, 0.0791, 0, 0.356326, 2.41327, 0.3149, 2.70673)
-scale_ = 0.365
-dir = Vector3(0, 3.375, 0)
-
-[node name="LaunchPad4" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
-transform = Transform3D(0.356326, 0, -0.0791, 0, 0.365, 0, 0.0791, 0, 0.356326, 2.42122, 0.3149, 5.94266)
-scale_ = 0.365
-dir = Vector3(0, 2.96, 0)
-
-[node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
-transform = Transform3D(0.00365771, -0.289119, -0.222759, 0.364922, 0.00691765, -0.00298639, 0.00658738, -0.222682, 0.289127, 2.57138, 0.625323, 7.86943)
-scale_ = 0.365
-dir = Vector3(-3.3, 1.36, -3)
-
-[node name="LaunchPad" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("6_22uk8")]
-transform = Transform3D(-2.95052e-08, -0.675, 0, 0.675, -2.95052e-08, 0, 0, 0, 0.675, 5.26431, 4.9814, -1.85785)
-scale_ = 0.675
-dir = Vector3(-3.255, 0.905, -3.175)
 
 [node name="Checkpoints" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
 
@@ -222,11 +192,85 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19136, 0.162878, -0.692142)
 [node name="Marker3D2" type="Marker3D" parent="gmtk2024_blocking-accurateGodot/ZipLines/ZiplineTop"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7061, 0.283538, 3.26741)
 
+[node name="Lighting" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="gmtk2024_blocking-accurateGodot/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 0.0974961, 0.995236, 0, -0.995236, 0.0974961, -1.37667, 8.84363, -6.97304)
+light_color = Color(0.913344, 0.846615, 0.851571, 1)
+light_energy = 1.125
+light_indirect_energy = 0.927
+light_volumetric_fog_energy = 0.97
+directional_shadow_mode = 0
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 21.9
+
+[node name="ShaderMaterial" type="MeshInstance3D" parent="gmtk2024_blocking-accurateGodot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35346, 3.55769, 0.050617)
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_y1o5h")
+surface_material_override/0 = SubResource("ShaderMaterial_khyil")
+
 [node name="Walls" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
 
 [node name="LODcollisionShape" parent="gmtk2024_blocking-accurateGodot/Walls" instance=ExtResource("13_jsbuj")]
 
 [node name="gmtk2024_mesh_InvisibleWall" parent="gmtk2024_blocking-accurateGodot/Walls/LODcollisionShape" instance=ExtResource("14_rsr1e")]
+
+[node name="Ledges" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+transform = Transform3D(-0.00329558, 2.97481e-07, 0.999995, 9.02667e-05, 1, 2.84217e-14, -0.999995, 9.02662e-05, -0.00329558, -8.76626, 2.12588, 5.69678)
+
+[node name="LedgeComponent" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
+transform = Transform3D(-0.999982, 9.02667e-05, 0.00591623, 9.02651e-05, 1, -5.34033e-07, -0.00591623, 5.79803e-12, -0.999981, 1.14596, 0.0225546, 11.4689)
+length = 3.88694
+allowed_scales = 30
+
+[node name="LedgeComponent2" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
+transform = Transform3D(0.252663, 0.000875244, 0.967554, -0.0031296, 0.999995, -8.73382e-05, -0.967549, -0.00300599, 0.252664, 16.4164, 0.224855, 12.1558)
+length = 0.675935
+allowed_scales = 28
+
+[node name="LedgeComponent3" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
+transform = Transform3D(0.0889499, 0.000366618, 0.996036, -0.00311482, 0.999995, -8.99093e-05, -0.996031, -0.00309448, 0.0889504, 17.3284, 2.79632, 12.5019)
+length = 0.675935
+allowed_scales = 28
+
+[node name="LedgeComponent4" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
+transform = Transform3D(-0.563405, -0.00166013, 0.826179, -0.00305594, 0.999996, -7.4577e-05, -0.826175, -0.00256677, -0.563407, 21.2397, 1.62, 11.5163)
+length = 0.675935
+allowed_scales = 28
+
+[node name="LedgeComponent5" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
+transform = Transform3D(-0.494209, -0.00144515, 0.869341, -0.00306218, 0.999996, -7.84735e-05, -0.869338, -0.00270087, -0.494212, 22.6466, 1.98842, 9.69448)
+length = 0.675935
+allowed_scales = 28
+
+[node name="LaunchPads" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
+
+[node name="LaunchPad3" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
+transform = Transform3D(0.356326, 0, -0.0791, 0, 0.365, 0, 0.0791, 0, 0.356326, 2.41327, 0.3149, 2.70673)
+scale_ = 0.365
+dir = Vector3(0, 3.375, 0)
+
+[node name="LaunchPad4" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
+transform = Transform3D(0.356326, 0, -0.0791, 0, 0.365, 0, 0.0791, 0, 0.356326, 2.42122, 0.3149, 5.94266)
+scale_ = 0.365
+dir = Vector3(0, 2.96, 0)
+
+[node name="LaunchPad5" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("3_i20k6")]
+transform = Transform3D(0.00365771, -0.289119, -0.222759, 0.364922, 0.00691765, -0.00298639, 0.00658738, -0.222682, 0.289127, 2.57138, 0.625323, 7.86943)
+scale_ = 0.365
+dir = Vector3(-3.3, 1.36, -3)
+
+[node name="LaunchPad" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("6_22uk8")]
+transform = Transform3D(-2.95052e-08, -0.675, 0, 0.675, -2.95052e-08, 0, 0, 0, 0.675, 5.26431, 4.9814, -1.85785)
+scale_ = 0.675
+dir = Vector3(-3.255, 0.905, -3.175)
+
+[node name="LaunchPad2" parent="gmtk2024_blocking-accurateGodot/LaunchPads" instance=ExtResource("6_22uk8")]
+transform = Transform3D(0.26766, 0, -0.035471, 0, 0.27, 0, 0.035471, 0, 0.26766, 4.44239, 0.350571, -1.98589)
+scale_ = 0.27
+dir = Vector3(0, 3.66, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
