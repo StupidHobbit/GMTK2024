@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dm7rwraaoaif2"]
+[gd_scene load_steps=46 format=3 uid="uid://cff56drffeaxx"]
 
 [ext_resource type="Script" path="res://scenes/levels/main_level.gd" id="1_13raa"]
 [ext_resource type="Script" path="res://scenes/levels/world_environment.gd" id="2_07gf3"]
