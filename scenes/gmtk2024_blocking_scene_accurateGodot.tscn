@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://dhb3fdpcoj15d"]
+[gd_scene load_steps=48 format=4 uid="uid://dhb3fdpcoj15d"]
 
 [ext_resource type="PackedScene" uid="uid://djs73tajvjljq" path="res://assets/3DModel/gmtk2024_blocking-accurateGodot.glb" id="1_sfmc8"]
 [ext_resource type="Material" uid="uid://q3gqdmet2m52" path="res://assets/materials/atlasORM.tres" id="2_rduor"]
@@ -98,6 +98,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tu87u")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_fcx13"]
+albedo_color = Color(0.838473, 0.899289, 0.962443, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_aqm11"]
 data = PackedVector3Array(-0.493666, -0.493666, 0.493666, -0.493666, 0.493666, -0.493666, -0.493666, 0.493666, 0.493666, -0.493666, -0.493666, 0.493666, -0.493666, -0.493666, -0.493666, -0.493666, 0.493666, -0.493666, -0.493666, -0.493666, -0.493666, 0.493666, 0.493666, -0.493666, -0.493666, 0.493666, -0.493666, -0.493666, -0.493666, -0.493666, 0.493666, -0.493666, -0.493666, 0.493666, 0.493666, -0.493666, 0.493666, -0.493666, -0.493666, 0.493666, 0.493666, 0.493666, 0.493666, 0.493666, -0.493666, 0.493666, -0.493666, -0.493666, 0.493666, -0.493666, 0.493666, 0.493666, 0.493666, 0.493666, 0.493666, -0.493666, 0.493666, -0.493666, 0.493666, 0.493666, 0.493666, 0.493666, 0.493666, 0.493666, -0.493666, 0.493666, -0.493666, -0.493666, 0.493666, -0.493666, 0.493666, 0.493666, -0.493666, -0.493666, -0.493666, 0.493666, -0.493666, 0.493666, 0.493666, -0.493666, -0.493666, -0.493666, -0.493666, -0.493666, -0.493666, -0.493666, 0.493666, 0.493666, -0.493666, 0.493666, 0.493666, 0.493666, -0.493666, -0.493666, 0.493666, 0.493666, -0.493666, 0.493666, -0.493666, 0.493666, 0.493666, -0.493666, 0.493666, 0.493666, 0.493666, -0.493666, 0.493666, 0.493666)
@@ -396,6 +399,8 @@ surface_material_override/1 = ExtResource("3_2wwie")
 transform = Transform3D(0.539201, 0, 0.219057, 0, 0.582, 0, -0.219057, 0, 0.539201, 2.26035, 0.428241, -0.672436)
 mesh = SubResource("ArrayMesh_d8qnm")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ORMMaterial3D_fcx13")
+surface_material_override/1 = ExtResource("3_2wwie")
 
 [node name="_StaticBody3D_17416" type="StaticBody3D" parent="." index="80"]
 transform = Transform3D(0.539201, 0, 0.219057, 0, 0.582, 0, -0.219057, 0, 0.539201, 2.26035, 0.428241, -0.672436)
@@ -840,7 +845,7 @@ surface_material_override/0 = ExtResource("2_rduor")
 surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="Cube3" type="MeshInstance3D" parent="." index="376"]
-transform = Transform3D(0.998978, 0.0192947, -0.000648731, -0.0190803, 1.00865, 0.00877784, 0.00165307, -0.0179207, 0.493356, 5.9475, 3.83487, 2.67756)
+transform = Transform3D(0.998978, 0.0192947, -0.000648731, -0.0190803, 1.00865, 0.00877784, 0.00165307, -0.0179207, 0.493356, 9.29218, 3.83487, 2.67756)
 mesh = SubResource("ArrayMesh_v6btr")
 skeleton = NodePath("")
 
@@ -853,6 +858,7 @@ shape = SubResource("ConcavePolygonShape3D_n63et")
 transform = Transform3D(0.999816, 0.0191227, -0.00131473, -0.0180679, 0.917322, -0.397735, -0.00639973, 0.397686, 0.917499, 4.74244, 1.19503, -6.83875)
 mesh = SubResource("ArrayMesh_v6btr")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube2" index="0"]
 
@@ -963,6 +969,9 @@ surface_material_override/0 = ExtResource("2_rduor")
 surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="Cube-col_001" parent="." index="413"]
+surface_material_override/0 = ExtResource("2_rduor")
+
+[node name="Cube002_" parent="." index="414"]
 surface_material_override/0 = ExtResource("2_rduor")
 
 [node name="ShelfPlank" parent="." index="415"]
