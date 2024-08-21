@@ -319,29 +319,30 @@ transform = Transform3D(-0.494209, -0.00144515, 0.869341, -0.00306218, 0.999996,
 length = 0.8
 allowed_scales = 28
 
-[node name="LedgeComponent6" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
-transform = Transform3D(-0.00329558, 9.02667e-05, -0.999994, 2.97481e-07, 1, 9.02661e-05, 0.999995, -8.52652e-14, -0.00329558, 5.66767, -2.12639, 8.78498)
-allowed_scales = 28
-
 [node name="LedgeComponent7" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
 transform = Transform3D(0.86048, 9.02667e-05, 0.509483, -7.76727e-05, 1, -4.59894e-05, -0.509483, -1.45519e-11, 0.86048, 20.4301, 0.792276, 11.4886)
 length = 1.35073
+allowed_scales = 28
 
 [node name="LedgeComponent8" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
 transform = Transform3D(-0.223483, 9.02667e-05, -0.974708, 2.01731e-05, 1, 8.79836e-05, 0.974707, -9.09495e-12, -0.223484, 3.12147, -1.35786, 11.2274)
 length = 0.349047
+allowed_scales = 28
 
 [node name="LedgeComponent9" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
 transform = Transform3D(-0.22409, 9.02667e-05, -0.974568, 2.02279e-05, 1, 8.7971e-05, 0.974568, -1.45519e-11, -0.22409, 2.78343, -1.35813, 11.1495)
 length = 0.34861
+allowed_scales = 28
 
 [node name="LedgeComponent10" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
 transform = Transform3D(0.974323, -0.000753541, -0.225153, 0.000778096, 1, 2.03238e-05, 0.225153, -0.000194993, 0.974323, 2.91342, -1.35799, 11.3584)
 length = 0.347011
+allowed_scales = 28
 
 [node name="LedgeComponent11" parent="gmtk2024_blocking-accurateGodot/Ledges" instance=ExtResource("2_dmerr")]
 transform = Transform3D(0.974606, -0.000754315, -0.223927, 0.000778613, 1, 2.02132e-05, 0.223927, -0.000194053, 0.974606, 2.99148, -1.358, 11.0184)
 length = 0.346793
+allowed_scales = 28
 
 [node name="LaunchPads" type="Node3D" parent="gmtk2024_blocking-accurateGodot"]
 
