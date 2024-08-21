@@ -5,6 +5,7 @@ class_name Character
 # Constants
 
 @export var SPEED = 4.0
+@export var ACCELERATION = 50.0
 @export var RUNNING_SPEED = 10.0
 @export var SPEED_DAMPING = 4.0
 @export var CROUCHING_SPEED = 4.0
@@ -286,19 +287,15 @@ func apply_horizontal_movement(delta: float):
 			if cur_speed > speed:
 				cur_speed = move_toward(cur_speed, speed, SPEED_DAMPING * delta)
 			if dot < change_direction_dot_limit:
-				new_horizontal_velocity = direction * speed
+				new_horizontal_velocity = direction * ACCELERATION * Globals.scale * delta
 			else:
 				new_horizontal_velocity = direction * cur_speed
 		else:
 			new_horizontal_velocity = current_velocity
-			new_horizontal_velocity += direction * speed
+			new_horizontal_velocity += direction * ACCELERATION * Globals.scale * delta
 			new_horizontal_velocity = new_horizontal_velocity.limit_length(
 				max(speed, current_velocity.length())
 			)
-			#if current_velocity and dot < change_direction_dot_limit:
-				#new_horizontal_velocity = current_velocity
-			#else:
-				#new_horizontal_velocity = direction * cur_speed
 		velocity.x = new_horizontal_velocity.x
 		velocity.z = new_horizontal_velocity.z
 	else:

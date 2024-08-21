@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/lod_collisions.gd" id="1_i0dm1"]
 
-[node name="LODcollisionShape" type="StaticBody3D"]
+[node name="LODcollisionShape" type="Node3D"]
 script = ExtResource("1_i0dm1")
 
 [node name="CurrentShape" type="Node3D" parent="."]

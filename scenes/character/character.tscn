@@ -121,9 +121,9 @@ offset_right = 36.5
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Interact"
 
 [node name="SpeedLines" type="TextureRect" parent="Camera3D/Interact2/Control"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -138,14 +138,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 63.0
-offset_top = -89.0
-offset_right = 2419.0
-offset_bottom = 1743.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.29, 0.29)
 texture = ExtResource("8_1nnd8")
+expand_mode = 2
 
 [node name="Holder" type="SpringArm3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -0.998754, -0.0499131, 0, 0.0499131, -0.998754, -0.0213728, -0.00767004, -0.0725299)
